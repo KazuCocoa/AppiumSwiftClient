@@ -8,7 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196882194929600730A67 /* AppiumSwiftClient.swift */; };
+		726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */; };
+		726196982194948900730A67 /* libAppiumSwiftClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 726196852194929600730A67 /* libAppiumSwiftClient.a */; };
+		726196A12194960D00730A67 /* Capabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196A02194960D00730A67 /* Capabilities.swift */; };
+		726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196A3219499C400730A67 /* CapabilitiesTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		726196992194948900730A67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7261967D2194929600730A67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 726196842194929600730A67;
+			remoteInfo = AppiumSwiftClient;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		726196832194929600730A67 /* CopyFiles */ = {
@@ -25,6 +39,11 @@
 /* Begin PBXFileReference section */
 		726196852194929600730A67 /* libAppiumSwiftClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppiumSwiftClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		726196882194929600730A67 /* AppiumSwiftClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClient.swift; sourceTree = "<group>"; };
+		726196932194948900730A67 /* AppiumSwiftClientUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppiumSwiftClientUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClientUnitTests.swift; sourceTree = "<group>"; };
+		726196972194948900730A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		726196A02194960D00730A67 /* Capabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capabilities.swift; sourceTree = "<group>"; };
+		726196A3219499C400730A67 /* CapabilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapabilitiesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +54,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		726196902194948900730A67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				726196982194948900730A67 /* libAppiumSwiftClient.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -42,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				726196872194929600730A67 /* AppiumSwiftClient */,
+				726196942194948900730A67 /* AppiumSwiftClientUnitTests */,
 				726196862194929600730A67 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				726196852194929600730A67 /* libAppiumSwiftClient.a */,
+				726196932194948900730A67 /* AppiumSwiftClientUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,9 +86,36 @@
 		726196872194929600730A67 /* AppiumSwiftClient */ = {
 			isa = PBXGroup;
 			children = (
+				7261969F219495F300730A67 /* common */,
 				726196882194929600730A67 /* AppiumSwiftClient.swift */,
 			);
 			path = AppiumSwiftClient;
+			sourceTree = "<group>";
+		};
+		726196942194948900730A67 /* AppiumSwiftClientUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				726196A2219499AD00730A67 /* common */,
+				726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */,
+				726196972194948900730A67 /* Info.plist */,
+			);
+			path = AppiumSwiftClientUnitTests;
+			sourceTree = "<group>";
+		};
+		7261969F219495F300730A67 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				726196A02194960D00730A67 /* Capabilities.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		726196A2219499AD00730A67 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				726196A3219499C400730A67 /* CapabilitiesTests.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +138,24 @@
 			productReference = 726196852194929600730A67 /* libAppiumSwiftClient.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		726196922194948900730A67 /* AppiumSwiftClientUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7261969B2194948900730A67 /* Build configuration list for PBXNativeTarget "AppiumSwiftClientUnitTests" */;
+			buildPhases = (
+				7261968F2194948900730A67 /* Sources */,
+				726196902194948900730A67 /* Frameworks */,
+				726196912194948900730A67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7261969A2194948900730A67 /* PBXTargetDependency */,
+			);
+			name = AppiumSwiftClientUnitTests;
+			productName = AppiumSwiftClientUnitTests;
+			productReference = 726196932194948900730A67 /* AppiumSwiftClientUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +167,9 @@
 				ORGANIZATIONNAME = KazuCocoa;
 				TargetAttributes = {
 					726196842194929600730A67 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					726196922194948900730A67 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -110,9 +187,20 @@
 			projectRoot = "";
 			targets = (
 				726196842194929600730A67 /* AppiumSwiftClient */,
+				726196922194948900730A67 /* AppiumSwiftClientUnitTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		726196912194948900730A67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		726196812194929600730A67 /* Sources */ = {
@@ -120,10 +208,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */,
+				726196A12194960D00730A67 /* Capabilities.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7261968F2194948900730A67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */,
+				726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7261969A2194948900730A67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 726196842194929600730A67 /* AppiumSwiftClient */;
+			targetProxy = 726196992194948900730A67 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7261968A2194929600730A67 /* Debug */ = {
@@ -268,6 +374,42 @@
 			};
 			name = Release;
 		};
+		7261969C2194948900730A67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47PCFA586Q;
+				INFOPLIST_FILE = AppiumSwiftClientUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazucocoa.AppiumSwiftClientUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7261969D2194948900730A67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47PCFA586Q;
+				INFOPLIST_FILE = AppiumSwiftClientUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazucocoa.AppiumSwiftClientUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -285,6 +427,15 @@
 			buildConfigurations = (
 				7261968D2194929600730A67 /* Debug */,
 				7261968E2194929600730A67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7261969B2194948900730A67 /* Build configuration list for PBXNativeTarget "AppiumSwiftClientUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7261969C2194948900730A67 /* Debug */,
+				7261969D2194948900730A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
