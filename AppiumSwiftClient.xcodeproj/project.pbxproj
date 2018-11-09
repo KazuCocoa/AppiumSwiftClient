@@ -12,6 +12,8 @@
 		726196982194948900730A67 /* libAppiumSwiftClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 726196852194929600730A67 /* libAppiumSwiftClient.a */; };
 		726196A12194960D00730A67 /* Capabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196A02194960D00730A67 /* Capabilities.swift */; };
 		726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196A3219499C400730A67 /* CapabilitiesTests.swift */; };
+		726196A62195187F00730A67 /* driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196A52195187F00730A67 /* driver.swift */; };
+		726196A821952CF300730A67 /* DriverTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196A721952CF300730A67 /* DriverTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		726196972194948900730A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		726196A02194960D00730A67 /* Capabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capabilities.swift; sourceTree = "<group>"; };
 		726196A3219499C400730A67 /* CapabilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapabilitiesTests.swift; sourceTree = "<group>"; };
+		726196A52195187F00730A67 /* driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = driver.swift; sourceTree = "<group>"; };
+		726196A721952CF300730A67 /* DriverTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				726196A02194960D00730A67 /* Capabilities.swift */,
+				726196A52195187F00730A67 /* driver.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				726196A3219499C400730A67 /* CapabilitiesTests.swift */,
+				726196A721952CF300730A67 /* DriverTest.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */,
+				726196A62195187F00730A67 /* driver.swift in Sources */,
 				726196A12194960D00730A67 /* Capabilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +225,7 @@
 			files = (
 				726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */,
 				726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */,
+				726196A821952CF300730A67 /* DriverTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
