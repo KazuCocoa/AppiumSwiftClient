@@ -38,14 +38,11 @@ public struct AppiumDriver : Driver {
     private func generateCapabilityBody(with caps: DesiredCapability) -> String {
         let invalidJson = "Not a valid JSON"
 
-        let data = [
-            "desiredCapabilities" : "caps1",
-            "capabilities" : "caps2"
-        ]
-
+        let w3cCapability = W3CCapability(desiredCapabilities: "caps1", capabilities: "caps2")
+        let encoder = JSONEncoder()
         do {
-            let jsonData = try JSONSerialization.data(withJSONObject: data, options: [.sortedKeys])
-            return String(data: jsonData, encoding: .utf8) ?? invalidJson
+            let json = try encoder.encode(w3cCapability)
+            return String(data: json, encoding: .utf8) ?? invalidJson
         } catch {
             return invalidJson
         }
@@ -53,7 +50,7 @@ public struct AppiumDriver : Driver {
     }
 }
 
-internal struct DriverCapability : Codable {
+internal struct W3CCapability : Codable {
     let desiredCapabilities : String
     let capabilities : String
 }
