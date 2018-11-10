@@ -8,6 +8,7 @@
 
 public enum DesiredCapabilitiesEnum : String {
     case platformName, automationName, app, platformVersion, deviceName
+    case sessionId
 }
 
 public struct OssDesiredCapability : Codable {
@@ -57,7 +58,9 @@ public protocol Capabilities {
 public struct AppiumCapabilities : Capabilities {
     public typealias CapsType = Capabilities.type
 
-    var desiredCapability : CapsType = [:]
+    var desiredCapability: CapsType = [:]
+
+    var sessionId: String = ""
 
     public init(_ opts : CapsType) {
         guard let platformName = opts[.platformName] else {
@@ -84,6 +87,10 @@ public struct AppiumCapabilities : Capabilities {
             fatalError("deviceName is mondatory")
         }
         self.desiredCapability[.deviceName] = deviceName
+
+        if opts[.sessionId] != nil {
+            self.desiredCapability[.sessionId] = opts[.sessionId]
+        }
     }
 
     public func capabilities() -> CapsType {

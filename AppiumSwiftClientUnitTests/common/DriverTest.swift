@@ -17,8 +17,8 @@ class DriverTest : XCTestCase {
             DesiredCapabilitiesEnum.app: "path/to/test",
             DesiredCapabilitiesEnum.platformVersion: "11.4",
             DesiredCapabilitiesEnum.deviceName: "iPhone",
-            ]
-        let driver = AppiumDriver(AppiumCapabilities(opts))
+        ]
+        let generatedJson = AppiumDriver(AppiumCapabilities(opts)).generateCapabilityBody(with: AppiumCapabilities(opts))
 
         let expectedJson = """
         {
@@ -42,6 +42,52 @@ class DriverTest : XCTestCase {
         """
         let trimmedExpectedJson = String(expectedJson.filter { !" \n\t\r".contains($0) })
 
-        XCTAssertEqual(trimmedExpectedJson, driver.sessionId)
+        XCTAssertEqual(trimmedExpectedJson, generatedJson)
+    }
+
+    func testDriverInitialization() {
+        let expected = [
+            DesiredCapabilitiesEnum.platformName: "iOS",
+            DesiredCapabilitiesEnum.automationName: "xcuitest",
+            DesiredCapabilitiesEnum.app: "path/to/test",
+            DesiredCapabilitiesEnum.platformVersion: "11.4",
+            DesiredCapabilitiesEnum.deviceName: "iPhone",
+            DesiredCapabilitiesEnum.sessionId: "session id"
+        ]
+
+        let opts = [
+            DesiredCapabilitiesEnum.platformName: "iOS",
+            DesiredCapabilitiesEnum.automationName: "xcuitest",
+            DesiredCapabilitiesEnum.app: "path/to/test",
+            DesiredCapabilitiesEnum.platformVersion: "11.4",
+            DesiredCapabilitiesEnum.deviceName: "iPhone",
+        ]
+        let driver = AppiumDriver(AppiumCapabilities(opts))
+
+        XCTAssertEqual(expected,
+                       driver.currentSessionCapabilities.capabilities())
+    }
+
+    func testFailedToDriverInitialization() {
+        let expected = [
+            DesiredCapabilitiesEnum.platformName: "iOS",
+            DesiredCapabilitiesEnum.automationName: "xcuitest",
+            DesiredCapabilitiesEnum.app: "path/to/test",
+            DesiredCapabilitiesEnum.platformVersion: "11.4",
+            DesiredCapabilitiesEnum.deviceName: "iPhone",
+            DesiredCapabilitiesEnum.sessionId: "session failed"
+        ]
+
+        let opts = [
+            DesiredCapabilitiesEnum.platformName: "iOS",
+            DesiredCapabilitiesEnum.automationName: "xcuitest",
+            DesiredCapabilitiesEnum.app: "path/to/test",
+            DesiredCapabilitiesEnum.platformVersion: "11.4",
+            DesiredCapabilitiesEnum.deviceName: "iPhone",
+        ]
+        let driver = AppiumDriver(AppiumCapabilities(opts))
+
+        XCTAssertNotEqual(expected,
+                          driver.currentSessionCapabilities.capabilities())
     }
 }

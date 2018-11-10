@@ -9,34 +9,37 @@
 import Foundation
 
 protocol Driver {
-    typealias SessionId = String
-
     func createSession(with caps: AppiumCapabilities) -> String
 }
 
 public struct AppiumDriver : Driver {
 
-    public var sessionId: String = ""
+    public var currentSessionCapabilities: AppiumCapabilities
 
     public init(_ caps: AppiumCapabilities) {
-        self.sessionId = handShake(desiredCapability: caps)
+        currentSessionCapabilities = caps
+
+        currentSessionCapabilities = handShake(desiredCapability: caps)
     }
 
-    private func handShake(desiredCapability: AppiumCapabilities) -> SessionId {
-        let session = createSession(with: desiredCapability)
-        return session
+    private func handShake(desiredCapability: AppiumCapabilities) -> AppiumCapabilities {
+        var caps = desiredCapability.capabilities()
+        let sessionId = createSession(with: desiredCapability)
+
+        caps[.sessionId] = sessionId
+
+        return AppiumCapabilities(caps)
     }
 
     internal func createSession(with caps: AppiumCapabilities) -> String {
-        let createSessionJson = generateCapabilityBody(with: caps)
+        let _ = generateCapabilityBody(with: caps)
         // TODO: send HTTP request to server as JSON format
 
-        return createSessionJson
+        return "session id"
     }
 
-    private func generateCapabilityBody(with caps: AppiumCapabilities) -> String {
+    public func generateCapabilityBody(with caps: AppiumCapabilities) -> String {
         let invalidJson = "Not a valid JSON"
-
 
         let oSSdesiredCapability = OssDesiredCapability(with: caps)
 
