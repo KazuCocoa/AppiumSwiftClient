@@ -12,14 +12,28 @@ import AppiumSwiftClient
 class DriverTest : XCTestCase {
     func testDriverInitialization() {
         let opts = [
-            DesiredCapabilities.platformName: "iOS",
-            DesiredCapabilities.automationName: "xcuitest",
-            DesiredCapabilities.app: "path/to/test",
-            DesiredCapabilities.platformVersion: "11.4",
-            DesiredCapabilities.deviceName: "iPhone Simulator",
+            DesiredCapabilitiesEnum.platformName: "iOS",
+            DesiredCapabilitiesEnum.automationName: "xcuitest",
+            DesiredCapabilitiesEnum.app: "path/to/test",
+            DesiredCapabilitiesEnum.platformVersion: "11.4",
+            DesiredCapabilitiesEnum.deviceName: "iPhone",
             ]
         let driver = AppiumDriver(AppiumCapabilities(opts))
 
-        XCTAssertEqual("{\"capabilities\":\"caps2\",\"desiredCapabilities\":\"caps1\"}", driver.sessionId)
+        let expectedJson = """
+        {
+            "capabilities": {
+                "app": "path\\/to\\/test",
+                "platformName": "iOS",
+                "platformVersion": "11.4",
+                "automationName": "xcuitest",
+                "deviceName": "iPhone"
+            },
+            "desiredCapabilities": "caps1"
+        }
+        """
+        let trimmedExpectedJson = String(expectedJson.filter { !" \n\t\r".contains($0) })
+
+        XCTAssertEqual(trimmedExpectedJson, driver.sessionId)
     }
 }

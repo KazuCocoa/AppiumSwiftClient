@@ -6,19 +6,38 @@
 //  Copyright © 2018 KazuCocoa. All rights reserved.
 //
 
-public enum DesiredCapabilities : String {
+public enum DesiredCapabilitiesEnum : String {
     case platformName, automationName, app, platformVersion, deviceName
 }
 
+public struct W3CDesiredCapability : Codable {
+    let platformName : String
+    let automationName : String
+    let app : String
+    let platformVersion : String
+    let deviceName : String
+
+    init(with caps : AppiumCapabilities) {
+        let desiredCaps = caps.desiredCapability
+        platformName = desiredCaps[.platformName] ?? ""
+        automationName = desiredCaps[.automationName] ?? ""
+        app = desiredCaps[.app] ?? ""
+        platformVersion = desiredCaps[.platformVersion] ?? ""
+        deviceName = desiredCaps[.deviceName] ?? ""
+    }
+}
+
 public protocol Capabilities {
+    typealias type = [DesiredCapabilitiesEnum: String]
     // protocol
 }
 
 public struct AppiumCapabilities : Capabilities {
+    public typealias CapsType = Capabilities.type
 
-    var desiredCapability : [DesiredCapabilities: String] = [:]
+    var desiredCapability : CapsType = [:]
 
-    public init(_ opts : [DesiredCapabilities: String]) {
+    public init(_ opts : CapsType) {
         guard let platformName = opts[.platformName] else {
             fatalError("platformName is mondatory")
         }
@@ -45,7 +64,7 @@ public struct AppiumCapabilities : Capabilities {
         self.desiredCapability[.deviceName] = deviceName
     }
 
-    public func capabilities() -> [DesiredCapabilities : String] {
+    public func capabilities() -> CapsType {
         return desiredCapability
     }
 }

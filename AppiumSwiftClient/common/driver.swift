@@ -10,9 +10,8 @@ import Foundation
 
 protocol Driver {
     typealias SessionId = String
-    typealias DesiredCapability = [DesiredCapabilities : String]
 
-    func createSession(with caps: DesiredCapability) -> String
+    func createSession(with caps: AppiumCapabilities) -> String
 }
 
 public struct AppiumDriver : Driver {
@@ -20,25 +19,26 @@ public struct AppiumDriver : Driver {
     public var sessionId: String = ""
 
     public init(_ caps: AppiumCapabilities) {
-        self.sessionId = handShake(desiredCapability: caps.desiredCapability)
+        self.sessionId = handShake(desiredCapability: caps)
     }
 
-    private func handShake(desiredCapability: DesiredCapability) -> SessionId {
+    private func handShake(desiredCapability: AppiumCapabilities) -> SessionId {
         let session = createSession(with: desiredCapability)
         return session
     }
 
-    internal func createSession(with caps: DesiredCapability) -> String {
+    internal func createSession(with caps: AppiumCapabilities) -> String {
         let createSessionJson = generateCapabilityBody(with: caps)
         // TODO: send HTTP request to server as JSON format
 
         return createSessionJson
     }
 
-    private func generateCapabilityBody(with caps: DesiredCapability) -> String {
+    private func generateCapabilityBody(with caps: AppiumCapabilities) -> String {
         let invalidJson = "Not a valid JSON"
 
-        let w3cCapability = W3CCapability(desiredCapabilities: "caps1", capabilities: "caps2")
+        let w3cDesiredCapability = W3CDesiredCapability(with: caps)
+        let w3cCapability = W3CCapability(desiredCapabilities: "caps1", capabilities: w3cDesiredCapability)
         let encoder = JSONEncoder()
         do {
             let json = try encoder.encode(w3cCapability)
@@ -46,11 +46,10 @@ public struct AppiumDriver : Driver {
         } catch {
             return invalidJson
         }
-
     }
 }
 
 internal struct W3CCapability : Codable {
     let desiredCapabilities : String
-    let capabilities : String
+    let capabilities : W3CDesiredCapability
 }

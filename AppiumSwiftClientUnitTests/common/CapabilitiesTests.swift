@@ -12,11 +12,11 @@ import AppiumSwiftClient
 class CapabilitiesTest : XCTestCase {
     func testDefineCapabilities() {
         let opts = [
-            DesiredCapabilities.platformName: "iOS",
-            DesiredCapabilities.automationName: "xcuitest",
-            DesiredCapabilities.app: "path/to/test",
-            DesiredCapabilities.platformVersion: "11.4",
-            DesiredCapabilities.deviceName: "iPhone Simulator",
+            DesiredCapabilitiesEnum.platformName: "iOS",
+            DesiredCapabilitiesEnum.automationName: "xcuitest",
+            DesiredCapabilitiesEnum.app: "path/to/test",
+            DesiredCapabilitiesEnum.platformVersion: "11.4",
+            DesiredCapabilitiesEnum.deviceName: "iPhone Simulator",
         ]
         let caps = AppiumCapabilities(opts)
         XCTAssertEqual("iOS", caps.capabilities()[.platformName])
