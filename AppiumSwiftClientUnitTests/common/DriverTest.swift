@@ -10,7 +10,7 @@ import XCTest
 import AppiumSwiftClient
 
 class DriverTest : XCTestCase {
-    func testDriverInitialization() {
+    func testDriverInitializationWithW3CFormat() {
         let opts = [
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
@@ -23,13 +23,21 @@ class DriverTest : XCTestCase {
         let expectedJson = """
         {
             "capabilities": {
-                "app": "path\\/to\\/test",
-                "platformName": "iOS",
-                "platformVersion": "11.4",
-                "automationName": "xcuitest",
-                "deviceName": "iPhone"
+                "firstMatch": [{
+                    "appium:app": "path\\/to\\/test",
+                    "automationName": "xcuitest",
+                    "deviceName": "iPhone",
+                    "platformName": "iOS",
+                    "platformVersion": "11.4"
+                }]
             },
-            "desiredCapabilities": "caps1"
+            "desiredCapabilities": {
+                "app": "path\\/to\\/test",
+                "automationName": "xcuitest",
+                "deviceName": "iPhone",
+                "platformName": "iOS",
+                "platformVersion": "11.4"
+            }
         }
         """
         let trimmedExpectedJson = String(expectedJson.filter { !" \n\t\r".contains($0) })

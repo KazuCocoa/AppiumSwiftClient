@@ -37,9 +37,15 @@ public struct AppiumDriver : Driver {
     private func generateCapabilityBody(with caps: AppiumCapabilities) -> String {
         let invalidJson = "Not a valid JSON"
 
+
+        let oSSdesiredCapability = OssDesiredCapability(with: caps)
+
         let w3cDesiredCapability = W3CDesiredCapability(with: caps)
-        let w3cCapability = W3CCapability(desiredCapabilities: "caps1", capabilities: w3cDesiredCapability)
+        let w3cFirstMatch = W3CFirstMatch(firstMatch: [w3cDesiredCapability])
+
+        let w3cCapability = W3CCapability(desiredCapabilities: oSSdesiredCapability, capabilities: w3cFirstMatch)
         let encoder = JSONEncoder()
+        encoder.outputFormatting = .sortedKeys
         do {
             let json = try encoder.encode(w3cCapability)
             return String(data: json, encoding: .utf8) ?? invalidJson
@@ -50,6 +56,10 @@ public struct AppiumDriver : Driver {
 }
 
 internal struct W3CCapability : Codable {
-    let desiredCapabilities : String
-    let capabilities : W3CDesiredCapability
+    let desiredCapabilities : OssDesiredCapability
+    let capabilities : W3CFirstMatch
+}
+
+internal struct W3CFirstMatch : Codable {
+    let firstMatch : [W3CDesiredCapability]
 }

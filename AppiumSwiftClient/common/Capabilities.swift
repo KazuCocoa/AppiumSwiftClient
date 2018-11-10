@@ -10,6 +10,23 @@ public enum DesiredCapabilitiesEnum : String {
     case platformName, automationName, app, platformVersion, deviceName
 }
 
+public struct OssDesiredCapability : Codable {
+    let platformName : String
+    let automationName : String
+    let app : String
+    let platformVersion : String
+    let deviceName : String
+
+    init(with caps : AppiumCapabilities) {
+        let desiredCaps = caps.desiredCapability
+        platformName = desiredCaps[.platformName] ?? ""
+        automationName = desiredCaps[.automationName] ?? ""
+        app = desiredCaps[.app] ?? ""
+        platformVersion = desiredCaps[.platformVersion] ?? ""
+        deviceName = desiredCaps[.deviceName] ?? ""
+    }
+}
+
 public struct W3CDesiredCapability : Codable {
     let platformName : String
     let automationName : String
@@ -24,6 +41,11 @@ public struct W3CDesiredCapability : Codable {
         app = desiredCaps[.app] ?? ""
         platformVersion = desiredCaps[.platformVersion] ?? ""
         deviceName = desiredCaps[.deviceName] ?? ""
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case platformName, automationName, platformVersion, deviceName
+        case app = "appium:app"
     }
 }
 
