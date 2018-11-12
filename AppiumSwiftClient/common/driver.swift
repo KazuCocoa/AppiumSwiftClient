@@ -18,6 +18,8 @@ public class AppiumDriver : Driver {
 
     public var currentSessionCapabilities: AppiumCapabilities
 
+    public var currentSession: Session = Session(id: "")
+
     public init(_ caps: AppiumCapabilities) {
         currentSessionCapabilities = caps
 
@@ -29,7 +31,20 @@ public class AppiumDriver : Driver {
         let sessionId = W3CCreateSession.sendRequest(with: desiredCapability)
 
         caps[.sessionId] = sessionId
+        currentSession = Session(id: sessionId)
 
         return AppiumCapabilities(caps)
+    }
+
+    public func findElement(by locator: SearchContext, with value: String) -> Element {
+        return W3CFindElement.sendRequest(by: locator, with: value, to: currentSession.id)
+    }
+}
+
+public class Element {
+    public let id: String
+
+    init(id: String) {
+        self.id = id
     }
 }

@@ -11,14 +11,15 @@ import Foundation
 struct HttpClient {
     let endpoint = "http://127.0.0.1:4723/wd/hub/"
 
-    func sendSyncRequest(method: HttpMethod, commandPath: String, json: Data) -> Any {
+    func sendSyncRequest(method: HttpMethod, commandPath: String, json: Data) -> (Int, Any) {
         let uri = "\(endpoint)\(commandPath)"
 
         var returnValue : Any = ""
+        var statusCode : Int = 0
 
         guard let url = URL(string: uri) else {
             print("failed to create session")
-            return returnValue
+            return (0, returnValue)
         }
 
         let semaphore = DispatchSemaphore(value: 0)
@@ -32,7 +33,12 @@ struct HttpClient {
 
         let session = URLSession.shared
 
+
         let task = session.dataTask(with: commandURLRequest) { (data, response, error) in
+            if let resp = response {
+                statusCode = (resp as! HTTPURLResponse).statusCode
+            }
+
             guard let responseData = data, error == nil else {
                 print("Error calling \(method.rawValue) on \(uri)")
                 return
@@ -44,7 +50,7 @@ struct HttpClient {
         task.resume()
         let _ = semaphore.wait(timeout: .distantFuture)
 
-        return returnValue
+        return (statusCode, returnValue)
     }
 
     struct WebDriverResponseValue {
