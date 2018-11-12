@@ -14,6 +14,10 @@
 		726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196A3219499C400730A67 /* CapabilitiesTests.swift */; };
 		726196A62195187F00730A67 /* driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196A52195187F00730A67 /* driver.swift */; };
 		726196A821952CF300730A67 /* DriverTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196A721952CF300730A67 /* DriverTest.swift */; };
+		726196AB219977D600730A67 /* CreateSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196AA219977D600730A67 /* CreateSession.swift */; };
+		726196AD2199780800730A67 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196AC2199780800730A67 /* Commands.swift */; };
+		726196B02199790A00730A67 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196AF2199790A00730A67 /* Method.swift */; };
+		726196B221997E4400730A67 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196B121997E4400730A67 /* Client.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		726196A3219499C400730A67 /* CapabilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapabilitiesTests.swift; sourceTree = "<group>"; };
 		726196A52195187F00730A67 /* driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = driver.swift; sourceTree = "<group>"; };
 		726196A721952CF300730A67 /* DriverTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTest.swift; sourceTree = "<group>"; };
+		726196AA219977D600730A67 /* CreateSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSession.swift; sourceTree = "<group>"; };
+		726196AC2199780800730A67 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		726196AF2199790A00730A67 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		726196B121997E4400730A67 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,7 @@
 		726196872194929600730A67 /* AppiumSwiftClient */ = {
 			isa = PBXGroup;
 			children = (
+				726196A9219977BE00730A67 /* command */,
 				7261969F219495F300730A67 /* common */,
 				726196882194929600730A67 /* AppiumSwiftClient.swift */,
 			);
@@ -109,6 +118,7 @@
 		7261969F219495F300730A67 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				726196AE219978EF00730A67 /* http */,
 				726196A02194960D00730A67 /* Capabilities.swift */,
 				726196A52195187F00730A67 /* driver.swift */,
 			);
@@ -122,6 +132,32 @@
 				726196A721952CF300730A67 /* DriverTest.swift */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		726196A9219977BE00730A67 /* command */ = {
+			isa = PBXGroup;
+			children = (
+				726196B321998C8B00730A67 /* W3C */,
+			);
+			path = command;
+			sourceTree = "<group>";
+		};
+		726196AE219978EF00730A67 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				726196AF2199790A00730A67 /* Method.swift */,
+				726196B121997E4400730A67 /* Client.swift */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		726196B321998C8B00730A67 /* W3C */ = {
+			isa = PBXGroup;
+			children = (
+				726196AC2199780800730A67 /* Commands.swift */,
+				726196AA219977D600730A67 /* CreateSession.swift */,
+			);
+			path = W3C;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +250,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */,
+				726196B221997E4400730A67 /* Client.swift in Sources */,
 				726196A62195187F00730A67 /* driver.swift in Sources */,
+				726196B02199790A00730A67 /* Method.swift in Sources */,
+				726196AB219977D600730A67 /* CreateSession.swift in Sources */,
+				726196AD2199780800730A67 /* Commands.swift in Sources */,
 				726196A12194960D00730A67 /* Capabilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
