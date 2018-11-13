@@ -44,7 +44,7 @@ struct HttpClient {
                 return
             }
 
-            returnValue =  WebDriverResponseValue(responseJsonData: responseData).value as! [String : Any]
+            returnValue =  WebDriverResponseValue(responseJsonData: responseData).value
             semaphore.signal()
         }
         task.resume()
@@ -64,7 +64,7 @@ struct HttpClient {
                     return
                 }
 
-                value = jsonValue["value"] as Any
+                value = jsonValue
             } catch {
                 print("Error parsing response from POST")
                 value = "Invalid JSON format"

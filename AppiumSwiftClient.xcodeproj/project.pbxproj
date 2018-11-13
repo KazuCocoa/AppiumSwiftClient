@@ -22,6 +22,8 @@
 		726196B72199C1C900730A67 /* SearchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196B62199C1C900730A67 /* SearchContext.swift */; };
 		726196B92199C28300730A67 /* FindElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196B82199C28300730A67 /* FindElement.swift */; };
 		726196BB2199C90E00730A67 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196BA2199C90E00730A67 /* Session.swift */; };
+		726196BD2199D67900730A67 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196BC2199D67900730A67 /* Element.swift */; };
+		726196BF2199D75700730A67 /* Click.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196BE2199D75700730A67 /* Click.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		726196B62199C1C900730A67 /* SearchContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContext.swift; sourceTree = "<group>"; };
 		726196B82199C28300730A67 /* FindElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElement.swift; sourceTree = "<group>"; };
 		726196BA2199C90E00730A67 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		726196BC2199D67900730A67 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		726196BE2199D75700730A67 /* Click.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Click.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 				726196A52195187F00730A67 /* driver.swift */,
 				726196B62199C1C900730A67 /* SearchContext.swift */,
 				726196BA2199C90E00730A67 /* Session.swift */,
+				726196BC2199D67900730A67 /* Element.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				726196AA219977D600730A67 /* CreateSession.swift */,
 				726196B42199BF9800730A67 /* CommandProtocol.swift */,
 				726196B82199C28300730A67 /* FindElement.swift */,
+				726196BE2199D75700730A67 /* Click.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -263,7 +269,9 @@
 			files = (
 				726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */,
 				726196B72199C1C900730A67 /* SearchContext.swift in Sources */,
+				726196BD2199D67900730A67 /* Element.swift in Sources */,
 				726196B52199BF9800730A67 /* CommandProtocol.swift in Sources */,
+				726196BF2199D75700730A67 /* Click.swift in Sources */,
 				726196B92199C28300730A67 /* FindElement.swift in Sources */,
 				726196B221997E4400730A67 /* Client.swift in Sources */,
 				726196A62195187F00730A67 /* driver.swift in Sources */,

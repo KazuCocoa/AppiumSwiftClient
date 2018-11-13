@@ -70,5 +70,10 @@ class DriverTest : XCTestCase {
         let el = driver.findElement(by: SearchContext.AccessibilityId, with: "Buttons")
         XCTAssert(el.id != "")
         print(el.id)
+
+        el.click()
+
+        let button = driver.findElement(by: SearchContext.Name, with: "Grey")
+        XCTAssert(button.id != "")
     }
 }

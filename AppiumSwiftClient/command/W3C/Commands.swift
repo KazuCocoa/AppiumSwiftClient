@@ -20,4 +20,7 @@ public struct W3CCommands {
     static let findElements: CommandType = (HttpMethod.post, "session/:sessionId/elements")
     static let findChildElement: CommandType = (HttpMethod.post, "session/:sessionId/element/:id/element")
     static let findChildElements: CommandType = (HttpMethod.post, "session/:sessionId/element/:id/elements")
+
+    // Action
+    static let elementClick: CommandType = (HttpMethod.post, "session/:sessionId/element/:id/click")
 }

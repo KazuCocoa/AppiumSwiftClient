@@ -40,11 +40,3 @@ public class AppiumDriver : Driver {
         return W3CFindElement.sendRequest(by: locator, with: value, to: currentSession.id)
     }
 }
-
-public class Element {
-    public let id: String
-
-    init(id: String) {
-        self.id = id
-    }
-}
