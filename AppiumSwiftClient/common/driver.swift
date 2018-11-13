@@ -36,7 +36,7 @@ public class AppiumDriver : Driver {
         return AppiumCapabilities(caps)
     }
 
-    public func findElement(by locator: SearchContext, with value: String) -> Element {
-        return W3CFindElement.sendRequest(by: locator, with: value, to: currentSession.id)
+    public func findElement(by locator: SearchContext, with value: String) throws -> Element {
+        return try W3CFindElement.sendRequest(by: locator, with: value, to: currentSession.id)
     }
 }

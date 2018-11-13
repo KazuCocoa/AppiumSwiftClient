@@ -12,7 +12,7 @@ struct W3CFindElement : CommandProtocol {
     typealias ElementValue = [String: String] // {"element-6066-11e4-a52e-4f735466cecf": "element id"}
     private let noElement = "no element"
 
-    static func sendRequest(by locator: SearchContext, with value: String, to sessionId: Session.Id) -> Element {
+    static func sendRequest(by locator: SearchContext, with value: String, to sessionId: Session.Id) throws -> Element {
         let findElement = self.init()
         let json = findElement.generateFindElementBodyData(by: locator, with: value)
 
@@ -24,8 +24,14 @@ struct W3CFindElement : CommandProtocol {
             return Element(id: findElement.elementIdFrom(param: returnValue["value"] as! ElementValue), sessionId: sessionId)
         } else if  (statusCode == 404) {
             print(returnValue)
-            // Return NoSuchElementError
-            return Element(id: "NoSuchElementError", sessionId: sessionId)
+//            ["value": {
+//                error = "no such element";
+//                message = "An element could not be located on the page using the given search parameters.";
+//                stacktrace = "NoSuchElementError: An element could not be located on the page using the given search parameters.\n    at XCUITestDriver.<anonymous> (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/lib/commands/find.js:130:13)\n    at Generator.throw (<anonymous>)\n    at asyncGeneratorStep (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:24)\n    at _throw (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/node_modules/@babel/runtime/helpers/asyncToGenerator.js:29:9)\n    at <anonymous>";
+//                }]
+            let message = returnValue["value"] as! WebDriverError.Error
+
+            throw WebDriverError.NoSuchElementError(error: message)
         } else {
             print("Status code is \(statusCode)")
             return Element(id: findElement.noElement, sessionId: sessionId)

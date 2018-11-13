@@ -68,16 +68,21 @@ class DriverTest : XCTestCase {
         let driver = AppiumDriver(AppiumCapabilities(opts))
         XCTAssert(driver.currentSessionCapabilities.capabilities()[.sessionId] != "")
 
-        let el = driver.findElement(by: SearchContext.AccessibilityId, with: "Buttons")
+        let el = try! driver.findElement(by: SearchContext.AccessibilityId, with: "Buttons")
         XCTAssert(el.id != "")
         print(el.id)
 
         el.click()
 
-        let buttonGray = driver.findElement(by: SearchContext.Name, with: "Gray")
+        let buttonGray = try! driver.findElement(by: SearchContext.Name, with: "Gray")
         XCTAssert(buttonGray.id != "NoSuchElementError")
 
-        let buttonGrey = driver.findElement(by: SearchContext.Name, with: "Grey")
-        XCTAssert(buttonGrey.id == "NoSuchElementError")
+        XCTAssertThrowsError((try driver.findElement(by: SearchContext.Name, with: "Grey"))) { error in
+            guard case WebDriverError.NoSuchElementError(let error) = error else {
+                return XCTFail()
+            }
+            XCTAssertEqual("no such element", error["error"])
+            XCTAssertEqual("An element could not be located on the page using the given search parameters.", error["message"])
+        }
     }
 }
