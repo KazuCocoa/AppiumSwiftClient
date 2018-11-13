@@ -8,7 +8,8 @@
 
 public enum DesiredCapabilitiesEnum : String {
     case platformName, automationName, app, platformVersion, deviceName
-    case sessionId
+    case reduceMotion // Option
+    case sessionId // Additional
 }
 
 public struct OssDesiredCapability : Codable {
@@ -17,6 +18,7 @@ public struct OssDesiredCapability : Codable {
     let app : String
     let platformVersion : String
     let deviceName : String
+    var reduceMotion : String = "false"
 
     init(with caps : AppiumCapabilities) {
         let desiredCaps = caps.desiredCapability
@@ -25,6 +27,7 @@ public struct OssDesiredCapability : Codable {
         app = desiredCaps[.app] ?? ""
         platformVersion = desiredCaps[.platformVersion] ?? ""
         deviceName = desiredCaps[.deviceName] ?? ""
+        reduceMotion = desiredCaps[.reduceMotion] ?? "false"
     }
 }
 
@@ -34,6 +37,7 @@ public struct W3CDesiredCapability : Codable {
     let app : String
     let platformVersion : String
     let deviceName : String
+    var reduceMotion : String = "false"
 
     init(with caps : AppiumCapabilities) {
         let desiredCaps = caps.desiredCapability
@@ -42,6 +46,7 @@ public struct W3CDesiredCapability : Codable {
         app = desiredCaps[.app] ?? ""
         platformVersion = desiredCaps[.platformVersion] ?? ""
         deviceName = desiredCaps[.deviceName] ?? ""
+        reduceMotion = desiredCaps[.reduceMotion] ?? "false"
     }
 
     enum CodingKeys: String, CodingKey {
@@ -90,6 +95,10 @@ public struct AppiumCapabilities : Capabilities {
 
         if opts[.sessionId] != nil {
             self.desiredCapability[.sessionId] = opts[.sessionId]
+        }
+
+        if opts[.reduceMotion] != nil {
+            self.desiredCapability[.reduceMotion] = opts[.reduceMotion]
         }
     }
 

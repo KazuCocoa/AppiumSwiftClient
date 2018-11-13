@@ -63,6 +63,7 @@ class DriverTest : XCTestCase {
             DesiredCapabilitiesEnum.app: "/Users/kazuaki/GitHub/ruby_lib_core/test/functional/app/UICatalog.app.zip",
             DesiredCapabilitiesEnum.platformVersion: "11.4",
             DesiredCapabilitiesEnum.deviceName: "iPhone Simulator",
+            DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
         let driver = AppiumDriver(AppiumCapabilities(opts))
         XCTAssert(driver.currentSessionCapabilities.capabilities()[.sessionId] != "")
@@ -73,7 +74,10 @@ class DriverTest : XCTestCase {
 
         el.click()
 
-        let button = driver.findElement(by: SearchContext.Name, with: "Grey")
-        XCTAssert(button.id != "")
+        let buttonGray = driver.findElement(by: SearchContext.Name, with: "Gray")
+        XCTAssert(buttonGray.id != "NoSuchElementError")
+
+        let buttonGrey = driver.findElement(by: SearchContext.Name, with: "Grey")
+        XCTAssert(buttonGrey.id == "NoSuchElementError")
     }
 }
