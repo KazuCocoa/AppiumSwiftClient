@@ -24,7 +24,7 @@
 		726196BB2199C90E00730A67 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196BA2199C90E00730A67 /* Session.swift */; };
 		726196BD2199D67900730A67 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196BC2199D67900730A67 /* Element.swift */; };
 		726196BF2199D75700730A67 /* Click.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196BE2199D75700730A67 /* Click.swift */; };
-		726196C1219A993E00730A67 /* error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C0219A993E00730A67 /* error.swift */; };
+		726196C1219A993E00730A67 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C0219A993E00730A67 /* Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 		726196BA2199C90E00730A67 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		726196BC2199D67900730A67 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		726196BE2199D75700730A67 /* Click.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Click.swift; sourceTree = "<group>"; };
-		726196C0219A993E00730A67 /* error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = error.swift; sourceTree = "<group>"; };
+		726196C0219A993E00730A67 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +138,7 @@
 				726196B62199C1C900730A67 /* SearchContext.swift */,
 				726196BA2199C90E00730A67 /* Session.swift */,
 				726196BC2199D67900730A67 /* Element.swift */,
-				726196C0219A993E00730A67 /* error.swift */,
+				726196C0219A993E00730A67 /* Error.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 				726196B92199C28300730A67 /* FindElement.swift in Sources */,
 				726196B221997E4400730A67 /* Client.swift in Sources */,
 				726196A62195187F00730A67 /* driver.swift in Sources */,
-				726196C1219A993E00730A67 /* error.swift in Sources */,
+				726196C1219A993E00730A67 /* Error.swift in Sources */,
 				726196B02199790A00730A67 /* Method.swift in Sources */,
 				726196BB2199C90E00730A67 /* Session.swift in Sources */,
 				726196AB219977D600730A67 /* CreateSession.swift in Sources */,

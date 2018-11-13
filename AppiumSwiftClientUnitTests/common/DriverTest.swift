@@ -78,7 +78,7 @@ class DriverTest : XCTestCase {
         XCTAssert(buttonGray.id != "NoSuchElementError")
 
         XCTAssertThrowsError((try driver.findElement(by: SearchContext.Name, with: "Grey"))) { error in
-            guard case WebDriverError.NoSuchElementError(let error) = error else {
+            guard case WebDriverErrorEnum.NoSuchElementError(let error) = error else {
                 return XCTFail()
             }
             XCTAssertEqual("no such element", error["error"])
