@@ -16,8 +16,8 @@ struct W3CCreateSession : CommandProtocol {
 
         // {"value":{"sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","capabilities":{"device":"iphone","browserName":"UICatalog","sdkVersion":"11.4","CFBundleIdentifier":"com.example.apple-samplecode.UICatalog"}},"sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","status":0}
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.newSession.0,
-                                                               commandPath: W3CCommands.newSession.1,
-                                                               json: json) as! (Int, [String: Any])
+                                                                     commandPath: createSession.commandUrl(),
+                                                                     json: json)
 
         guard let value = returnValue["value"] as? [String: Any] else {
             return "no value"
@@ -30,6 +30,10 @@ struct W3CCreateSession : CommandProtocol {
             print("Status code is \(statusCode)")
             return "error happensed"
         }
+    }
+
+    func commandUrl(with sessionId: Session.Id = "", and elementId: Element.Id = "") -> W3CCommands.CommandPath {
+        return W3CCommands.newSession.1
     }
 
     // TODO: implement test

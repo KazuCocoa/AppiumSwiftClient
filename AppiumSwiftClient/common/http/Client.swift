@@ -11,10 +11,10 @@ import Foundation
 struct HttpClient {
     let endpoint = "http://127.0.0.1:4723/wd/hub/"
 
-    func sendSyncRequest(method: HttpMethod, commandPath: String, json: Data) -> (Int, Any) {
+    func sendSyncRequest(method: HttpMethod, commandPath: String, json: Data) -> (Int, [String: Any]) {
         let uri = "\(endpoint)\(commandPath)"
 
-        var returnValue : Any = ""
+        var returnValue : [String: Any] = ["value": ""]
         var statusCode : Int = 0
 
         guard let url = URL(string: uri) else {
@@ -44,7 +44,7 @@ struct HttpClient {
                 return
             }
 
-            returnValue =  WebDriverResponseValue(responseJsonData: responseData).value
+            returnValue =  WebDriverResponseValue(responseJsonData: responseData).value as! [String : Any]
             semaphore.signal()
         }
         task.resume()

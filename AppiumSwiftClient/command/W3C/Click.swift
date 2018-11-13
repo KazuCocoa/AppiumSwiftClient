@@ -8,28 +8,35 @@
 
 import Foundation
 
-struct W3CElementClick {
+struct W3CElementClick : CommandProtocol {
     private let noElement = "no element"
 
     static func sendRequest(_ elementId: Element.Id, with sessionId: Session.Id) -> String {
         let elementClick = self.init()
 
         let json = elementClick.generateElementClickBodyData()
-
-        let urlBase = W3CCommands.elementClick.1
-        let commandSessionPath = urlBase.replacingOccurrences(of: ":sessionId", with: sessionId)
-        let commandsessionElementPath = commandSessionPath.replacingOccurrences(of: ":id", with: elementId)
-
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.elementClick.0,
-                                                               commandPath: commandsessionElementPath,
-                                                               json: json) as! (Int, [String: Any])
+                                                                     commandPath: elementClick.commandUrl(with: sessionId, and: elementId),
+                                                                     json: json)
 
         if (statusCode == 200) {
             return returnValue["value"] as! String
+        } else if (statusCode == 400) {
+            print("invalid parameter")
+            print(returnValue)
+            return elementClick.noElement
         } else {
             print("Status code is \(statusCode)")
-            return returnValue["value"] as! String
+            print(returnValue)
+            return elementClick.noElement
         }
+    }
+
+    func commandUrl(with sessionId: Session.Id, and elementId: Element.Id) -> W3CCommands.CommandPath {
+        let urlBase = W3CCommands.elementClick.1
+        return urlBase
+            .replacingOccurrences(of: W3CCommands.Id.Session.rawValue, with: sessionId)
+            .replacingOccurrences(of: W3CCommands.Id.Element.rawValue, with: elementId)
     }
 
     private func generateElementClickBodyData() -> Data {
