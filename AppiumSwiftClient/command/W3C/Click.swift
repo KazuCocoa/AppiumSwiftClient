@@ -11,12 +11,10 @@ import Foundation
 struct W3CElementClick : CommandProtocol {
     private let noElement = "no element"
 
-    static func sendRequest(_ elementId: Element.Id, with sessionId: Session.Id) -> String {
-        let elementClick = self.init()
-
-        let json = elementClick.generateElementClickBodyData()
+    func sendRequest(_ elementId: Element.Id, with sessionId: Session.Id) -> String {
+        let json = generateElementClickBodyData()
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.elementClick.0,
-                                                                     commandPath: elementClick.commandUrl(with: sessionId, and: elementId),
+                                                                     commandPath: commandUrl(with: sessionId, and: elementId),
                                                                      json: json)
 
         if (statusCode == 200) {
@@ -24,11 +22,11 @@ struct W3CElementClick : CommandProtocol {
         } else if (statusCode == 400) {
             print("invalid parameter")
             print(returnValue)
-            return elementClick.noElement
+            return noElement
         } else {
             print("Status code is \(statusCode)")
             print(returnValue)
-            return elementClick.noElement
+            return noElement
         }
     }
 

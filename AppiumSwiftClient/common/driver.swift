@@ -28,7 +28,7 @@ public class AppiumDriver : Driver {
 
     private func handShake(desiredCapability: AppiumCapabilities) -> AppiumCapabilities {
         var caps = desiredCapability.capabilities()
-        let sessionId = W3CCreateSession.sendRequest(with: desiredCapability)
+        let sessionId = W3CCreateSession().sendRequest(with: desiredCapability)
 
         caps[.sessionId] = sessionId
         currentSession = Session(id: sessionId)
@@ -37,6 +37,6 @@ public class AppiumDriver : Driver {
     }
 
     public func findElement(by locator: SearchContext, with value: String) throws -> Element {
-        return try W3CFindElement.sendRequest(by: locator, with: value, to: currentSession.id)
+        return try W3CFindElement().sendRequest(by: locator, with: value, to: currentSession.id)
     }
 }

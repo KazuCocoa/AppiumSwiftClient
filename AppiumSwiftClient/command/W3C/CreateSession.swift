@@ -9,14 +9,12 @@
 import Foundation
 
 struct W3CCreateSession : CommandProtocol {
-    static func sendRequest(with caps: AppiumCapabilities) -> String {
-        let createSession = self.init()
-
-        let json = createSession.generateCapabilityBodyData(with: caps)
+    func sendRequest(with caps: AppiumCapabilities) -> String {
+        let json = generateCapabilityBodyData(with: caps)
 
         // {"value":{"sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","capabilities":{"device":"iphone","browserName":"UICatalog","sdkVersion":"11.4","CFBundleIdentifier":"com.example.apple-samplecode.UICatalog"}},"sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","status":0}
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.newSession.0,
-                                                                     commandPath: createSession.commandUrl(),
+                                                                     commandPath: commandUrl(),
                                                                      json: json)
 
         guard let value = returnValue["value"] as? [String: Any] else {

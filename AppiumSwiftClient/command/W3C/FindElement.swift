@@ -12,16 +12,15 @@ struct W3CFindElement : CommandProtocol {
     typealias ElementValue = [String: String] // {"element-6066-11e4-a52e-4f735466cecf": "element id"}
     private let noElement = "no element"
 
-    static func sendRequest(by locator: SearchContext, with value: String, to sessionId: Session.Id) throws -> Element {
-        let findElement = self.init()
-        let json = findElement.generateFindElementBodyData(by: locator, with: value)
+    func sendRequest(by locator: SearchContext, with value: String, to sessionId: Session.Id) throws -> Element {
+        let json = generateFindElementBodyData(by: locator, with: value)
 
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.findElement.0,
-                                                                     commandPath: findElement.commandUrl(with: sessionId),
+                                                                     commandPath: commandUrl(with: sessionId),
                                                                      json: json)
 
         if (statusCode == 200) {
-            return Element(id: findElement.elementIdFrom(param: returnValue["value"] as! ElementValue), sessionId: sessionId)
+            return Element(id: elementIdFrom(param: returnValue["value"] as! ElementValue), sessionId: sessionId)
         } else if  (statusCode == 404) {
             print(returnValue)
 //            ["value": {
@@ -34,7 +33,7 @@ struct W3CFindElement : CommandProtocol {
             throw WebDriverErrorEnum.NoSuchElementError(error: message)
         } else {
             print("Status code is \(statusCode)")
-            return Element(id: findElement.noElement, sessionId: sessionId)
+            return Element(id: noElement, sessionId: sessionId)
         }
     }
 

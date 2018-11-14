@@ -18,7 +18,7 @@ public class Element {
     }
 
     public func click() {
-        let result = W3CElementClick.sendRequest(self.id, with: sessionId)
+        let result = W3CElementClick().sendRequest(self.id, with: sessionId)
 
         guard result != "" else {
             print(result)
