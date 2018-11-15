@@ -62,7 +62,7 @@ class DriverTest : XCTestCase {
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "/Users/kazuaki/GitHub/ruby_lib_core/test/functional/app/UICatalog.app.zip",
             DesiredCapabilitiesEnum.platformVersion: "11.4",
-            DesiredCapabilitiesEnum.deviceName: "iPhone 8", // TODO: Hopefully, I'd like to get running env name automatically
+            DesiredCapabilitiesEnum.deviceName: "iPhone 8",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
 
