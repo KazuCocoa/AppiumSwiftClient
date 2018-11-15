@@ -27,7 +27,7 @@ class DriverTest : XCTestCase {
             DesiredCapabilitiesEnum.platformVersion: "11.4",
             DesiredCapabilitiesEnum.deviceName: "iPhone",
         ]
-        let driver = AppiumDriver(AppiumCapabilities(opts))
+        let driver = try! AppiumDriver(AppiumCapabilities(opts))
 
         XCTAssertEqual(expected,
                        driver.currentSessionCapabilities.capabilities())
@@ -50,7 +50,7 @@ class DriverTest : XCTestCase {
             DesiredCapabilitiesEnum.platformVersion: "11.4",
             DesiredCapabilitiesEnum.deviceName: "iPhone",
         ]
-        let driver = AppiumDriver(AppiumCapabilities(opts))
+        let driver = try! AppiumDriver(AppiumCapabilities(opts))
 
         XCTAssertNotEqual(expected,
                           driver.currentSessionCapabilities.capabilities())
@@ -65,24 +65,30 @@ class DriverTest : XCTestCase {
             DesiredCapabilitiesEnum.deviceName: "iPhone Simulator",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
-        let driver = AppiumDriver(AppiumCapabilities(opts))
-        XCTAssert(driver.currentSessionCapabilities.capabilities()[.sessionId] != "")
 
-        let el = try! driver.findElement(by: SearchContext.AccessibilityId, with: "Buttons")
-        XCTAssert(el.id != "")
-        print(el.id)
+        do {
+            let driver = try AppiumDriver(AppiumCapabilities(opts))
+            XCTAssert(driver.currentSessionCapabilities.capabilities()[.sessionId] != "")
 
-        el.click()
+            let el = try driver.findElement(by: SearchContext.AccessibilityId, with: "Buttons")
+            XCTAssert(el.id != "")
+            print(el.id)
 
-        let buttonGray = try! driver.findElement(by: SearchContext.Name, with: "Gray")
-        XCTAssert(buttonGray.id != "NoSuchElementError")
+            el.click()
 
-        XCTAssertThrowsError((try driver.findElement(by: SearchContext.Name, with: "Grey"))) { error in
-            guard case WebDriverErrorEnum.NoSuchElementError(let error) = error else {
-                return XCTFail()
+            let buttonGray = try driver.findElement(by: SearchContext.Name, with: "Gray")
+            XCTAssert(buttonGray.id != "NoSuchElementError")
+
+            XCTAssertThrowsError((try driver.findElement(by: SearchContext.Name, with: "Grey"))) { error in
+                guard case WebDriverErrorEnum.NoSuchElementError(let error) = error else {
+                    return XCTFail()
+                }
+                XCTAssertEqual("no such element", error["error"])
+                XCTAssertEqual("An element could not be located on the page using the given search parameters.", error["message"])
             }
-            XCTAssertEqual("no such element", error["error"])
-            XCTAssertEqual("An element could not be located on the page using the given search parameters.", error["message"])
+        } catch let e {
+            // TODO: We must prepare a wrapper of assertions in order to make where the error happens clear
+            XCTAssertFalse(true, "\(e)")
         }
     }
 }

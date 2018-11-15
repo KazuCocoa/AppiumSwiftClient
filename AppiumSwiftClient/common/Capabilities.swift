@@ -55,19 +55,16 @@ public struct W3CDesiredCapability : Codable {
     }
 }
 
-public protocol Capabilities {
-    typealias type = [DesiredCapabilitiesEnum: String]
+protocol Capabilities {
     // protocol
 }
 
 public struct AppiumCapabilities : Capabilities {
-    public typealias CapsType = Capabilities.type
-
-    var desiredCapability: CapsType = [:]
+    var desiredCapability: [DesiredCapabilitiesEnum: String] = [:]
 
     var sessionId: String = ""
 
-    public init(_ opts : CapsType) {
+    public init(_ opts : [DesiredCapabilitiesEnum: String]) {
         guard let platformName = opts[.platformName] else {
             fatalError("platformName is mondatory")
         }
@@ -102,7 +99,7 @@ public struct AppiumCapabilities : Capabilities {
         }
     }
 
-    public func capabilities() -> CapsType {
+    public func capabilities() -> [DesiredCapabilitiesEnum: String] {
         return desiredCapability
     }
 }

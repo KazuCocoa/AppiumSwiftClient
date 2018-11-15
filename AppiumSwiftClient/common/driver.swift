@@ -20,15 +20,17 @@ public class AppiumDriver : Driver {
 
     public var currentSession: Session = Session(id: "")
 
-    public init(_ caps: AppiumCapabilities) {
+    public init(_ caps: AppiumCapabilities) throws {
         currentSessionCapabilities = caps
 
-        currentSessionCapabilities = handShake(desiredCapability: caps)
+        currentSessionCapabilities = try handShake(desiredCapability: caps)
     }
 
-    private func handShake(desiredCapability: AppiumCapabilities) -> AppiumCapabilities {
+    private func handShake(desiredCapability: AppiumCapabilities) throws -> AppiumCapabilities {
         var caps = desiredCapability.capabilities()
-        let sessionId = W3CCreateSession().sendRequest(with: desiredCapability)
+
+        // Must test fail if a create session fails
+        let sessionId = try W3CCreateSession().sendRequest(with: desiredCapability)
 
         caps[.sessionId] = sessionId
         currentSession = Session(id: sessionId)

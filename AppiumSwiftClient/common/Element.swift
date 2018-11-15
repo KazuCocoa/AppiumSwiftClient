@@ -6,7 +6,7 @@
 //  Copyright © 2018 KazuCocoa. All rights reserved.
 //
 
-public class Element {
+public struct Element {
     public typealias Id = String
 
     public let id: Id

@@ -9,7 +9,7 @@ public enum WebDriverErrorEnum: Error {
     // TODO: will change
     public typealias Error = [String: String]
 
-    case WebDriverError // standard
+    case WebDriverError(error: Error) // standard
 
     case IndexOutOfBoundsError // 1
     case NoCollectionError // 2
@@ -100,7 +100,7 @@ public enum WebDriverErrorEnum: Error {
     case InvalidSelectorError // 32
 
     // A new session could not be created.
-    case SessionNotCreatedError // 33
+    case SessionNotCreatedError(error: Error) // 33
 
     // The target for mouse interaction is not in the browser's viewport and cannot be brought
     // into that viewport.
@@ -126,7 +126,7 @@ public enum WebDriverErrorEnum: Error {
 
     // Occurs if the given session id is not in the list of active sessions, meaning the session
     // either does not exist or that it's not active.
-    case InvalidSessionIdError
+    case InvalidSessionIdError(error: Error)
 
     // A modal dialog was open, blocking this operation.
     case UnexpectedAlertOpenError
@@ -141,21 +141,4 @@ public enum WebDriverErrorEnum: Error {
     // Indicates that a command that should have executed properly cannot be supported for some
     // reason.
     case UnsupportedOperationError
-}
-
-protocol WebDriverErrorProtocol {
-}
-
-struct WebDriverError : WebDriverErrorProtocol {
-    let error: String
-    let message: String
-    let stacktrace: String
-
-    init(errorResult: WebDriverErrorEnum.Error) {
-        let formattedError = (errorResult["error"] ?? "").trimmingCharacters(in: .whitespaces).capitalized
-
-        self.error = "\(formattedError)Error" // TODO: This should match with Enum type
-        self.message = errorResult["message"] ?? ""
-        self.stacktrace = errorResult["stacktrace"] ?? ""
-    }
 }

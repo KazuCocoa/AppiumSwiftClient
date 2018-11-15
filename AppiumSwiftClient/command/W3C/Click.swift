@@ -12,7 +12,7 @@ struct W3CElementClick : CommandProtocol {
     private let noElement = "no element"
 
     func sendRequest(_ elementId: Element.Id, with sessionId: Session.Id) -> String {
-        let json = generateElementClickBodyData()
+        let json = generateBodyData()
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.elementClick.0,
                                                                      commandPath: commandUrl(with: sessionId, and: elementId),
                                                                      json: json)
@@ -37,10 +37,10 @@ struct W3CElementClick : CommandProtocol {
             .replacingOccurrences(of: W3CCommands.Id.Element.rawValue, with: elementId)
     }
 
-    private func generateElementClickBodyData() -> Data {
+    func generateBodyData() -> Data {
         let invalidJson = "invalid JSON"
 
-        let elementClickParam = W3CElementClickParam()
+        let elementClickParam = CommandParam()
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = .sortedKeys
@@ -52,6 +52,6 @@ struct W3CElementClick : CommandProtocol {
         }
     }
 
-    private struct W3CElementClickParam : Codable {
+    fileprivate struct CommandParam : CommandParamProtocol {
     }
 }

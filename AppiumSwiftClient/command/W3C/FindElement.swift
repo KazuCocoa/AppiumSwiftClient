@@ -13,7 +13,7 @@ struct W3CFindElement : CommandProtocol {
     private let noElement = "no element"
 
     func sendRequest(by locator: SearchContext, with value: String, to sessionId: Session.Id) throws -> Element {
-        let json = generateFindElementBodyData(by: locator, with: value)
+        let json = generateBodyData(by: locator, with: value)
 
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.findElement.0,
                                                                      commandPath: commandUrl(with: sessionId),
@@ -43,10 +43,10 @@ struct W3CFindElement : CommandProtocol {
             .replacingOccurrences(of: W3CCommands.Id.Session.rawValue, with: sessionId)
     }
 
-    private func generateFindElementBodyData(by locator: SearchContext, with value: String) -> Data {
+    func generateBodyData(by locator: SearchContext, with value: String) -> Data {
         let invalidJson = "Not a valid JSON"
 
-        let findElementParam = W3CFindElementParam(using: locator.rawValue, value: value)
+        let findElementParam = CommandParam(using: locator.rawValue, value: value)
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = .sortedKeys
@@ -62,7 +62,7 @@ struct W3CFindElement : CommandProtocol {
         return param["ELEMENT"] ?? param["element-6066-11e4-a52e-4f735466cecf"] ?? noElement
     }
 
-    private struct W3CFindElementParam : Codable {
+    fileprivate struct CommandParam : CommandParamProtocol {
         let using : String
         let value : String
     }
