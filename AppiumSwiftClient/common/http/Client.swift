@@ -29,10 +29,12 @@ struct HttpClient {
         commandURLRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         commandURLRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         commandURLRequest.timeoutInterval = 60.0 // 60 secons
-        commandURLRequest.httpBody = json
+
+        if method == HttpMethod.post {
+            commandURLRequest.httpBody = json
+        }
 
         let session = URLSession.shared
-
 
         let task = session.dataTask(with: commandURLRequest) { (data, response, error) in
             if let resp = response {

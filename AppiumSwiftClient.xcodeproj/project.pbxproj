@@ -29,6 +29,7 @@
 		726196C6219D35F700730A67 /* WebDriverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C5219D35F700730A67 /* WebDriverError.swift */; };
 		726196C921A17B6C00730A67 /* FindElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C821A17B6C00730A67 /* FindElements.swift */; };
 		726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196CA21A193CD00730A67 /* FindElementHelper.swift */; };
+		72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72686A9A21A1B3670042D385 /* GetCapabilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		726196C5219D35F700730A67 /* WebDriverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDriverError.swift; sourceTree = "<group>"; };
 		726196C821A17B6C00730A67 /* FindElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElements.swift; sourceTree = "<group>"; };
 		726196CA21A193CD00730A67 /* FindElementHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElementHelper.swift; sourceTree = "<group>"; };
+		72686A9A21A1B3670042D385 /* GetCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCapabilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				726196C821A17B6C00730A67 /* FindElements.swift */,
 				726196BE2199D75700730A67 /* Click.swift */,
 				726196CA21A193CD00730A67 /* FindElementHelper.swift */,
+				72686A9A21A1B3670042D385 /* GetCapabilities.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */,
 				726196B221997E4400730A67 /* Client.swift in Sources */,
 				726196A62195187F00730A67 /* driver.swift in Sources */,
+				72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */,
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,
 				726196B02199790A00730A67 /* Method.swift in Sources */,
 				726196C3219D30FA00730A67 /* CommandParamProtocol.swift in Sources */,

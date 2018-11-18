@@ -74,6 +74,8 @@ class DriverTest : XCTestCase {
             let driver = try AppiumDriver(AppiumCapabilities(opts))
             XCTAssert(driver.currentSessionCapabilities.capabilities()[.sessionId] != "")
 
+            XCTAssertNotNil(driver.getCapabilities()["udid"])
+
             let els = try driver.findElements(by: SearchContext.AccessibilityId, with: "Buttons")
             XCTAssertEqual(els.count, 1)
             XCTAssert(els[0].id != "")
