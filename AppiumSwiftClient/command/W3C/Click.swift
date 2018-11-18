@@ -31,10 +31,7 @@ struct W3CElementClick : CommandProtocol {
     }
 
     func commandUrl(with sessionId: Session.Id, and elementId: Element.Id) -> W3CCommands.CommandPath {
-        let urlBase = W3CCommands.elementClick.1
-        return urlBase
-            .replacingOccurrences(of: W3CCommands.Id.Session.rawValue, with: sessionId)
-            .replacingOccurrences(of: W3CCommands.Id.Element.rawValue, with: elementId)
+        return W3CCommands().url(for: W3CCommands.elementClick, with: sessionId, and: elementId)
     }
 
     func generateBodyData() -> Data {

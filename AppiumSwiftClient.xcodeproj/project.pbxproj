@@ -28,6 +28,7 @@
 		726196C3219D30FA00730A67 /* CommandParamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C2219D30FA00730A67 /* CommandParamProtocol.swift */; };
 		726196C6219D35F700730A67 /* WebDriverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C5219D35F700730A67 /* WebDriverError.swift */; };
 		726196C921A17B6C00730A67 /* FindElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C821A17B6C00730A67 /* FindElements.swift */; };
+		726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196CA21A193CD00730A67 /* FindElementHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		726196C2219D30FA00730A67 /* CommandParamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandParamProtocol.swift; sourceTree = "<group>"; };
 		726196C5219D35F700730A67 /* WebDriverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDriverError.swift; sourceTree = "<group>"; };
 		726196C821A17B6C00730A67 /* FindElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElements.swift; sourceTree = "<group>"; };
+		726196CA21A193CD00730A67 /* FindElementHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElementHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				726196B82199C28300730A67 /* FindElement.swift */,
 				726196C821A17B6C00730A67 /* FindElements.swift */,
 				726196BE2199D75700730A67 /* Click.swift */,
+				726196CA21A193CD00730A67 /* FindElementHelper.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				726196B52199BF9800730A67 /* CommandProtocol.swift in Sources */,
 				726196BF2199D75700730A67 /* Click.swift in Sources */,
 				726196B92199C28300730A67 /* FindElement.swift in Sources */,
+				726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */,
 				726196B221997E4400730A67 /* Client.swift in Sources */,
 				726196A62195187F00730A67 /* driver.swift in Sources */,
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,

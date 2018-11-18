@@ -9,28 +9,26 @@
 import Foundation
 
 struct W3CFindElements : CommandProtocol {
-    typealias ElementValue = [String: String] // [{"element-6066-11e4-a52e-4f735466cecf": "element id"}, {...:...}]
-    typealias ElementsValue = [ElementValue] // [{"element-6066-11e4-a52e-4f735466cecf": "element id"}, {...:...}]
-    private let noElement = "no element"
+    private let helper: W3CFindElementHelper
+
+    init() {
+        helper = W3CFindElementHelper()
+    }
 
     func sendRequest(by locator: SearchContext, with value: String, to sessionId: Session.Id) throws -> [Element] {
-        let json = generateBodyData(by: locator, with: value)
+        let json = helper.generateBodyData(by: locator, with: value)
 
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.findElements.0,
                                                                      commandPath: commandUrl(with: sessionId),
                                                                      json: json)
 
         if (statusCode == 200) {
-            return (returnValue["value"] as! ElementsValue).map {
-                Element(id: elementIdFrom(param: $0), sessionId: sessionId)
+            return (returnValue["value"] as! W3CFindElementHelper.ElementsValue).map {
+                Element(id: helper.elementIdFrom(param: $0),
+                        sessionId: sessionId)
             }
         } else if  (statusCode == 404) {
             print(returnValue)
-            //            ["value": {
-            //                error = "no such element";
-            //                message = "An element could not be located on the page using the given search parameters.";
-            //                stacktrace = "NoSuchElementError: An element could not be located on the page using the given search parameters.\n    at XCUITestDriver.<anonymous> (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/lib/commands/find.js:130:13)\n    at Generator.throw (<anonymous>)\n    at asyncGeneratorStep (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:24)\n    at _throw (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/node_modules/@babel/runtime/helpers/asyncToGenerator.js:29:9)\n    at <anonymous>";
-            //                }]
             return []
         } else {
             print("Status code is \(statusCode)")
@@ -39,32 +37,6 @@ struct W3CFindElements : CommandProtocol {
     }
 
     func commandUrl(with sessionId: Session.Id, and elementId: Element.Id = "") -> W3CCommands.CommandPath {
-        let urlBase = W3CCommands.findElements.1
-        return urlBase
-            .replacingOccurrences(of: W3CCommands.Id.Session.rawValue, with: sessionId)
-    }
-
-    func generateBodyData(by locator: SearchContext, with value: String) -> Data {
-        let invalidJson = "Not a valid JSON"
-
-        let findElementParam = CommandParam(using: locator.rawValue, value: value)
-
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .sortedKeys
-
-        do {
-            return try encoder.encode(findElementParam)
-        } catch {
-            return invalidJson.data(using: .utf8)!
-        }
-    }
-
-    private func elementIdFrom(param: ElementValue) -> String {
-        return param["ELEMENT"] ?? param["element-6066-11e4-a52e-4f735466cecf"] ?? noElement
-    }
-
-    fileprivate struct CommandParam : CommandParamProtocol {
-        let using : String
-        let value : String
+        return W3CCommands().url(for: W3CCommands.findElements, with: sessionId)
     }
 }

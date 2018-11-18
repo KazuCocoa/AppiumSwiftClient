@@ -21,6 +21,16 @@ public struct W3CCommands {
         case PropertyName = ":property_name"
     }
 
+    /**
+     Get a path of W3CCommands with given session id and element id.
+    **/
+    func url(for urlBase: CommandType, with sessionId: Session.Id = "", and elementId: Element.Id = "") -> W3CCommands.CommandPath {
+        let commandUrl = urlBase.1
+            .replacingOccurrences(of: W3CCommands.Id.Session.rawValue, with: sessionId)
+            .replacingOccurrences(of: W3CCommands.Id.Element.rawValue, with: elementId)
+        return commandUrl
+    }
+
     // Session
     static let newSession:              CommandType = (HttpMethod.post,   "session")
     static let deleteSession:           CommandType = (HttpMethod.delete, "session/\(Id.Session.rawValue)")
