@@ -27,6 +27,7 @@
 		726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C0219A993E00730A67 /* WebDriverErrorEnum.swift */; };
 		726196C3219D30FA00730A67 /* CommandParamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C2219D30FA00730A67 /* CommandParamProtocol.swift */; };
 		726196C6219D35F700730A67 /* WebDriverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C5219D35F700730A67 /* WebDriverError.swift */; };
+		726196C921A17B6C00730A67 /* FindElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C821A17B6C00730A67 /* FindElements.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		726196C0219A993E00730A67 /* WebDriverErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDriverErrorEnum.swift; sourceTree = "<group>"; };
 		726196C2219D30FA00730A67 /* CommandParamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandParamProtocol.swift; sourceTree = "<group>"; };
 		726196C5219D35F700730A67 /* WebDriverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDriverError.swift; sourceTree = "<group>"; };
+		726196C821A17B6C00730A67 /* FindElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElements.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		726196942194948900730A67 /* AppiumSwiftClientUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				726196C721A177AE00730A67 /* app */,
 				726196A2219499AD00730A67 /* common */,
 				726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */,
 				726196972194948900730A67 /* Info.plist */,
@@ -181,6 +184,7 @@
 			children = (
 				726196AA219977D600730A67 /* CreateSession.swift */,
 				726196B82199C28300730A67 /* FindElement.swift */,
+				726196C821A17B6C00730A67 /* FindElements.swift */,
 				726196BE2199D75700730A67 /* Click.swift */,
 			);
 			path = W3C;
@@ -193,6 +197,13 @@
 				726196C5219D35F700730A67 /* WebDriverError.swift */,
 			);
 			path = error;
+			sourceTree = "<group>";
+		};
+		726196C721A177AE00730A67 /* app */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = app;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 				726196BB2199C90E00730A67 /* Session.swift in Sources */,
 				726196AB219977D600730A67 /* CreateSession.swift in Sources */,
 				726196AD2199780800730A67 /* W3CCommands.swift in Sources */,
+				726196C921A17B6C00730A67 /* FindElements.swift in Sources */,
 				726196A12194960D00730A67 /* Capabilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
