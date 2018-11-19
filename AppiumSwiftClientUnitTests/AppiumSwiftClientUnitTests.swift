@@ -54,7 +54,7 @@ class AppiumSwiftClientUnitTests: XCTestCase {
             XCTAssertEqual((try driver.findElements(by: SearchContext.accessibilityId, with: "Grey")).count, 0)
 
             XCTAssertThrowsError((try driver.findElement(by: SearchContext.name, with: "Grey"))) { error in
-                guard case WebDriverErrorEnum.NoSuchElementError(let error) = error else {
+                guard case WebDriverErrorEnum.noSuchElementError(let error) = error else {
                     return XCTFail()
                 }
                 XCTAssertEqual("no such element", error["error"])
