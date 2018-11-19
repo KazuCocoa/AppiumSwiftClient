@@ -7,8 +7,9 @@
 //
 
 import XCTest
-import AppiumSwiftClient
 import Mockingjay
+
+@testable import AppiumSwiftClient
 
 class DriverTest : XCTestCase {
     func skip_testDriverInitialization() {
@@ -55,8 +56,5 @@ class DriverTest : XCTestCase {
 
         XCTAssertNotEqual(expected,
                           driver.currentSessionCapabilities.capabilities())
-    }
-
-    func testCreateSession() {
     }
 }

@@ -25,7 +25,7 @@ struct W3CCreateSession : CommandProtocol {
                                                                      json: json)
 
         guard let value = returnValue["value"] as? [String: Any] else {
-            return "no value"
+            return ""
         }
 
         if (statusCode == 200) {

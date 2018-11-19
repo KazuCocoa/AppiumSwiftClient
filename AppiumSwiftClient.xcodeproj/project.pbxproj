@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7252E19221A25FB8000B5855 /* CreateSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19121A25FB8000B5855 /* CreateSessionTests.swift */; };
+		7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */; };
+		7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */; };
 		726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196882194929600730A67 /* AppiumSwiftClient.swift */; };
 		726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */; };
 		726196982194948900730A67 /* libAppiumSwiftClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 726196852194929600730A67 /* libAppiumSwiftClient.a */; };
@@ -59,6 +62,9 @@
 /* Begin PBXFileReference section */
 		43A7477AF1A78BA50897D0F9 /* Pods-AppiumSwiftClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClient/Pods-AppiumSwiftClient.debug.xcconfig"; sourceTree = "<group>"; };
 		4C4D6C775222B615F1F73876 /* Pods_AppiumSwiftClientUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppiumSwiftClientUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7252E19121A25FB8000B5855 /* CreateSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionTests.swift; sourceTree = "<group>"; };
+		7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClientTestBase.swift; sourceTree = "<group>"; };
+		7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCapabilitiesTests.swift; sourceTree = "<group>"; };
 		726196852194929600730A67 /* libAppiumSwiftClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppiumSwiftClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		726196882194929600730A67 /* AppiumSwiftClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClient.swift; sourceTree = "<group>"; };
 		726196932194948900730A67 /* AppiumSwiftClientUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppiumSwiftClientUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +128,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7252E18F21A25F96000B5855 /* command */ = {
+			isa = PBXGroup;
+			children = (
+				7252E19021A25FA1000B5855 /* W3C */,
+			);
+			path = command;
+			sourceTree = "<group>";
+		};
+		7252E19021A25FA1000B5855 /* W3C */ = {
+			isa = PBXGroup;
+			children = (
+				7252E19121A25FB8000B5855 /* CreateSessionTests.swift */,
+				7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */,
+			);
+			path = W3C;
+			sourceTree = "<group>";
+		};
 		7261967C2194929600730A67 = {
 			isa = PBXGroup;
 			children = (
@@ -155,10 +178,12 @@
 		726196942194948900730A67 /* AppiumSwiftClientUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				7252E18F21A25F96000B5855 /* command */,
 				726196C721A177AE00730A67 /* app */,
 				726196A2219499AD00730A67 /* common */,
 				726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */,
 				726196972194948900730A67 /* Info.plist */,
+				7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */,
 			);
 			path = AppiumSwiftClientUnitTests;
 			sourceTree = "<group>";
@@ -434,7 +459,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */,
+				7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */,
+				7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */,
 				726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */,
+				7252E19221A25FB8000B5855 /* CreateSessionTests.swift in Sources */,
 				726196A821952CF300730A67 /* DriverTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,7 +529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -556,7 +584,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
