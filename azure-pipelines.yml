@@ -19,6 +19,8 @@ steps:
     xcWorkspacePath: 'AppiumSwiftClient.xcworkspace'
     xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
     destinationTypeOption: 'simulators'
+    destinationSimulators: 'iPhone XR'
+    destinationPlatformOption: 'iOS'
 - task: Xcode@5
   inputs:
     actions: 'build'
