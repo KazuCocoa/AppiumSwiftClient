@@ -12,16 +12,17 @@ steps:
   displayName: 'Runs SwiftLint'
 - task: Xcode@5
   inputs:
-    actions: 'build'
-    scheme: 'AppiumSwiftClient'
-    sdk: 'iphoneos'
+    actions: 'test'
+    scheme: 'AppiumSwiftClientUnitTests'
+    sdk: 'iphonesimulator'
     configuration: 'Debug'
     xcWorkspacePath: 'AppiumSwiftClient.xcworkspace'
     xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
+    destinationTypeOption: 'simulators'
 - task: Xcode@5
   inputs:
-    actions: 'test'
-    scheme: 'AppiumSwiftClientUnitTests'
+    actions: 'build'
+    scheme: 'AppiumSwiftClient'
     sdk: 'iphoneos'
     configuration: 'Debug'
     xcWorkspacePath: 'AppiumSwiftClient.xcworkspace'
