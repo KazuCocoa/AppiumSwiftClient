@@ -21,6 +21,7 @@ steps:
     destinationTypeOption: 'simulators'
     destinationSimulators: 'iPhone 8'
     destinationPlatformOption: 'iOS'
+    signingOption: "auto"
 - task: Xcode@5
   inputs:
     actions: 'build'
