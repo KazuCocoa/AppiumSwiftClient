@@ -8,10 +8,12 @@ pool:
 
 steps:
 - task: CocoaPods@0
+  forceRepoUpdate: true
 - script: Pods/SwiftLint/swiftlint
   displayName: 'Runs SwiftLint'
 - task: Xcode@5
   inputs:
+    displayName: 'Run Unit Tests'
     actions: 'test'
     scheme: 'AppiumSwiftClientUnitTests'
     sdk: 'iphonesimulator'
