@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7252E19221A25FB8000B5855 /* CreateSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19121A25FB8000B5855 /* CreateSessionTests.swift */; };
+		7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */; };
+		7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */; };
 		726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196882194929600730A67 /* AppiumSwiftClient.swift */; };
 		726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */; };
 		726196982194948900730A67 /* libAppiumSwiftClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 726196852194929600730A67 /* libAppiumSwiftClient.a */; };
@@ -30,6 +33,8 @@
 		726196C921A17B6C00730A67 /* FindElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C821A17B6C00730A67 /* FindElements.swift */; };
 		726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196CA21A193CD00730A67 /* FindElementHelper.swift */; };
 		72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72686A9A21A1B3670042D385 /* GetCapabilities.swift */; };
+		E28580FF8C70AAAB238380C8 /* Pods_AppiumSwiftClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97571B30B80D0F7CDF96796 /* Pods_AppiumSwiftClient.framework */; };
+		EC5272DF704D29C639E20678 /* Pods_AppiumSwiftClientUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4D6C775222B615F1F73876 /* Pods_AppiumSwiftClientUnitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		43A7477AF1A78BA50897D0F9 /* Pods-AppiumSwiftClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClient/Pods-AppiumSwiftClient.debug.xcconfig"; sourceTree = "<group>"; };
+		4C4D6C775222B615F1F73876 /* Pods_AppiumSwiftClientUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppiumSwiftClientUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7252E19121A25FB8000B5855 /* CreateSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionTests.swift; sourceTree = "<group>"; };
+		7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClientTestBase.swift; sourceTree = "<group>"; };
+		7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCapabilitiesTests.swift; sourceTree = "<group>"; };
 		726196852194929600730A67 /* libAppiumSwiftClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppiumSwiftClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		726196882194929600730A67 /* AppiumSwiftClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClient.swift; sourceTree = "<group>"; };
 		726196932194948900730A67 /* AppiumSwiftClientUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppiumSwiftClientUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +90,10 @@
 		726196C821A17B6C00730A67 /* FindElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElements.swift; sourceTree = "<group>"; };
 		726196CA21A193CD00730A67 /* FindElementHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElementHelper.swift; sourceTree = "<group>"; };
 		72686A9A21A1B3670042D385 /* GetCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCapabilities.swift; sourceTree = "<group>"; };
+		829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClientUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		89DEB940E024EED2A2C4CC51 /* Pods-AppiumSwiftClientUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClientUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E2E8A03DADC2F287C3F2517 /* Pods-AppiumSwiftClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClient/Pods-AppiumSwiftClient.release.xcconfig"; sourceTree = "<group>"; };
+		B97571B30B80D0F7CDF96796 /* Pods_AppiumSwiftClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppiumSwiftClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E28580FF8C70AAAB238380C8 /* Pods_AppiumSwiftClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,18 +110,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				726196982194948900730A67 /* libAppiumSwiftClient.a in Frameworks */,
+				EC5272DF704D29C639E20678 /* Pods_AppiumSwiftClientUnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07F8318DD70CA51EB2BD6858 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43A7477AF1A78BA50897D0F9 /* Pods-AppiumSwiftClient.debug.xcconfig */,
+				9E2E8A03DADC2F287C3F2517 /* Pods-AppiumSwiftClient.release.xcconfig */,
+				89DEB940E024EED2A2C4CC51 /* Pods-AppiumSwiftClientUnitTests.debug.xcconfig */,
+				829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7252E18F21A25F96000B5855 /* command */ = {
+			isa = PBXGroup;
+			children = (
+				7252E19021A25FA1000B5855 /* W3C */,
+			);
+			path = command;
+			sourceTree = "<group>";
+		};
+		7252E19021A25FA1000B5855 /* W3C */ = {
+			isa = PBXGroup;
+			children = (
+				7252E19121A25FB8000B5855 /* CreateSessionTests.swift */,
+				7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */,
+			);
+			path = W3C;
+			sourceTree = "<group>";
+		};
 		7261967C2194929600730A67 = {
 			isa = PBXGroup;
 			children = (
 				726196872194929600730A67 /* AppiumSwiftClient */,
 				726196942194948900730A67 /* AppiumSwiftClientUnitTests */,
 				726196862194929600730A67 /* Products */,
+				07F8318DD70CA51EB2BD6858 /* Pods */,
+				8F5497D68ACFEB93BCF5B486 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,10 +178,12 @@
 		726196942194948900730A67 /* AppiumSwiftClientUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				7252E18F21A25F96000B5855 /* command */,
 				726196C721A177AE00730A67 /* app */,
 				726196A2219499AD00730A67 /* common */,
 				726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */,
 				726196972194948900730A67 /* Info.plist */,
+				7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */,
 			);
 			path = AppiumSwiftClientUnitTests;
 			sourceTree = "<group>";
@@ -212,6 +260,15 @@
 			path = app;
 			sourceTree = "<group>";
 		};
+		8F5497D68ACFEB93BCF5B486 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B97571B30B80D0F7CDF96796 /* Pods_AppiumSwiftClient.framework */,
+				4C4D6C775222B615F1F73876 /* Pods_AppiumSwiftClientUnitTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +276,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7261968C2194929600730A67 /* Build configuration list for PBXNativeTarget "AppiumSwiftClient" */;
 			buildPhases = (
+				D868DA672525A63CC99BCD60 /* [CP] Check Pods Manifest.lock */,
 				726196812194929600730A67 /* Sources */,
 				726196822194929600730A67 /* Frameworks */,
 				726196832194929600730A67 /* CopyFiles */,
@@ -236,9 +294,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7261969B2194948900730A67 /* Build configuration list for PBXNativeTarget "AppiumSwiftClientUnitTests" */;
 			buildPhases = (
+				4B09FFE989A431A2E301501D /* [CP] Check Pods Manifest.lock */,
 				7261968F2194948900730A67 /* Sources */,
 				726196902194948900730A67 /* Frameworks */,
 				726196912194948900730A67 /* Resources */,
+				4A07048C9EC8E8006BFD9DAB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,6 +356,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4A07048C9EC8E8006BFD9DAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
+				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B09FFE989A431A2E301501D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppiumSwiftClientUnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D868DA672525A63CC99BCD60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppiumSwiftClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		726196812194929600730A67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -328,7 +459,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */,
+				7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */,
+				7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */,
 				726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */,
+				7252E19221A25FB8000B5855 /* CreateSessionTests.swift in Sources */,
 				726196A821952CF300730A67 /* DriverTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +596,7 @@
 		};
 		7261968D2194929600730A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43A7477AF1A78BA50897D0F9 /* Pods-AppiumSwiftClient.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
@@ -475,6 +610,7 @@
 		};
 		7261968E2194929600730A67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E2E8A03DADC2F287C3F2517 /* Pods-AppiumSwiftClient.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
@@ -488,6 +624,7 @@
 		};
 		7261969C2194948900730A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89DEB940E024EED2A2C4CC51 /* Pods-AppiumSwiftClientUnitTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
@@ -506,6 +643,7 @@
 		};
 		7261969D2194948900730A67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;

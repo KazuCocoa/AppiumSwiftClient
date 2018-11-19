@@ -10,7 +10,7 @@ import XCTest
 import AppiumSwiftClient
 
 class CapabilitiesTest : XCTestCase {
-    func testDefineCapabilities() {
+    func skip_testDefineCapabilities() {
         let opts = [
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",

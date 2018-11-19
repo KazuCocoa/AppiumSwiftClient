@@ -9,7 +9,11 @@
 import Foundation
 
 struct HttpClient {
-    let endpoint = "http://127.0.0.1:4723/wd/hub/"
+    let endpoint: String
+
+    init(endpoint: String = "") {
+        self.endpoint = endpoint.isEmpty ? "http://127.0.0.1:4723/wd/hub/" : endpoint
+    }
 
     func sendSyncRequest(method: HttpMethod, commandPath: String, json: Data) -> (Int, [String: Any]) {
         let uri = "\(endpoint)\(commandPath)"

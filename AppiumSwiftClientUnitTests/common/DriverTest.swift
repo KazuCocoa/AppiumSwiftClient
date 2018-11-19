@@ -7,7 +7,9 @@
 //
 
 import XCTest
-import AppiumSwiftClient
+import Mockingjay
+
+@testable import AppiumSwiftClient
 
 class DriverTest : XCTestCase {
     func skip_testDriverInitialization() {
@@ -54,52 +56,5 @@ class DriverTest : XCTestCase {
 
         XCTAssertNotEqual(expected,
                           driver.currentSessionCapabilities.capabilities())
-    }
-
-    func testCreateSession() {
-        let packageRootPath = URL(
-            fileURLWithPath: #file.replacingOccurrences(of: "AppiumSwiftClientUnitTests/common/DriverTest.swift", with: "")
-        ).path
-
-        let opts = [
-            DesiredCapabilitiesEnum.platformName: "iOS",
-            DesiredCapabilitiesEnum.automationName: "xcuitest",
-            DesiredCapabilitiesEnum.app: "\(packageRootPath)/AppiumSwiftClientUnitTests/app/UICatalog.app.zip",
-            DesiredCapabilitiesEnum.platformVersion: "11.4",
-            DesiredCapabilitiesEnum.deviceName: "iPhone 8",
-            DesiredCapabilitiesEnum.reduceMotion: "true"
-        ]
-
-        do {
-            let driver = try AppiumDriver(AppiumCapabilities(opts))
-            XCTAssert(driver.currentSessionCapabilities.capabilities()[.sessionId] != "")
-
-            XCTAssertNotNil(driver.getCapabilities()["udid"])
-
-            let els = try driver.findElements(by: SearchContext.AccessibilityId, with: "Buttons")
-            XCTAssertEqual(els.count, 1)
-            XCTAssert(els[0].id != "")
-
-            let el = try driver.findElement(by: SearchContext.AccessibilityId, with: "Buttons")
-            XCTAssert(el.id != "")
-
-            el.click()
-
-            let buttonGray = try driver.findElement(by: SearchContext.Name, with: "Gray")
-            XCTAssert(buttonGray.id != "NoSuchElementError")
-
-            XCTAssertEqual((try driver.findElements(by: SearchContext.AccessibilityId, with: "Grey")).count, 0)
-
-            XCTAssertThrowsError((try driver.findElement(by: SearchContext.Name, with: "Grey"))) { error in
-                guard case WebDriverErrorEnum.NoSuchElementError(let error) = error else {
-                    return XCTFail()
-                }
-                XCTAssertEqual("no such element", error["error"])
-                XCTAssertEqual("An element could not be located on the page using the given search parameters.", error["message"])
-            }
-        } catch let e {
-            // TODO: We must prepare a wrapper of assertions in order to make where the error happens clear
-            XCTAssertFalse(true, "\(e)")
-        }
     }
 }
