@@ -13,7 +13,7 @@ steps:
 - task: Xcode@5
   inputs:
     actions: 'build'
-    scheme: ''
+    scheme: 'AppiumSwiftClient'
     sdk: 'iphoneos'
     configuration: 'Debug'
     xcWorkspacePath: 'AppiumSwiftClient.xcworkspace'
@@ -21,7 +21,7 @@ steps:
 - task: Xcode@5
   inputs:
     actions: 'test'
-    scheme: ''
+    scheme: 'AppiumSwiftClientUnitTests'
     sdk: 'iphoneos'
     configuration: 'Debug'
     xcWorkspacePath: 'AppiumSwiftClient.xcworkspace'
