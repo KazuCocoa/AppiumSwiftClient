@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct W3CFindElement : CommandProtocol {
+struct W3CFindElement: CommandProtocol {
     private let helper: W3CFindElementHelper
 
     init() {
@@ -22,12 +22,16 @@ struct W3CFindElement : CommandProtocol {
                                                                      commandPath: commandUrl(with: sessionId),
                                                                      json: json)
 
-        if (statusCode == 200) {
-            return Element(id: helper.elementIdFrom(param: returnValue["value"] as! W3CFindElementHelper.ElementValue),
-                           sessionId: sessionId)
-        } else if  (statusCode == 404) {
-            let message = returnValue["value"] as! WebDriverErrorEnum.Error
-            throw WebDriverErrorEnum.NoSuchElementError(error: message)
+        if statusCode == 200 {
+            return Element(
+                id: helper.elementIdFrom(param:
+                    returnValue["value"] as! W3CFindElementHelper.ElementValue // swiftlint:disable:this force_cast
+                ),
+                sessionId: sessionId
+            )
+        } else if statusCode == 404 {
+            let message = returnValue["value"] as! WebDriverErrorEnum.Error // swiftlint:disable:this force_cast
+            throw WebDriverErrorEnum.noSuchElementError(error: message)
         } else {
             print("Status code is \(statusCode)")
             return Element(id: helper.noElement, sessionId: sessionId)

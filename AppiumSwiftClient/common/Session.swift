@@ -7,7 +7,7 @@
 //
 
 public struct Session {
-    public typealias Id = String
+    public typealias Id = String // swiftlint:disable:this type_name
 
-    let id: Id
+    let id: Id // swiftlint:disable:this identifier_name
 }

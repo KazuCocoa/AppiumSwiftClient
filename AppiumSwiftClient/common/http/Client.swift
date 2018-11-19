@@ -18,8 +18,8 @@ struct HttpClient {
     func sendSyncRequest(method: HttpMethod, commandPath: String, json: Data) -> (Int, [String: Any]) {
         let uri = "\(endpoint)\(commandPath)"
 
-        var returnValue : [String: Any] = ["value": ""]
-        var statusCode : Int = 0
+        var returnValue: [String: Any] = ["value": ""]
+        var statusCode: Int = 0
 
         guard let url = URL(string: uri) else {
             print("failed to create session")
@@ -42,7 +42,7 @@ struct HttpClient {
 
         let task = session.dataTask(with: commandURLRequest) { (data, response, error) in
             if let resp = response {
-                statusCode = (resp as! HTTPURLResponse).statusCode
+                statusCode = (resp as! HTTPURLResponse).statusCode // swiftlint:disable:this force_cast
             }
 
             guard let responseData = data, error == nil else {
@@ -50,11 +50,12 @@ struct HttpClient {
                 return
             }
 
-            returnValue =  WebDriverResponseValue(responseJsonData: responseData).value as! [String : Any]
+            returnValue =  WebDriverResponseValue(responseJsonData: responseData)
+                .value as! [String: Any] // swiftlint:disable:this force_cast
             semaphore.signal()
         }
         task.resume()
-        let _ = semaphore.wait(timeout: .distantFuture)
+        _ = semaphore.wait(timeout: .distantFuture)
 
         return (statusCode, returnValue)
     }
@@ -64,10 +65,11 @@ struct HttpClient {
 
         init(responseJsonData: Data) {
             do {
-                guard let jsonValue = try JSONSerialization.jsonObject(with: responseJsonData, options: []) as? [String: Any] else {
-                    print("Could not get JSON from responseData as dictionary")
-                    value = "Invalid JSON format"
-                    return
+                guard let jsonValue =
+                    try JSONSerialization.jsonObject(with: responseJsonData, options: []) as? [String: Any] else {
+                        print("Could not get JSON from responseData as dictionary")
+                        value = "Invalid JSON format"
+                        return
                 }
 
                 value = jsonValue

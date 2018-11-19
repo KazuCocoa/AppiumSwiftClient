@@ -6,6 +6,6 @@
 //  Copyright © 2018 KazuCocoa. All rights reserved.
 //
 
-protocol CommandParamProtocol : Codable {
+protocol CommandParamProtocol: Codable {
     // CommandParam shoule be a codable
 }

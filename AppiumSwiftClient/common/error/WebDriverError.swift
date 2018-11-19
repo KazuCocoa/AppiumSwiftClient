@@ -9,7 +9,7 @@
 protocol WebDriverErrorProtocol {
 }
 
-struct WebDriverError : WebDriverErrorProtocol {
+struct WebDriverError: WebDriverErrorProtocol {
     let error: String
     let message: String
     let stacktrace: String

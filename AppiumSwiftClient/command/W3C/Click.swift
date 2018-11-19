@@ -8,18 +8,19 @@
 
 import Foundation
 
-struct W3CElementClick : CommandProtocol {
+struct W3CElementClick: CommandProtocol {
     private let noElement = "no element"
 
     func sendRequest(_ elementId: Element.Id, with sessionId: Session.Id) -> String {
         let json = generateBodyData()
-        let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.elementClick.0,
-                                                                     commandPath: commandUrl(with: sessionId, and: elementId),
-                                                                     json: json)
+        let (statusCode, returnValue) =
+            HttpClient().sendSyncRequest(method: W3CCommands.elementClick.0,
+                                         commandPath: commandUrl(with: sessionId, and: elementId),
+                                         json: json)
 
-        if (statusCode == 200) {
-            return returnValue["value"] as! String
-        } else if (statusCode == 400) {
+        if statusCode == 200 {
+            return returnValue["value"] as! String // swiftlint:disable:this force_cast
+        } else if statusCode == 400 {
             print("invalid parameter")
             print(returnValue)
             return noElement
@@ -49,6 +50,6 @@ struct W3CElementClick : CommandProtocol {
         }
     }
 
-    fileprivate struct CommandParam : CommandParamProtocol {
+    fileprivate struct CommandParam: CommandParamProtocol {
     }
 }

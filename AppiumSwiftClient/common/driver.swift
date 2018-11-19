@@ -14,7 +14,7 @@ protocol Driver {
 
 // sessionId should be global id.
 // Will create Class as the driver. All of methods are struct. The class has them.
-public class AppiumDriver : Driver {
+public class AppiumDriver: Driver {
 
     public var currentSessionCapabilities: AppiumCapabilities
 
@@ -52,7 +52,7 @@ public class AppiumDriver : Driver {
         return try W3CFindElements().sendRequest(by: locator, with: value, to: currentSession.id)
     }
 
-    public func getCapabilities() -> [String : Any] {
+    public func getCapabilities() -> [String: Any] {
         return W3CGetCapabilities().sendRequest(with: currentSession.id)
     }
 }

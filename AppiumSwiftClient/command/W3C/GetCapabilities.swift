@@ -8,19 +8,19 @@
 
 import Foundation
 
-struct W3CGetCapabilities : CommandProtocol {
-    func sendRequest(with sessionId: Session.Id) -> [String : Any] {
+struct W3CGetCapabilities: CommandProtocol {
+    func sendRequest(with sessionId: Session.Id) -> [String: Any] {
         let json = generateBodyData()
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.getCapabilities.0,
                                                                      commandPath: commandUrl(with: sessionId),
                                                                      json: json)
 
-        if (statusCode == 200) {
-            return returnValue["value"] as! [String : Any]
+        if statusCode == 200 {
+            return returnValue["value"] as! [String: Any] // swiftlint:disable:this force_cast
         } else {
             print("Status code is \(statusCode)")
             print(returnValue)
-            return ["" : ""]
+            return ["": ""]
         }
     }
 
@@ -43,7 +43,6 @@ struct W3CGetCapabilities : CommandProtocol {
         }
     }
 
-    fileprivate struct CommandParam : CommandParamProtocol {
+    fileprivate struct CommandParam: CommandParamProtocol {
     }
 }
-

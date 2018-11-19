@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct W3CFindElements : CommandProtocol {
+struct W3CFindElements: CommandProtocol {
     private let helper: W3CFindElementHelper
 
     init() {
@@ -22,12 +22,13 @@ struct W3CFindElements : CommandProtocol {
                                                                      commandPath: commandUrl(with: sessionId),
                                                                      json: json)
 
-        if (statusCode == 200) {
-            return (returnValue["value"] as! W3CFindElementHelper.ElementsValue).map {
-                Element(id: helper.elementIdFrom(param: $0),
-                        sessionId: sessionId)
+        if statusCode == 200 {
+            return (returnValue["value"] as! W3CFindElementHelper.ElementsValue) // swiftlint:disable:this force_cast
+                .map {
+                    Element(id: helper.elementIdFrom(param: $0),
+                            sessionId: sessionId)
             }
-        } else if  (statusCode == 404) {
+        } else if statusCode == 404 {
             print(returnValue)
             return []
         } else {

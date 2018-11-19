@@ -10,7 +10,7 @@ import Foundation
 
 struct W3CFindElementHelper {
     public typealias ElementValue = [String: String] // {"element-6066-11e4-a52e-4f735466cecf": "element id"}
-    public typealias ElementsValue = [ElementValue] // [{"element-6066-11e4-a52e-4f735466cecf": "element id"}, {...:...}]
+    public typealias ElementsValue = [ElementValue]
     let noElement = "no element"
 
     func generateBodyData(by locator: SearchContext, with value: String) -> Data {
@@ -32,8 +32,8 @@ struct W3CFindElementHelper {
         return param["ELEMENT"] ?? param["element-6066-11e4-a52e-4f735466cecf"] ?? noElement
     }
 
-    fileprivate struct CommandParam : CommandParamProtocol {
-        let using : String
-        let value : String
+    fileprivate struct CommandParam: CommandParamProtocol {
+        let using: String
+        let value: String
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 KazuCocoa. All rights reserved.
 //
 
-enum HttpMethod : String {
+enum HttpMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"

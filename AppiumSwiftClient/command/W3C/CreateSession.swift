@@ -12,14 +12,19 @@ import Foundation
 //Test Suite 'DriverTest' started at 2018-11-19 00:25:09.214
 //Test Case '-[AppiumSwiftClientUnitTests.DriverTest testCreateSession]' started.
 //2018-11-19 00:25:09.424581+0900 xctest[3011:64950] TIC TCP Conn Failed [1:0x7f84f480e030]: 1:61 Err(61)
-//2018-11-19 00:25:09.436805+0900 xctest[3011:64950] Task <70F6243C-2CEE-41A8-9F5F-1A009005A6FC>.<1> HTTP load failed (error code: -1004 [1:61])
-//2018-11-19 00:25:09.437206+0900 xctest[3011:64436] Task <70F6243C-2CEE-41A8-9F5F-1A009005A6FC>.<1> finished with error - code: -1004
+//2018-11-19 00:25:09.436805+0900 xctest[3011:64950] Task <70F6243C-2CEE-41A8-9F5F-1A009005A6FC>.
+// <1> HTTP load failed (error code: -1004 [1:61])
+//2018-11-19 00:25:09.437206+0900 xctest[3011:64436] Task <70F6243C-2CEE-41A8-9F5F-1A009005A6FC>.
+// <1> finished with error - code: -1004
 //Error calling POST on http://127.0.0.1:4723/wd/hub/session
-struct W3CCreateSession : CommandProtocol {
+struct W3CCreateSession: CommandProtocol {
     func sendRequest(with caps: AppiumCapabilities) throws -> String {
         let json = generateBodyData(with: caps)
 
-        // {"value":{"sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","capabilities":{"device":"iphone","browserName":"UICatalog","sdkVersion":"11.4","CFBundleIdentifier":"com.example.apple-samplecode.UICatalog"}},"sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","status":0}
+        // {"value":{"sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","capabilities":
+        //  {"device":"iphone","browserName":"UICatalog","sdkVersion":"11.4",
+        //    "CFBundleIdentifier":"com.example.apple-samplecode.UICatalog"}},
+        //    "sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","status":0}
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.newSession.0,
                                                                      commandPath: commandUrl(),
                                                                      json: json)
@@ -28,18 +33,18 @@ struct W3CCreateSession : CommandProtocol {
             return ""
         }
 
-        if (statusCode == 200) {
-            let id = value["sessionId"] as! String
-            return id
-        } else if (statusCode == 500 ) {
-            let error = returnValue["value"] as! WebDriverErrorEnum.Error
+        if statusCode == 200 {
+            let sessionId = value["sessionId"] as! String // swiftlint:disable:this force_cast
+            return sessionId
+        } else if statusCode == 500 {
+            let error = returnValue["value"] as! WebDriverErrorEnum.Error // swiftlint:disable:this force_cast
             let webDriverError = WebDriverError(errorResult: error)
-            if (webDriverError.error == "SessionNotCreatedError") {
-                throw WebDriverErrorEnum.SessionNotCreatedError(error: error)
-            } else if (webDriverError.error == "InvalidSessionIdError") {
-                throw WebDriverErrorEnum.InvalidSessionIdError(error: error)
+            if webDriverError.error == "SessionNotCreatedError" {
+                throw WebDriverErrorEnum.sessionNotCreatedError(error: error)
+            } else if webDriverError.error == "InvalidSessionIdError" {
+                throw WebDriverErrorEnum.invalidSessionIdError(error: error)
             } else {
-                throw WebDriverErrorEnum.WebDriverError(error: error) // general error
+                throw WebDriverErrorEnum.webDriverError(error: error) // general error
             }
         } else {
             print("Status code is \(statusCode)")
@@ -70,12 +75,12 @@ struct W3CCreateSession : CommandProtocol {
         }
     }
 
-    fileprivate struct CommandParam : CommandParamProtocol {
-        let desiredCapabilities : OssDesiredCapability
-        let capabilities : W3CFirstMatch
+    fileprivate struct CommandParam: CommandParamProtocol {
+        let desiredCapabilities: OssDesiredCapability
+        let capabilities: W3CFirstMatch
     }
 
-    fileprivate struct W3CFirstMatch : CommandParamProtocol {
-        let firstMatch : [W3CDesiredCapability]
+    fileprivate struct W3CFirstMatch: CommandParamProtocol {
+        let firstMatch: [W3CDesiredCapability]
     }
 }

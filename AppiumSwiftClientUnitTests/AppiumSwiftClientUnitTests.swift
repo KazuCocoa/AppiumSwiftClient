@@ -39,21 +39,21 @@ class AppiumSwiftClientUnitTests: XCTestCase {
 
             XCTAssertNotNil(driver.getCapabilities()["udid"])
 
-            let els = try driver.findElements(by: SearchContext.AccessibilityId, with: "Buttons")
+            let els = try driver.findElements(by: SearchContext.accessibilityId, with: "Buttons")
             XCTAssertEqual(els.count, 1)
             XCTAssert(els[0].id != "")
 
-            let el = try driver.findElement(by: SearchContext.AccessibilityId, with: "Buttons")
+            let el = try driver.findElement(by: SearchContext.accessibilityId, with: "Buttons")
             XCTAssert(el.id != "")
 
             el.click()
 
-            let buttonGray = try driver.findElement(by: SearchContext.Name, with: "Gray")
+            let buttonGray = try driver.findElement(by: SearchContext.name, with: "Gray")
             XCTAssert(buttonGray.id != "NoSuchElementError")
 
-            XCTAssertEqual((try driver.findElements(by: SearchContext.AccessibilityId, with: "Grey")).count, 0)
+            XCTAssertEqual((try driver.findElements(by: SearchContext.accessibilityId, with: "Grey")).count, 0)
 
-            XCTAssertThrowsError((try driver.findElement(by: SearchContext.Name, with: "Grey"))) { error in
+            XCTAssertThrowsError((try driver.findElement(by: SearchContext.name, with: "Grey"))) { error in
                 guard case WebDriverErrorEnum.NoSuchElementError(let error) = error else {
                     return XCTFail()
                 }

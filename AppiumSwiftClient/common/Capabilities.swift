@@ -6,21 +6,21 @@
 //  Copyright © 2018 KazuCocoa. All rights reserved.
 //
 
-public enum DesiredCapabilitiesEnum : String {
+public enum DesiredCapabilitiesEnum: String {
     case platformName, automationName, app, platformVersion, deviceName
     case reduceMotion // Option
     case sessionId // Additional
 }
 
-public struct OssDesiredCapability : Codable {
-    let platformName : String
-    let automationName : String
-    let app : String
-    let platformVersion : String
-    let deviceName : String
-    var reduceMotion : String = "false"
+public struct OssDesiredCapability: Codable {
+    let platformName: String
+    let automationName: String
+    let app: String
+    let platformVersion: String
+    let deviceName: String
+    var reduceMotion: String = "false"
 
-    init(with caps : AppiumCapabilities) {
+    init(with caps: AppiumCapabilities) {
         let desiredCaps = caps.desiredCapability
         platformName = desiredCaps[.platformName] ?? ""
         automationName = desiredCaps[.automationName] ?? ""
@@ -31,15 +31,15 @@ public struct OssDesiredCapability : Codable {
     }
 }
 
-public struct W3CDesiredCapability : Codable {
-    let platformName : String
-    let automationName : String
-    let app : String
-    let platformVersion : String
-    let deviceName : String
-    var reduceMotion : String = "false"
+public struct W3CDesiredCapability: Codable {
+    let platformName: String
+    let automationName: String
+    let app: String
+    let platformVersion: String
+    let deviceName: String
+    var reduceMotion: String = "false"
 
-    init(with caps : AppiumCapabilities) {
+    init(with caps: AppiumCapabilities) {
         let desiredCaps = caps.desiredCapability
         platformName = desiredCaps[.platformName] ?? ""
         automationName = desiredCaps[.automationName] ?? ""
@@ -59,12 +59,12 @@ protocol Capabilities {
     // protocol
 }
 
-public struct AppiumCapabilities : Capabilities {
+public struct AppiumCapabilities: Capabilities {
     var desiredCapability: [DesiredCapabilitiesEnum: String] = [:]
 
     var sessionId: String = ""
 
-    public init(_ opts : [DesiredCapabilitiesEnum: String]) {
+    public init(_ opts: [DesiredCapabilitiesEnum: String]) {
         guard let platformName = opts[.platformName] else {
             fatalError("platformName is mondatory")
         }
