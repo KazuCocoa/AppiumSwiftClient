@@ -12,4 +12,9 @@ target 'AppiumSwiftClient' do
     pod 'Mockingjay', '~> 2.0'
   end
 
+  target 'AppiumFuncTests' do
+    inherit! :search_paths
+    pod 'Mockingjay', '~> 2.0'
+  end
 end
+

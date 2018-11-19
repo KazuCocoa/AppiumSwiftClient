@@ -10,6 +10,9 @@
 		7252E19221A25FB8000B5855 /* CreateSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19121A25FB8000B5855 /* CreateSessionTests.swift */; };
 		7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */; };
 		7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */; };
+		7252E1A021A29C4D000B5855 /* AppiumFuncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19F21A29C4D000B5855 /* AppiumFuncTests.swift */; };
+		7252E1A221A29C4D000B5855 /* libAppiumSwiftClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 726196852194929600730A67 /* libAppiumSwiftClient.a */; };
+		7252E1AD21A2A19B000B5855 /* UICatalog.app.zip in Resources */ = {isa = PBXBuildFile; fileRef = 7252E1AC21A2A19B000B5855 /* UICatalog.app.zip */; };
 		726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196882194929600730A67 /* AppiumSwiftClient.swift */; };
 		726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */; };
 		726196982194948900730A67 /* libAppiumSwiftClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 726196852194929600730A67 /* libAppiumSwiftClient.a */; };
@@ -33,11 +36,19 @@
 		726196C921A17B6C00730A67 /* FindElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196C821A17B6C00730A67 /* FindElements.swift */; };
 		726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196CA21A193CD00730A67 /* FindElementHelper.swift */; };
 		72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72686A9A21A1B3670042D385 /* GetCapabilities.swift */; };
+		B56734569980A912ACF56DD3 /* Pods_AppiumFuncTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E6ECFC48DFA5AE5D6A70AC /* Pods_AppiumFuncTests.framework */; };
 		E28580FF8C70AAAB238380C8 /* Pods_AppiumSwiftClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97571B30B80D0F7CDF96796 /* Pods_AppiumSwiftClient.framework */; };
 		EC5272DF704D29C639E20678 /* Pods_AppiumSwiftClientUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4D6C775222B615F1F73876 /* Pods_AppiumSwiftClientUnitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7252E1A321A29C4D000B5855 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7261967D2194929600730A67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 726196842194929600730A67;
+			remoteInfo = AppiumSwiftClient;
+		};
 		726196992194948900730A67 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7261967D2194929600730A67 /* Project object */;
@@ -62,9 +73,14 @@
 /* Begin PBXFileReference section */
 		43A7477AF1A78BA50897D0F9 /* Pods-AppiumSwiftClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClient/Pods-AppiumSwiftClient.debug.xcconfig"; sourceTree = "<group>"; };
 		4C4D6C775222B615F1F73876 /* Pods_AppiumSwiftClientUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppiumSwiftClientUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B597A9FB3F011F41EC81483 /* Pods-AppiumFuncTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumFuncTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumFuncTests/Pods-AppiumFuncTests.release.xcconfig"; sourceTree = "<group>"; };
 		7252E19121A25FB8000B5855 /* CreateSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionTests.swift; sourceTree = "<group>"; };
 		7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClientTestBase.swift; sourceTree = "<group>"; };
 		7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCapabilitiesTests.swift; sourceTree = "<group>"; };
+		7252E19D21A29C4D000B5855 /* AppiumFuncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppiumFuncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7252E19F21A29C4D000B5855 /* AppiumFuncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumFuncTests.swift; sourceTree = "<group>"; };
+		7252E1A121A29C4D000B5855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7252E1AC21A2A19B000B5855 /* UICatalog.app.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = UICatalog.app.zip; sourceTree = "<group>"; };
 		726196852194929600730A67 /* libAppiumSwiftClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppiumSwiftClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		726196882194929600730A67 /* AppiumSwiftClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClient.swift; sourceTree = "<group>"; };
 		726196932194948900730A67 /* AppiumSwiftClientUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppiumSwiftClientUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,13 +106,24 @@
 		726196C821A17B6C00730A67 /* FindElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElements.swift; sourceTree = "<group>"; };
 		726196CA21A193CD00730A67 /* FindElementHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElementHelper.swift; sourceTree = "<group>"; };
 		72686A9A21A1B3670042D385 /* GetCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCapabilities.swift; sourceTree = "<group>"; };
+		7786E63B28F1CA6CB9369CAD /* Pods-AppiumFuncTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumFuncTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumFuncTests/Pods-AppiumFuncTests.debug.xcconfig"; sourceTree = "<group>"; };
 		829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClientUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		89DEB940E024EED2A2C4CC51 /* Pods-AppiumSwiftClientUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClientUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E2E8A03DADC2F287C3F2517 /* Pods-AppiumSwiftClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClient/Pods-AppiumSwiftClient.release.xcconfig"; sourceTree = "<group>"; };
+		A6E6ECFC48DFA5AE5D6A70AC /* Pods_AppiumFuncTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppiumFuncTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97571B30B80D0F7CDF96796 /* Pods_AppiumSwiftClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppiumSwiftClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7252E19A21A29C4D000B5855 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7252E1A221A29C4D000B5855 /* libAppiumSwiftClient.a in Frameworks */,
+				B56734569980A912ACF56DD3 /* Pods_AppiumFuncTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		726196822194929600730A67 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,6 +151,8 @@
 				9E2E8A03DADC2F287C3F2517 /* Pods-AppiumSwiftClient.release.xcconfig */,
 				89DEB940E024EED2A2C4CC51 /* Pods-AppiumSwiftClientUnitTests.debug.xcconfig */,
 				829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */,
+				7786E63B28F1CA6CB9369CAD /* Pods-AppiumFuncTests.debug.xcconfig */,
+				6B597A9FB3F011F41EC81483 /* Pods-AppiumFuncTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -145,11 +174,30 @@
 			path = W3C;
 			sourceTree = "<group>";
 		};
+		7252E19E21A29C4D000B5855 /* AppiumFuncTests */ = {
+			isa = PBXGroup;
+			children = (
+				7252E1AB21A2A19B000B5855 /* app */,
+				7252E19F21A29C4D000B5855 /* AppiumFuncTests.swift */,
+				7252E1A121A29C4D000B5855 /* Info.plist */,
+			);
+			path = AppiumFuncTests;
+			sourceTree = "<group>";
+		};
+		7252E1AB21A2A19B000B5855 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				7252E1AC21A2A19B000B5855 /* UICatalog.app.zip */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
 		7261967C2194929600730A67 = {
 			isa = PBXGroup;
 			children = (
 				726196872194929600730A67 /* AppiumSwiftClient */,
 				726196942194948900730A67 /* AppiumSwiftClientUnitTests */,
+				7252E19E21A29C4D000B5855 /* AppiumFuncTests */,
 				726196862194929600730A67 /* Products */,
 				07F8318DD70CA51EB2BD6858 /* Pods */,
 				8F5497D68ACFEB93BCF5B486 /* Frameworks */,
@@ -161,6 +209,7 @@
 			children = (
 				726196852194929600730A67 /* libAppiumSwiftClient.a */,
 				726196932194948900730A67 /* AppiumSwiftClientUnitTests.xctest */,
+				7252E19D21A29C4D000B5855 /* AppiumFuncTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				7252E18F21A25F96000B5855 /* command */,
-				726196C721A177AE00730A67 /* app */,
 				726196A2219499AD00730A67 /* common */,
 				726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */,
 				726196972194948900730A67 /* Info.plist */,
@@ -253,18 +301,12 @@
 			path = error;
 			sourceTree = "<group>";
 		};
-		726196C721A177AE00730A67 /* app */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = app;
-			sourceTree = "<group>";
-		};
 		8F5497D68ACFEB93BCF5B486 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				B97571B30B80D0F7CDF96796 /* Pods_AppiumSwiftClient.framework */,
 				4C4D6C775222B615F1F73876 /* Pods_AppiumSwiftClientUnitTests.framework */,
+				A6E6ECFC48DFA5AE5D6A70AC /* Pods_AppiumFuncTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -272,6 +314,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7252E19C21A29C4D000B5855 /* AppiumFuncTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7252E1A721A29C4D000B5855 /* Build configuration list for PBXNativeTarget "AppiumFuncTests" */;
+			buildPhases = (
+				1BF411A3463656DC2CECB0DA /* [CP] Check Pods Manifest.lock */,
+				7252E19921A29C4D000B5855 /* Sources */,
+				7252E19A21A29C4D000B5855 /* Frameworks */,
+				7252E19B21A29C4D000B5855 /* Resources */,
+				7252E1A821A29C58000B5855 /* ShellScript */,
+				37597EDADA6DC7E0A76AC13F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7252E1A421A29C4D000B5855 /* PBXTargetDependency */,
+			);
+			name = AppiumFuncTests;
+			productName = AppiumFuncTests;
+			productReference = 7252E19D21A29C4D000B5855 /* AppiumFuncTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		726196842194929600730A67 /* AppiumSwiftClient */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7261968C2194929600730A67 /* Build configuration list for PBXNativeTarget "AppiumSwiftClient" */;
@@ -322,6 +385,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = KazuCocoa;
 				TargetAttributes = {
+					7252E19C21A29C4D000B5855 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					726196842194929600730A67 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -344,11 +410,20 @@
 			targets = (
 				726196842194929600730A67 /* AppiumSwiftClient */,
 				726196922194948900730A67 /* AppiumSwiftClientUnitTests */,
+				7252E19C21A29C4D000B5855 /* AppiumFuncTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7252E19B21A29C4D000B5855 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7252E1AD21A2A19B000B5855 /* UICatalog.app.zip in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		726196912194948900730A67 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +434,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1BF411A3463656DC2CECB0DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppiumFuncTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37597EDADA6DC7E0A76AC13F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AppiumFuncTests/Pods-AppiumFuncTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
+				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppiumFuncTests/Pods-AppiumFuncTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4A07048C9EC8E8006BFD9DAB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -439,6 +560,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		7252E1A821A29C58000B5855 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		D868DA672525A63CC99BCD60 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -464,6 +602,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7252E19921A29C4D000B5855 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7252E1A021A29C4D000B5855 /* AppiumFuncTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		726196812194929600730A67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,6 +652,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7252E1A421A29C4D000B5855 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 726196842194929600730A67 /* AppiumSwiftClient */;
+			targetProxy = 7252E1A321A29C4D000B5855 /* PBXContainerItemProxy */;
+		};
 		7261969A2194948900730A67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 726196842194929600730A67 /* AppiumSwiftClient */;
@@ -514,6 +665,46 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		7252E1A521A29C4D000B5855 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7786E63B28F1CA6CB9369CAD /* Pods-AppiumFuncTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47PCFA586Q;
+				INFOPLIST_FILE = AppiumFuncTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazucocoa.AppiumFuncTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7252E1A621A29C4D000B5855 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B597A9FB3F011F41EC81483 /* Pods-AppiumFuncTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47PCFA586Q;
+				INFOPLIST_FILE = AppiumFuncTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazucocoa.AppiumFuncTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		7261968A2194929600730A67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -699,6 +890,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7252E1A721A29C4D000B5855 /* Build configuration list for PBXNativeTarget "AppiumFuncTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7252E1A521A29C4D000B5855 /* Debug */,
+				7252E1A621A29C4D000B5855 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		726196802194929600730A67 /* Build configuration list for PBXProject "AppiumSwiftClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
