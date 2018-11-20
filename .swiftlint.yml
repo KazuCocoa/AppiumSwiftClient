@@ -1,4 +1,5 @@
 included:
+  - AppiumFuncTests
   - AppiumSwiftClient
   - AppiumSwiftClientTests
 excluded:
