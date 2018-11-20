@@ -97,7 +97,7 @@ class CreateSessionTests: XCTestCase {
             guard case WebDriverErrorEnum.sessionNotCreatedError(let error) = error else {
                 return XCTFail()
             }
-            XCTAssertEqual("session not created", error["error"])
+            XCTAssertEqual(error["error"], "session not created")
         }
     }
 }

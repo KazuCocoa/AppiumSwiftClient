@@ -47,14 +47,7 @@ class GetCapabilitiesTests: AppiumSwiftClientTestBase {
         }
         stub(matcher, json(body, status: 200))
 
-        let opts = [
-            DesiredCapabilitiesEnum.platformName: "iOS",
-            DesiredCapabilitiesEnum.automationName: "xcuitest",
-            DesiredCapabilitiesEnum.app: "path/to/test",
-            DesiredCapabilitiesEnum.platformVersion: "11.4",
-            DesiredCapabilitiesEnum.deviceName: "iPhone Simulator",
-            ]
-        let driver = try! AppiumDriver(AppiumCapabilities(opts))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
 
         let caps = driver.getCapabilities()
         XCTAssertEqual("3CB9E12B-419C-49B1-855A-45322861F1F7", caps["udid"] as! String)

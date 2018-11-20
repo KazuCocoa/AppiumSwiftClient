@@ -9,7 +9,17 @@
 import XCTest
 import Mockingjay
 
+@testable import AppiumSwiftClient
+
 class AppiumSwiftClientTestBase : XCTestCase {
+    let opts = [
+        DesiredCapabilitiesEnum.platformName: "iOS",
+        DesiredCapabilitiesEnum.automationName: "xcuitest",
+        DesiredCapabilitiesEnum.app: "path/to/test",
+        DesiredCapabilitiesEnum.platformVersion: "11.4",
+        DesiredCapabilitiesEnum.deviceName: "iPhone Simulator",
+    ]
+
     func stubCreateSession() {
         let body = [
             "value": [
