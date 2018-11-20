@@ -1,5 +1,7 @@
 **This is completely experimental library**
 
+[![Build Status](https://dev.azure.com/kazucocoa/AppiumSwiftClient/_apis/build/status/KazuCocoa.AppiumSwiftClient)](https://dev.azure.com/kazucocoa/AppiumSwiftClient/_build/latest?definitionId=2)
+
 Currently, Appium support Java, Ruby, Python, JavaScript and C# clients mainly.
 Not so active, but Perl and PHP are also available.
 
