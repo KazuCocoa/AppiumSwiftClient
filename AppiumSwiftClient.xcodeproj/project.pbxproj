@@ -13,6 +13,9 @@
 		7252E1A021A29C4D000B5855 /* AppiumFuncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19F21A29C4D000B5855 /* AppiumFuncTests.swift */; };
 		7252E1A221A29C4D000B5855 /* libAppiumSwiftClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 726196852194929600730A67 /* libAppiumSwiftClient.a */; };
 		7252E1AD21A2A19B000B5855 /* UICatalog.app.zip in Resources */ = {isa = PBXBuildFile; fileRef = 7252E1AC21A2A19B000B5855 /* UICatalog.app.zip */; };
+		7252E1B121A43307000B5855 /* FindElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E1B021A43307000B5855 /* FindElementTests.swift */; };
+		7252E1B321A43C96000B5855 /* FindElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E1B221A43C96000B5855 /* FindElementsTests.swift */; };
+		7252E1B521A4407A000B5855 /* ClickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E1B421A4407A000B5855 /* ClickTests.swift */; };
 		726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196882194929600730A67 /* AppiumSwiftClient.swift */; };
 		726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196952194948900730A67 /* AppiumSwiftClientUnitTests.swift */; };
 		726196982194948900730A67 /* libAppiumSwiftClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 726196852194929600730A67 /* libAppiumSwiftClient.a */; };
@@ -81,6 +84,9 @@
 		7252E19F21A29C4D000B5855 /* AppiumFuncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumFuncTests.swift; sourceTree = "<group>"; };
 		7252E1A121A29C4D000B5855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7252E1AC21A2A19B000B5855 /* UICatalog.app.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = UICatalog.app.zip; sourceTree = "<group>"; };
+		7252E1B021A43307000B5855 /* FindElementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindElementTests.swift; sourceTree = "<group>"; };
+		7252E1B221A43C96000B5855 /* FindElementsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElementsTests.swift; sourceTree = "<group>"; };
+		7252E1B421A4407A000B5855 /* ClickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickTests.swift; sourceTree = "<group>"; };
 		726196852194929600730A67 /* libAppiumSwiftClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppiumSwiftClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		726196882194929600730A67 /* AppiumSwiftClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClient.swift; sourceTree = "<group>"; };
 		726196932194948900730A67 /* AppiumSwiftClientUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppiumSwiftClientUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,8 +174,11 @@
 		7252E19021A25FA1000B5855 /* W3C */ = {
 			isa = PBXGroup;
 			children = (
+				7252E1B021A43307000B5855 /* FindElementTests.swift */,
+				7252E1B221A43C96000B5855 /* FindElementsTests.swift */,
 				7252E19121A25FB8000B5855 /* CreateSessionTests.swift */,
 				7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */,
+				7252E1B421A4407A000B5855 /* ClickTests.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -640,8 +649,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7252E1B121A43307000B5855 /* FindElementTests.swift in Sources */,
 				726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */,
 				7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */,
+				7252E1B321A43C96000B5855 /* FindElementsTests.swift in Sources */,
+				7252E1B521A4407A000B5855 /* ClickTests.swift in Sources */,
 				7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */,
 				726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */,
 				7252E19221A25FB8000B5855 /* CreateSessionTests.swift in Sources */,

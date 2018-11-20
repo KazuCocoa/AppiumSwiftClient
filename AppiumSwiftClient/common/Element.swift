@@ -17,12 +17,14 @@ public struct Element {
         self.sessionId = sessionId
     }
 
-    public func click() {
+    public func click() -> String {
         let result = W3CElementClick().sendRequest(self.id, with: sessionId)
 
         guard result != "" else {
             print(result)
-            return
+            return result
         }
+
+        return result
     }
 }
