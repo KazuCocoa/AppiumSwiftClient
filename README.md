@@ -15,4 +15,9 @@ I understand Google and Apple maintain Espresso for Android and XCUITest for iOS
 
 It's trade-off thing, but I thought if we have Swift client for iOS, it also helps Test/QA/development world.
 
-This repository has not stable yet. Has no concrete roadmap. But let me try to prototype the client in Swift.
+This repository has not been stable yet. Has no concrete roadmap. But let me try to prototype the client in Swift.
+
+## how to use
+- `git clone`
+- Run `AppiumFuncTests` scheme as test
+    - Write scenarios in https://github.com/KazuCocoa/AppiumSwiftClient/tree/master/AppiumFuncTests
