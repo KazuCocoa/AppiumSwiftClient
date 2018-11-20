@@ -46,6 +46,8 @@ class AppiumSwiftClientTestBase : XCTestCase {
     }
 
     override func setUp() {
+        super.setUp()
+        mockingjayRemoveStubOnTearDown = true
         stubCreateSession()
     }
 }

@@ -39,13 +39,8 @@ struct W3CCreateSession: CommandProtocol {
         } else if statusCode == 500 {
             let error = returnValue["value"] as! WebDriverErrorEnum.Error // swiftlint:disable:this force_cast
             let webDriverError = WebDriverError(errorResult: error)
-            if webDriverError.error == "SessionNotCreatedError" {
-                throw WebDriverErrorEnum.sessionNotCreatedError(error: error)
-            } else if webDriverError.error == "InvalidSessionIdError" {
-                throw WebDriverErrorEnum.invalidSessionIdError(error: error)
-            } else {
-                throw WebDriverErrorEnum.webDriverError(error: error) // general error
-            }
+            try webDriverError.raise()
+            return "error happensed"
         } else {
             print("Status code is \(statusCode)")
             return "error happensed"

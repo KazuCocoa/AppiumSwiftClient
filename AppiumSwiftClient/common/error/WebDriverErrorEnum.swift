@@ -6,6 +6,7 @@
 //  Copyright © 2018 KazuCocoa. All rights reserved.
 //
 public enum WebDriverErrorEnum: Error {
+
     // TODO: will change
     public typealias Error = [String: String]
 
