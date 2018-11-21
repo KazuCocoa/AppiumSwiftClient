@@ -21,3 +21,8 @@ This repository has not been stable yet. Has no concrete roadmap. But let me try
 - `git clone`
 - Run `AppiumFuncTests` scheme as test
     - Write scenarios in https://github.com/KazuCocoa/AppiumSwiftClient/tree/master/AppiumFuncTests
+
+# Reference
+- In Appium repo, we already have selenium-swift. But the library stops maintaining
+    - https://github.com/appium/selenium-swift
+
