@@ -22,7 +22,6 @@ public struct WebDriverError: WebDriverErrorProtocol {
     let capitalizedError: String
 
     init(errorResult: [String: String]) {
-        // swiftlint:disable force_try
         self.originalError = W3C(error: errorResult["error"] ?? "",
                                  message: errorResult["message"] ?? "",
                                  stacktrace: errorResult["stacktrace"] ?? "")
