@@ -61,7 +61,7 @@ class FindElementTests: AppiumSwiftClientTestBase {
             guard case WebDriverErrorEnum.noSuchElementError(let error) = error else {
                 return XCTFail()
             }
-            XCTAssertEqual(error["error"], "no such element")
+            XCTAssertEqual(error.error, "no such element")
         }
     }
 }

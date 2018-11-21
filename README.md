@@ -2,6 +2,8 @@
 
 [![Build Status](https://dev.azure.com/kazucocoa/AppiumSwiftClient/_apis/build/status/KazuCocoa.AppiumSwiftClient)](https://dev.azure.com/kazucocoa/AppiumSwiftClient/_build/latest?definitionId=2)
 
+# About this library
+
 Currently, Appium support Java, Ruby, Python, JavaScript and C# clients mainly.
 Not so active, but Perl and PHP are also available.
 
@@ -17,12 +19,21 @@ It's trade-off thing, but I thought if we have Swift client for iOS, it also hel
 
 This repository has not been stable yet. Has no concrete roadmap. But let me try to prototype the client in Swift.
 
-## how to use
+# how to try out
+
 - `git clone`
 - Run `AppiumFuncTests` scheme as test
     - Write scenarios in https://github.com/KazuCocoa/AppiumSwiftClient/tree/master/AppiumFuncTests
 
-# Reference
+# W3C
+
+- https://w3c.github.io/webdriver/
+
+# Notice
+
+- This might happen breaking changes
+
+:# Reference
 - In Appium repo, we already have selenium-swift. But the library stops maintaining
     - https://github.com/appium/selenium-swift
 
