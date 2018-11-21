@@ -101,3 +101,4 @@ class CreateSessionTests: XCTestCase {
         }
     }
 }
+AppiumSwiftClientUnitTests/command/W3C/CreateSessionTests.swift 

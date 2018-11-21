@@ -32,3 +32,8 @@ This repository has not been stable yet. Has no concrete roadmap. But let me try
 # Notice
 
 - This might happen breaking changes
+
+:# Reference
+- In Appium repo, we already have selenium-swift. But the library stops maintaining
+    - https://github.com/appium/selenium-swift
+
