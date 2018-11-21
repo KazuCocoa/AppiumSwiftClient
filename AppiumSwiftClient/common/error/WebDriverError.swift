@@ -6,24 +6,27 @@
 //  Copyright © 2018 KazuCocoa. All rights reserved.
 //
 
+import Foundation
+
 protocol WebDriverErrorProtocol {
 }
 
-struct WebDriverError: WebDriverErrorProtocol {
-    let originalError: WebDriverErrorEnum.Error
+public struct WebDriverError: WebDriverErrorProtocol {
+    public struct W3C: Codable {
+        let error: String
+        let message: String
+        let stacktrace: String
+    }
 
+    let originalError: W3C
     let capitalizedError: String
-    let error: String
-    let message: String
-    let stacktrace: String
 
-    init(errorResult: WebDriverErrorEnum.Error) {
-        self.originalError = errorResult
-        self.error = errorResult["error"] ?? ""
-        self.message = errorResult["message"] ?? ""
-        self.stacktrace = errorResult["stacktrace"] ?? ""
-
-        let capitalized = error
+    init(errorResult: [String: String]) {
+        // swiftlint:disable force_try
+        self.originalError = W3C(error: errorResult["error"] ?? "",
+                                 message: errorResult["message"] ?? "",
+                                 stacktrace: errorResult["stacktrace"] ?? "")
+        let capitalized = originalError.error
             .trimmingCharacters(in: .whitespaces)
             .capitalized
             .components(separatedBy: .whitespaces)

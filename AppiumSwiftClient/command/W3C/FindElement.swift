@@ -30,8 +30,8 @@ struct W3CFindElement: CommandProtocol {
                 sessionId: sessionId
             )
         } else if statusCode == 404 {
-            let error = returnValue["value"] as! WebDriverErrorEnum.Error // swiftlint:disable:this force_cast
-            let webDriverError = WebDriverError(errorResult: error)
+            // swiftlint:disable force_cast
+            let webDriverError = WebDriverError(errorResult: returnValue["value"] as! [String: String])
             try webDriverError.raise()
             return Element(id: helper.noElement, sessionId: sessionId)
         } else {

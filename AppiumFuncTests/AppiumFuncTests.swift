@@ -38,27 +38,27 @@ class AppiumFuncTests: XCTestCase {
 
             XCTAssertNotNil(driver.getCapabilities()["udid"])
 
-            let els = try driver.findElements(by: SearchContext.accessibilityId, with: "Buttons")
+            let els = try driver.findElements(by: .accessibilityId, with: "Buttons")
             XCTAssertEqual(els.count, 1)
             XCTAssert(els[0].id != "")
 
-            let ele = try driver.findElement(by: SearchContext.accessibilityId, with: "Buttons")
-            XCTAssert(el.id != "")
+            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
+            XCTAssert(ele.id != "")
 
-            ele.click()
+            _ = ele.click()
 
-            let buttonGray = try driver.findElement(by: SearchContext.name, with: "Gray")
+            let buttonGray = try driver.findElement(by: .name, with: "Gray")
             XCTAssert(buttonGray.id != "NoSuchElementError")
 
-            XCTAssertEqual((try driver.findElements(by: SearchContext.accessibilityId, with: "Grey")).count, 0)
+            XCTAssertEqual((try driver.findElements(by: .accessibilityId, with: "Grey")).count, 0)
 
-            XCTAssertThrowsError((try driver.findElement(by: SearchContext.name, with: "Grey"))) { error in
+            XCTAssertThrowsError((try driver.findElement(by: .name, with: "Grey"))) { error in
                 guard case WebDriverErrorEnum.noSuchElementError(let error) = error else {
                     return XCTFail("should raise no such element error")
                 }
-                XCTAssertEqual("no such element", error["error"])
+                XCTAssertEqual("no such element", error.error)
                 XCTAssertEqual("An element could not be located on the page using the given search parameters.",
-                               error["message"])
+                               error.message)
             }
         } catch let exception {
             // TODO: We must prepare a wrapper of assertions in order to make where the error happens clear

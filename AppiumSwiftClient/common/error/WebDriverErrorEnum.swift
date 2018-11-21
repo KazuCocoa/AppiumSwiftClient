@@ -6,11 +6,7 @@
 //  Copyright © 2018 KazuCocoa. All rights reserved.
 //
 public enum WebDriverErrorEnum: Error {
-
-    // TODO: will change
-    public typealias Error = [String: String]
-
-    case webDriverError(error: Error) // standard
+    case webDriverError(error: WebDriverError.W3C) // standard
 
     case indexOutOfBoundsError // 1
     case noCollectionError // 2
@@ -32,7 +28,7 @@ public enum WebDriverErrorEnum: Error {
     //    at _throw (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/node_modules/@babel/runtime/helpers/asyncToGenerator.js:29:9)\n
     //    at <anonymous>";
     //                }]
-    case noSuchElementError(error: Error) // 7
+    case noSuchElementError(error: WebDriverError.W3C) // 7
 
     // A command to switch to a frame could not be satisfied because the frame could not be found.
     case noSuchFrameError // 8
@@ -107,7 +103,7 @@ public enum WebDriverErrorEnum: Error {
     case invalidSelectorError // 32
 
     // A new session could not be created.
-    case sessionNotCreatedError(error: Error) // 33
+    case sessionNotCreatedError(error: WebDriverError.W3C) // 33
 
     // The target for mouse interaction is not in the browser's viewport and cannot be brought
     // into that viewport.
@@ -133,7 +129,7 @@ public enum WebDriverErrorEnum: Error {
 
     // Occurs if the given session id is not in the list of active sessions, meaning the session
     // either does not exist or that it's not active.
-    case invalidSessionIdError(error: Error)
+    case invalidSessionIdError(error: WebDriverError.W3C)
 
     // A modal dialog was open, blocking this operation.
     case unexpectedAlertOpenError
