@@ -12,10 +12,25 @@ protocol WebDriverErrorProtocol {
 }
 
 public struct WebDriverError: WebDriverErrorProtocol {
+    //    {
+    //        "value": {
+    //            "error": "unexpected alert open",
+    //            "message": "",
+    //            "stacktrace": "",
+    //            "data": { // optional
+    //                "text": "Message from window.alert"
+    //            }
+    //        }
+    //    }
     public struct W3C: Codable {
         let error: String
         let message: String
         let stacktrace: String
+        let data: W3CData
+    }
+
+    public struct W3CData: Codable {
+        let text: String
     }
 
     let originalError: W3C
@@ -24,7 +39,9 @@ public struct WebDriverError: WebDriverErrorProtocol {
     init(errorResult: [String: String]) {
         self.originalError = W3C(error: errorResult["error"] ?? "",
                                  message: errorResult["message"] ?? "",
-                                 stacktrace: errorResult["stacktrace"] ?? "")
+                                 stacktrace: errorResult["stacktrace"] ?? "",
+                                 data: W3CData(text: "")) // TODO: Add "data" { "text": "xxxx" }
+
         let capitalized = originalError.error
             .trimmingCharacters(in: .whitespaces)
             .capitalized
