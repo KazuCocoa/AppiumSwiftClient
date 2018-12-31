@@ -144,4 +144,7 @@ public enum WebDriverErrorEnum: Error {
     // Indicates that a command that should have executed properly cannot be supported for some
     // reason.
     case unsupportedOperationError
+
+    // Appium
+    case noSuchContextError(error: WebDriverError.W3C)
 }

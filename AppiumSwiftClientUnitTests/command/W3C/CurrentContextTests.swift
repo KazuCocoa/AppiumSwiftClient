@@ -15,7 +15,7 @@ class CurrentContextTests: AppiumSwiftClientTestBase {
 
     func testAvailableCOntexts() {
         let body = [
-            "value": "NATIVE"
+            "value": "NATIVE_APP"
         ]
 
         func matcher(request: URLRequest) -> Bool {
@@ -28,6 +28,6 @@ class CurrentContextTests: AppiumSwiftClientTestBase {
         }
         stub(matcher, json(body, status: 200))
         let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
-        XCTAssertEqual(driver.getCurrentContext(), "NATIVE")
+        XCTAssertEqual(driver.getCurrentContext(), "NATIVE_APP")
     }
 }

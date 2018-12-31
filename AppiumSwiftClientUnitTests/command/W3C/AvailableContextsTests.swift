@@ -15,7 +15,7 @@ class AvailableContextsTests: AppiumSwiftClientTestBase {
 
     func testAvailableCOntexts() {
         let body = [
-            "value": ["NATIVE", "WEBVIEW"]
+            "value": ["NATIVE_APP", "WEBVIEW"]
         ]
 
         func matcher(request: URLRequest) -> Bool {
@@ -28,6 +28,6 @@ class AvailableContextsTests: AppiumSwiftClientTestBase {
         }
         stub(matcher, json(body, status: 200))
         let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
-        XCTAssertEqual(driver.getAvailableContexts(), ["NATIVE", "WEBVIEW"])
+        XCTAssertEqual(driver.getAvailableContexts(), ["NATIVE_APP", "WEBVIEW"])
     }
 }
