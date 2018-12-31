@@ -55,4 +55,16 @@ public class AppiumDriver: Driver {
     public func getCapabilities() -> [String: Any] {
         return W3CGetCapabilities().sendRequest(with: currentSession.id)
     }
+
+    public func getAvailableContexts() -> [String] {
+        return W3CAvailableContexts().sendRequest(with: currentSession.id)
+    }
+
+    public func getCurrentContext() -> String {
+        return W3CCurrentContext().sendRequest(with: currentSession.id)
+    }
+
+    public func setContext(name: String) -> String {
+        return W3CSetContext().sendRequest(with: currentSession.id, andWith: name)
+    }
 }

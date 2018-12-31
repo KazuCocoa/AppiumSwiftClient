@@ -38,6 +38,10 @@ class AppiumFuncTests: XCTestCase {
 
             XCTAssertNotNil(driver.getCapabilities()["udid"])
 
+            XCTAssertEqual(driver.getAvailableContexts(), ["NATIVE"])
+            XCTAssertNotNil(driver.setContext(name: "NATIVE"))
+            XCTAssertEqual(driver.getCurrentContext(), "NATIVE")
+
             let els = try driver.findElements(by: .accessibilityId, with: "Buttons")
             XCTAssertEqual(els.count, 1)
             XCTAssert(els[0].id != "")
