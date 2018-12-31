@@ -58,6 +58,8 @@ public struct WebDriverError: WebDriverErrorProtocol {
             throw WebDriverErrorEnum.invalidSessionIdError(error: originalError)
         case "NoSuchElementError":
             throw WebDriverErrorEnum.noSuchElementError(error: originalError)
+        case "NoSuchContextError":
+            throw WebDriverErrorEnum.noSuchContextError(error: originalError)
         default:
             throw WebDriverErrorEnum.webDriverError(error: originalError)
         }
