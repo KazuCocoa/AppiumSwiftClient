@@ -65,9 +65,9 @@ class AppiumFuncTests: XCTestCase {
                                error.message)
             }
 
-            let path = driver.saveScreenshot(to: "hello.png")
-            XCTAssertNotEqual("", path)
-            print(path)
+            let screenshotPath = driver.saveScreenshot(to: "hello.png")
+            XCTAssertNotEqual(screenshotPath, "")
+            print(screenshotPath)
         } catch let exception {
             // TODO: We must prepare a wrapper of assertions in order to make where the error happens clear
             XCTAssertFalse(true, "\(exception)")
