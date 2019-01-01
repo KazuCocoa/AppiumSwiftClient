@@ -64,6 +64,10 @@ class AppiumFuncTests: XCTestCase {
                 XCTAssertEqual("An element could not be located on the page using the given search parameters.",
                                error.message)
             }
+
+            let path = driver.saveScreenshot(to: "hello.png")
+            XCTAssertNotEqual("", path)
+            print(path)
         } catch let exception {
             // TODO: We must prepare a wrapper of assertions in order to make where the error happens clear
             XCTAssertFalse(true, "\(exception)")

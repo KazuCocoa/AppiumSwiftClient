@@ -10,9 +10,11 @@ protocol CommandProtocol {
     // Generate Command URL with parsing Session.Id and Element.Id
     func commandUrl(with sessionId: Session.Id, and elementId: Element.Id) -> W3CCommands.CommandPath
 
+    // Handle a request
     // func sendRequest()
 
-    // func generateBodyDat()
+    // Generate json body to Appium server
+    // func generateBodyData()
 
     // fileprivate struct CommandParam : CommandParamProtocol
 }
