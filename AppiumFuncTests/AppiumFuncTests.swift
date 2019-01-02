@@ -49,6 +49,10 @@ class AppiumFuncTests: XCTestCase {
             let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
             XCTAssert(ele.id != "")
 
+            let elementScreenshotPath = driver.saveScreenshot(with: ele, to: "element_screenshot.png")
+            XCTAssertNotEqual(elementScreenshotPath, "")
+            print(elementScreenshotPath)
+
             _ = ele.click()
 
             let buttonGray = try driver.findElement(by: .name, with: "Gray")
