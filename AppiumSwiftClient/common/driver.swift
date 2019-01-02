@@ -75,7 +75,24 @@ public class AppiumDriver: Driver {
 
     public func saveScreenshot(to filePath: String) -> String {
         let base64 = getBase64Screenshot()
-        guard let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else { // swiftlint:disable:this force_cast
+        guard let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else {
+            return ""
+        }
+        let pngData = UIImage(data: data)?.pngData()
+
+        let fileURL = FileManager.default.currentDirectoryPath.appending("/\(filePath)")
+        // TODO: create a directory if the path has no full path
+        //writing
+        return FileManager.default.createFile(atPath: fileURL, contents: pngData) ? fileURL : ""
+    }
+
+    public func getBase64Screenshot(with element: Element) -> String {
+        return W3CElementScreenshot().sendRequest(element.id, with: currentSession.id)
+    }
+
+    public func saveScreenshot(with element: Element, to filePath: String) -> String {
+        let base64 = getBase64Screenshot(with: element)
+        guard let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else {
             return ""
         }
         let pngData = UIImage(data: data)?.pngData()
