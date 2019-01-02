@@ -20,7 +20,6 @@ steps:
     sdk: 'iphonesimulator'
     configuration: 'Debug'
     xcWorkspacePath: 'AppiumSwiftClient.xcworkspace'
-    xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
     destinationTypeOption: 'simulators'
     destinationSimulators: 'iPhone 8'
     destinationPlatformOption: 'iOS'
