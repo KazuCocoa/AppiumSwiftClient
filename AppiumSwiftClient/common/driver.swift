@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit // For screenshot
 
 protocol Driver {
     // no
@@ -66,5 +67,22 @@ public class AppiumDriver: Driver {
 
     public func setContext(name: String) throws -> String {
         return try W3CSetContext().sendRequest(with: currentSession.id, andWith: name)
+    }
+
+    public func getBase64Screenshot() -> String {
+        return W3CScreenshot().sendRequest(with: currentSession.id)
+    }
+
+    public func saveScreenshot(to filePath: String) -> String {
+        let base64 = getBase64Screenshot()
+        guard let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else { // swiftlint:disable:this force_cast
+            return ""
+        }
+        let pngData = UIImage(data: data)?.pngData()
+
+        let fileURL = FileManager.default.currentDirectoryPath.appending("/\(filePath)")
+        // TODO: create a directory if the path has no full path
+        //writing
+        return FileManager.default.createFile(atPath: fileURL, contents: pngData) ? fileURL : ""
     }
 }
