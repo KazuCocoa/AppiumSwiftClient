@@ -29,7 +29,9 @@ struct W3CFindElementHelper {
     }
 
     func elementIdFrom(param: ElementValue) -> String {
-        return param["ELEMENT"] ?? param["element-6066-11e4-a52e-4f735466cecf"] ?? noElement
+        // "ELEMENT" is for MJSONWP
+        // "element-6066-11e4-a52e-4f735466cecf" is for W3C
+        return param["element-6066-11e4-a52e-4f735466cecf"] ?? param["ELEMENT"] ?? noElement
     }
 
     fileprivate struct CommandParam: CommandParamProtocol {
