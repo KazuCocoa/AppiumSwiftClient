@@ -12,7 +12,8 @@ steps:
     forceRepoUpdate: true
 - script: DEVELOPER_DIR=/Applications/Xcode_9.0.1.app xcrun simctl list -j devices
   displayName: 'xcrun simctl list -j devices'
-- script: DEVELOPER_DIR=/Applications/Xcode_9.0.1.app xcrun simctl list -j devices | python -c "import sys,json;print(' '.join(map(lambda x: x[0], filter(lambda x: len(filter(lambda y: y.get('availability') == '(available)', x[1])) > 0, json.load(sys.stdin)['devices'].items()))))"
+- script: |
+    DEVELOPER_DIR=/Applications/Xcode_9.0.1.app xcrun simctl list -j devices | python -c "import sys,json;print(' '.join(map(lambda x: x[0], filter(lambda x: len(filter(lambda y: y.get('availability') == '(available)', x[1])) > 0, json.load(sys.stdin)['devices'].items()))))"
   displayName: 'xcrun simctl list -j devices xcrun simctl list -j devices with python script'
 - script: Pods/SwiftLint/swiftlint
   displayName: 'Runs SwiftLint'
