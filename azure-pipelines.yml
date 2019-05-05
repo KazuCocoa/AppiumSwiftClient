@@ -10,9 +10,9 @@ steps:
 - task: CocoaPods@0
   inputs:
     forceRepoUpdate: true
-- script: xcrun simctl list -j devices
+- script: DEVELOPER_DIR=/Applications/Xcode_9.0.1.app xcrun simctl list -j devices
   displayName: 'xcrun simctl list -j devices'
-- script: xcrun simctl list -j devices available
+- script: DEVELOPER_DIR=/Applications/Xcode_9.0.1.app xcrun simctl list -j devices available
   displayName: 'xcrun simctl list -j devices available'
 - script: Pods/SwiftLint/swiftlint
   displayName: 'Runs SwiftLint'
