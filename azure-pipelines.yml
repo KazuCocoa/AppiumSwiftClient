@@ -10,6 +10,8 @@ steps:
 - task: CocoaPods@0
   inputs:
     forceRepoUpdate: true
+- script: DEVELOPER_DIR=/Applications/Xcode_9.0.1.app xcodebuild -checkFirstLaunchStatus;echo $?
+  displayName: 'xcodebuild -checkFirstLaunchStatus;echo $?'
 - script: DEVELOPER_DIR=/Applications/Xcode_9.0.1.app xcodebuild -showsdks -json
   displayName: 'xcodebuild -showsdks -json'
 - script: DEVELOPER_DIR=/Applications/Xcode_9.0.1.app xcrun simctl list -j devices
