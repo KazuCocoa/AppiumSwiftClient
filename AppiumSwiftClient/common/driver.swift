@@ -102,4 +102,8 @@ public class AppiumDriver: Driver {
         //writing
         return FileManager.default.createFile(atPath: fileURL, contents: pngData) ? fileURL : ""
     }
+
+    public func quit() -> String {
+        return W3CEndSession().sendRequest(with: currentSession.id)
+    }
 }
