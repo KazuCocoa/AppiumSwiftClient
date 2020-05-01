@@ -19,7 +19,7 @@ struct W3CElementClick: CommandProtocol {
                                          json: json)
 
         if statusCode == 200 {
-            return returnValue["value"] as! String // swiftlint:disable:this force_cast
+            return ""
         } else if statusCode == 400 {
             print("invalid parameter")
             print(returnValue)
