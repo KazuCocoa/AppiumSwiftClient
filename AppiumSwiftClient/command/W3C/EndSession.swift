@@ -12,15 +12,18 @@ struct W3CEndSession: CommandProtocol {
 
     func sendRequest(with sessionId: Session.Id) -> String {
         let json = generateBodyData()
-        let (statusCode, _) =
+        let (statusCode, returnValue) =
             HttpClient().sendSyncRequest(method: W3CCommands.deleteSession.0,
                                          commandPath: commandUrl(with: sessionId),
                                          json: json)
 
         if statusCode == 200 {
             return ""
+        } else if statusCode == 404 {
+            print("Status Code \(statusCode): No Session with id \(sessionId) found?")
+            print(returnValue)
+            return ""
         } else {
-            print("Status Code \(statusCode): No Session Found?")
             return ""
         }
     }
