@@ -2,14 +2,13 @@
 //  EndSession.swift
 //  AppiumSwiftClient
 //
-//  Created by Gabriel Fioretti on 01.05.20.
+//  Created by Gabriel Fioretti on 03.05.20.
 //  Copyright © 2020 KazuCocoa. All rights reserved.
 //
 
 import Foundation
 
 struct W3CEndSession: CommandProtocol {
-
     func sendRequest(with sessionId: Session.Id) -> String {
         let json = generateBodyData()
         let (statusCode, returnValue) =
