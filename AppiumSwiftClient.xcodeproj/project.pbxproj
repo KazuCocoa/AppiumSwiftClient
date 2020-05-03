@@ -953,8 +953,7 @@
 			baseConfigurationReference = 829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47PCFA
-				586Q;
+				DEVELOPMENT_TEAM = 47PCFA586Q;
 				INFOPLIST_FILE = AppiumSwiftClientUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
