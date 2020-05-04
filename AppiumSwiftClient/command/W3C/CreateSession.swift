@@ -40,10 +40,10 @@ struct W3CCreateSession: CommandProtocol {
             // swiftlint:disable force_cast
             let webDriverError = WebDriverError(errorResult: value as! [String: String])
             try webDriverError.raise()
-            return "error happensed"
+            return "error happened"
         } else {
             print("Status code is \(statusCode)")
-            return "error happensed"
+            return "error happened"
         }
     }
 
