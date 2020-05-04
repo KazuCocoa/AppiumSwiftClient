@@ -750,7 +750,7 @@
 			baseConfigurationReference = 7786E63B28F1CA6CB9369CAD /* Pods-AppiumFuncTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4D88B65D75;
+				DEVELOPMENT_TEAM = 47PCFA586Q;
 				INFOPLIST_FILE = AppiumFuncTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -770,7 +770,7 @@
 			baseConfigurationReference = 6B597A9FB3F011F41EC81483 /* Pods-AppiumFuncTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4D88B65D75;
+				DEVELOPMENT_TEAM = 47PCFA586Q;
 				INFOPLIST_FILE = AppiumFuncTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -934,7 +934,7 @@
 			baseConfigurationReference = 89DEB940E024EED2A2C4CC51 /* Pods-AppiumSwiftClientUnitTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4D88B65D75;
+				DEVELOPMENT_TEAM = 47PCFA586Q;
 				INFOPLIST_FILE = AppiumSwiftClientUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -953,7 +953,7 @@
 			baseConfigurationReference = 829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4D88B65D75;
+				DEVELOPMENT_TEAM = 47PCFA586Q;
 				INFOPLIST_FILE = AppiumSwiftClientUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
