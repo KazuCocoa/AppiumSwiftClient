@@ -16,15 +16,11 @@ struct W3CEndSession: CommandProtocol {
                                          commandPath: commandUrl(with: sessionId),
                                          json: json)
 
-        if statusCode == 200 {
-            return ""
-        } else if statusCode == 404 {
+        if statusCode == 404 {
             print("Status Code \(statusCode): No Session with id \(sessionId) found?")
             print(returnValue)
-            return ""
-        } else {
-            return ""
         }
+        return ""
     }
 
     func commandUrl(with sessionId: Session.Id, and _: Element.Id = "") -> W3CCommands.CommandPath {
@@ -32,8 +28,6 @@ struct W3CEndSession: CommandProtocol {
     }
 
     func generateBodyData() -> Data {
-        let invalidJson = "invalid JSON"
-
         let elementClickParam = CommandParam()
 
         let encoder = JSONEncoder()
@@ -42,7 +36,7 @@ struct W3CEndSession: CommandProtocol {
         do {
             return try encoder.encode(elementClickParam)
         } catch {
-            return invalidJson.data(using: .utf8)!
+            return "{}".data(using: .utf8)!
         }
     }
 
