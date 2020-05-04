@@ -11,10 +11,10 @@ PODS:
 
 DEPENDENCIES:
   - Mockingjay (~> 2.0)
-  - SwiftLint
+  - SwiftLint (~> 0.28)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Mockingjay
     - SwiftLint
     - URITemplate
@@ -24,6 +24,6 @@ SPEC CHECKSUMS:
   SwiftLint: 7f5f7de0da74a649b16616cb5246ae323489656e
   URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
 
-PODFILE CHECKSUM: c6f8efd57a218c9865ef91dcbfa1a5b161a615d4
+PODFILE CHECKSUM: b1e27abe5e049f46b39d048213aa1dc8d3fe7526
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1
