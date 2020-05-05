@@ -39,7 +39,7 @@ public struct W3CCommands {
     // Basic Driver
     static let get:                     CommandType = (HttpMethod.post,   "session\(Id.session.rawValue)/url")
     static let getCurrentUrl:           CommandType = (HttpMethod.get,    "session\(Id.session.rawValue)/url")
-    static let back:                    CommandType = (HttpMethod.post,   "session\(Id.session.rawValue)/back")
+    static let back:                    CommandType = (HttpMethod.post,   "session/\(Id.session.rawValue)/back")
     static let forward:                 CommandType = (HttpMethod.post,   "session\(Id.session.rawValue)/forward")
     static let refresh:                 CommandType = (HttpMethod.post,   "session\(Id.session.rawValue)/refresh")
     static let getTitle:                CommandType = (HttpMethod.post,   "session\(Id.session.rawValue)/title")
