@@ -10,15 +10,10 @@ import XCTest
 @testable import AppiumSwiftClient
 
 class AppiumFuncTests: XCTestCase {
+
+    var driver: AppiumDriver!
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testAppiumSwiftClientUnitTests() {
         let packageRootPath = URL(
             fileURLWithPath: #file.replacingOccurrences(of: "AppiumFuncTests/AppiumFuncTests.swift", with: "")
             ).path
@@ -27,13 +22,23 @@ class AppiumFuncTests: XCTestCase {
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "\(packageRootPath)/AppiumFuncTests/app/UICatalog.app.zip",
-            DesiredCapabilitiesEnum.platformVersion: "13.3",
+            DesiredCapabilitiesEnum.platformVersion: "13.4",
             DesiredCapabilitiesEnum.deviceName: "iPhone 8",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
-
         do {
-            let driver = try AppiumDriver(AppiumCapabilities(opts))
+            driver = try AppiumDriver(AppiumCapabilities(opts))
+        } catch {
+            XCTFail("Failed to spin up driver: \(error)")
+        }
+    }
+
+    override func tearDown() {
+        driver.quit()
+    }
+
+    func testAppiumSwiftClientUnitTests() {
+        do {
             XCTAssert(driver.currentSessionCapabilities.capabilities()[.sessionId] != "")
 
             XCTAssertNotNil(driver.getCapabilities()["udid"])
@@ -70,10 +75,20 @@ class AppiumFuncTests: XCTestCase {
 
             let screenshotPath = driver.saveScreenshot(to: "hello.png")
             XCTAssertNotEqual(screenshotPath, "")
-            driver.quit()
+            //let pageSource = driver.getPageSource()
+            //driver.quit()
         } catch let exception {
             // TODO: We must prepare a wrapper of assertions in order to make where the error happens clear
             XCTAssertFalse(true, "\(exception)")
+        }
+    }
+    
+    func testCanGetPageSource() {
+        do {
+            let pageSource = try driver.getPageSource()
+            XCTAssertTrue(pageSource.contains("<?xml version=\"1.0\" encoding=\"UTF-8\"?><AppiumAUT>"))
+        } catch {
+            XCTFail("\(error)")
         }
     }
 }

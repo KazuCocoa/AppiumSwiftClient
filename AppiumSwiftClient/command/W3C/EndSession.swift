@@ -28,13 +28,13 @@ struct W3CEndSession: CommandProtocol {
     }
 
     func generateBodyData() -> Data {
-        let elementClickParam = CommandParam()
+        let endSessionParam = CommandParam()
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = .sortedKeys
 
         do {
-            return try encoder.encode(elementClickParam)
+            return try encoder.encode(endSessionParam)
         } catch {
             return "{}".data(using: .utf8)!
         }
