@@ -106,6 +106,10 @@ public class AppiumDriver: Driver {
     public func getPageSource() throws -> String {
         return try W3CGetPageSource().sendRequest(with: currentSession.id)
     }
+    
+    @discardableResult public func back() throws -> String {
+        return try W3CGoBack().sendRequest(with: currentSession.id)
+    }
 
     @discardableResult public func quit() -> String {
         return W3CEndSession().sendRequest(with: currentSession.id)

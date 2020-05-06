@@ -37,28 +37,54 @@ class AppiumFuncTests: XCTestCase {
         driver.quit()
     }
 
-    func testAppiumSwiftClientUnitTests() {
+    func testDriverSessionCapabilities() {
+        XCTAssert(driver.currentSessionCapabilities.capabilities()[.sessionId] != "")
+
+        XCTAssertNotNil(driver.getCapabilities()["udid"])
+
+        XCTAssertEqual(driver.getAvailableContexts(), ["NATIVE_APP"])
+        XCTAssertNotNil(try driver.setContext(name: "NATIVE_APP"))
+        XCTAssertEqual(driver.getCurrentContext(), "NATIVE_APP")
+    }
+
+    func testCanFindElements() {
         do {
-            XCTAssert(driver.currentSessionCapabilities.capabilities()[.sessionId] != "")
-
-            XCTAssertNotNil(driver.getCapabilities()["udid"])
-
-            XCTAssertEqual(driver.getAvailableContexts(), ["NATIVE_APP"])
-            XCTAssertNotNil(try driver.setContext(name: "NATIVE_APP"))
-            XCTAssertEqual(driver.getCurrentContext(), "NATIVE_APP")
-
             let els = try driver.findElements(by: .accessibilityId, with: "Buttons")
             XCTAssertEqual(els.count, 1)
             XCTAssert(els[0].id != "")
+        } catch let exception {
+            XCTFail("\(exception)")
+        }
+    }
 
+    func testCanFindElement() {
+        do {
             let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
             XCTAssert(ele.id != "")
+        } catch let exception {
+            XCTFail("\(exception)")
+        }
+    }
 
+    func testCanTakeScreenshotOfElement() {
+        do {
+            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
             let elementScreenshotPath = driver.saveScreenshot(with: ele, to: "element_screenshot.png")
             XCTAssertNotEqual(elementScreenshotPath, "")
+        } catch let exception {
+            XCTFail("\(exception)")
+        }
+    }
 
-            _ = ele.click()
+    func testCanTakeScreenshotOfFullScreen() {
+        let screenshotPath = driver.saveScreenshot(to: "hello.png")
+        XCTAssertNotEqual(screenshotPath, "")
+    }
 
+    func testCantFindInexistentElement() {
+        do {
+            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
+            ele.click()
             let buttonGray = try driver.findElement(by: .name, with: "Gray")
             XCTAssert(buttonGray.id != "NoSuchElementError")
 
@@ -72,23 +98,33 @@ class AppiumFuncTests: XCTestCase {
                 XCTAssertEqual("An element could not be located on the page using the given search parameters.",
                                error.message)
             }
-
-            let screenshotPath = driver.saveScreenshot(to: "hello.png")
-            XCTAssertNotEqual(screenshotPath, "")
-            //let pageSource = driver.getPageSource()
-            //driver.quit()
         } catch let exception {
-            // TODO: We must prepare a wrapper of assertions in order to make where the error happens clear
-            XCTAssertFalse(true, "\(exception)")
+            XCTFail("\(exception)")
         }
     }
-    
+
     func testCanGetPageSource() {
         do {
             let pageSource = try driver.getPageSource()
             XCTAssertTrue(pageSource.contains("<?xml version=\"1.0\" encoding=\"UTF-8\"?><AppiumAUT>"))
-        } catch {
-            XCTFail("\(error)")
+        } catch let exception {
+            XCTFail("\(exception)")
+        }
+    }
+
+    func testCanGoBack() {
+        do {
+            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
+            let firstViewSource = try driver.getPageSource()
+            ele.click()
+            let nextPageSource = try driver.getPageSource()
+            XCTAssertTrue(firstViewSource != nextPageSource)
+            driver.back()
+            let firstViewSourceAfterGoBack = try driver.getPageSource()
+            XCTAssertTrue(firstViewSource == firstViewSourceAfterGoBack)
+            // TODO GF 05.05.2020: This test is suboptimal in my opinion and should be refactored once Element related endpoints are implemented to take advantage of visibility command.
+        } catch let exception {
+            XCTFail("\(exception)")
         }
     }
 }
