@@ -118,7 +118,7 @@ public enum WebDriverErrorEnum: Error {
     case elementNotInteractableError
 
     // The arguments passed to a command are either invalid or malformed.
-    case invalidArgumentError
+    case invalidArgumentError(error: WebDriverError.W3C)
 
     // No cookie matching the given path name was found amongst the associated cookies of the
     // current browsing context's active document.

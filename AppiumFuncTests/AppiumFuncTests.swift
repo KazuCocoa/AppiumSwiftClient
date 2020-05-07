@@ -119,12 +119,31 @@ class AppiumFuncTests: XCTestCase {
             ele.click()
             let nextPageSource = try driver.getPageSource()
             XCTAssertTrue(firstViewSource != nextPageSource)
-            driver.back()
+            try driver.back()
             let firstViewSourceAfterGoBack = try driver.getPageSource()
             XCTAssertTrue(firstViewSource == firstViewSourceAfterGoBack)
             // TODO GF 05.05.2020: This test is suboptimal in my opinion and should be refactored once Element related endpoints are implemented to take advantage of visibility command.
         } catch let exception {
             XCTFail("\(exception)")
         }
+    }
+
+    func testImplicitTimeout() {
+        var deltaWithoutImplicitWait: Double = 0
+        let initTimeWithoutImplicitWait = NSDate().timeIntervalSince1970
+        do {
+            _ = try driver.findElement(by: .name, with: "Bogus Element")
+        } catch {
+            deltaWithoutImplicitWait = NSDate().timeIntervalSince1970 - initTimeWithoutImplicitWait
+        }
+        try! driver.setImplicitTimeout(timeoutInMillisencods: 300) // swiftlint:disable:this force_try
+        var deltaWithImplicitWait: Double = 0
+        let initTimeWithImplicitWait = NSDate().timeIntervalSince1970
+        do {
+            _ = try driver.findElement(by: .name, with: "Bogus Element")
+        } catch {
+            deltaWithImplicitWait = NSDate().timeIntervalSince1970 - initTimeWithImplicitWait
+        }
+        XCTAssertTrue((deltaWithImplicitWait - deltaWithoutImplicitWait) > 0.3)
     }
 }

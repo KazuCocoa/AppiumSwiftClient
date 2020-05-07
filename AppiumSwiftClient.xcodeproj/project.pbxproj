@@ -54,6 +54,8 @@
 		7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271E74D245C8CBE0019F6DD /* EndSessionTests.swift */; };
 		728DD59C2461A665004E6800 /* GoBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59B2461A665004E6800 /* GoBack.swift */; };
 		728DD5A02461DF6E004E6800 /* GoBackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59F2461DF6E004E6800 /* GoBackTest.swift */; };
+		72CA79602462B4A000988CDE /* Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA795F2462B4A000988CDE /* Timeout.swift */; };
+		72CA79642464085500988CDE /* TimeoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA79632464085500988CDE /* TimeoutTests.swift */; };
 		72E6E5A7245F580F004E8A0C /* EndSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E6E5A6245F580F004E8A0C /* EndSession.swift */; };
 		B56734569980A912ACF56DD3 /* Pods_AppiumFuncTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E6ECFC48DFA5AE5D6A70AC /* Pods_AppiumFuncTests.framework */; };
 		E28580FF8C70AAAB238380C8 /* Pods_AppiumSwiftClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97571B30B80D0F7CDF96796 /* Pods_AppiumSwiftClient.framework */; };
@@ -143,6 +145,8 @@
 		7271E74D245C8CBE0019F6DD /* EndSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSessionTests.swift; sourceTree = "<group>"; };
 		728DD59B2461A665004E6800 /* GoBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBack.swift; sourceTree = "<group>"; };
 		728DD59F2461DF6E004E6800 /* GoBackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackTest.swift; sourceTree = "<group>"; };
+		72CA795F2462B4A000988CDE /* Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeout.swift; sourceTree = "<group>"; };
+		72CA79632464085500988CDE /* TimeoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutTests.swift; sourceTree = "<group>"; };
 		72E6E5A6245F580F004E8A0C /* EndSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSession.swift; sourceTree = "<group>"; };
 		7786E63B28F1CA6CB9369CAD /* Pods-AppiumFuncTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumFuncTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumFuncTests/Pods-AppiumFuncTests.debug.xcconfig"; sourceTree = "<group>"; };
 		829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClientUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				7271E74D245C8CBE0019F6DD /* EndSessionTests.swift */,
 				720CA7FD2460737100D85732 /* GetPageSourceTest.swift */,
 				728DD59F2461DF6E004E6800 /* GoBackTest.swift */,
+				72CA79632464085500988CDE /* TimeoutTests.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				7246FB3A21DB3F94004CDA8F /* screenshot */,
 				7213358521DA460200CBE9E3 /* context */,
 				726196AA219977D600730A67 /* CreateSession.swift */,
+				72CA795F2462B4A000988CDE /* Timeout.swift */,
 				726196B82199C28300730A67 /* FindElement.swift */,
 				726196C821A17B6C00730A67 /* FindElements.swift */,
 				726196BE2199D75700730A67 /* Click.swift */,
@@ -707,6 +713,7 @@
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,
 				726196B02199790A00730A67 /* Method.swift in Sources */,
 				720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */,
+				72CA79602462B4A000988CDE /* Timeout.swift in Sources */,
 				726196C3219D30FA00730A67 /* CommandParamProtocol.swift in Sources */,
 				726196BB2199C90E00730A67 /* Session.swift in Sources */,
 				726196AB219977D600730A67 /* CreateSession.swift in Sources */,
@@ -734,6 +741,7 @@
 				7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */,
 				7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */,
 				7252E1B321A43C96000B5855 /* FindElementsTests.swift in Sources */,
+				72CA79642464085500988CDE /* TimeoutTests.swift in Sources */,
 				7252E1B521A4407A000B5855 /* ClickTests.swift in Sources */,
 				7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */,
 				7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */,

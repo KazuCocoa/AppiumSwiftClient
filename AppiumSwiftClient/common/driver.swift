@@ -106,9 +106,26 @@ public class AppiumDriver: Driver {
     public func getPageSource() throws -> String {
         return try W3CGetPageSource().sendRequest(with: currentSession.id)
     }
-    
+
     @discardableResult public func back() throws -> String {
         return try W3CGoBack().sendRequest(with: currentSession.id)
+    }
+
+    @discardableResult public func setImplicitTimeout(timeoutInMillisencods: Int) throws -> String {
+        return try setTimeout(with: TimeoutTypesEnum.implicit, and: timeoutInMillisencods)
+    }
+
+    @discardableResult public func setPageLoadTimeout(timeoutInMillisencods: Int) throws -> String {
+        return try setTimeout(with: TimeoutTypesEnum.pageLoad, and: timeoutInMillisencods)
+    }
+
+    @discardableResult public func setScriptTimeout(timeoutInMillisencods: Int) throws -> String {
+        return try setTimeout(with: TimeoutTypesEnum.script, and: timeoutInMillisencods)
+    }
+
+    @discardableResult private func setTimeout(with timeoutType: TimeoutTypesEnum,
+                                               and timeoutInMilliseconds: Int) throws -> String {
+        return try W3CTimeout().sendRequest(with: currentSession.id, and: timeoutType, and: 300)
     }
 
     @discardableResult public func quit() -> String {
