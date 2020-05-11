@@ -146,4 +146,22 @@ class AppiumFuncTests: XCTestCase {
         }
         XCTAssertTrue((deltaWithImplicitWait - deltaWithoutImplicitWait) > 0.3)
     }
+
+    func testCanGetScreenOrientation() {
+        do {
+            let screenOrientation = try driver.getScreenOrientation()
+            print(screenOrientation)
+            XCTAssertTrue(screenOrientation == "PORTRAIT")
+        } catch let error {
+            XCTFail("\(error)")
+        }
+    }
+
+    func testCantSetScreenOrientationIfAppIsPortraitOnly() {
+        do {
+            try driver.rotate(to: ScreenOrientationEnum.landscape)
+        } catch let error {
+            XCTAssertTrue(error is WebDriverErrorEnum)
+        }
+    }
 }
