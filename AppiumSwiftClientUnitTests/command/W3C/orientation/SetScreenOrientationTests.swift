@@ -52,11 +52,11 @@ class SetScreenOrientationTest: AppiumSwiftClientTestBase {
     
     func testRotateDeviceFailsWith500() {
         let body = [
-            "value": {
+            "value": [
                 "error": "unknown error",
                 "message": "An unknown server-side error occurred while processing the command. Original error: Unable To Rotate Device",
                 "stacktrace": "UnknownError: An unknown server-side error occurred while processing the command. Original error: Unable To Rotate Device"
-            }
+            ]
         ]
         
         func matcher(request: URLRequest) -> Bool {
