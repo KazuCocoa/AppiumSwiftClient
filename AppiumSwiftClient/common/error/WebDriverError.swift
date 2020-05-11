@@ -62,6 +62,8 @@ public struct WebDriverError: WebDriverErrorProtocol {
             throw WebDriverErrorEnum.noSuchContextError(error: originalError)
         case "InvalidArgumentError":
             throw WebDriverErrorEnum.invalidArgumentError(error: originalError)
+        case "UnknownErrorError":
+            throw WebDriverErrorEnum.unknownError(error: originalError)
         default:
             throw WebDriverErrorEnum.webDriverError(error: originalError)
         }
