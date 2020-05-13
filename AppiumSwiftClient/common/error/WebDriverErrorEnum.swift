@@ -48,7 +48,7 @@ public enum WebDriverErrorEnum: Error {
     case invalidElementStateError // 12
 
     // An unknown error occurred in the remote end while processing the command.
-    case unknownError // 13
+    case unknownError(error: WebDriverError.W3C) // 13
     case expectedError // 14
 
     // An attempt was made to select an element that cannot be selected.

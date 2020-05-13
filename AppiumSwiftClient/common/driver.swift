@@ -128,6 +128,14 @@ public class AppiumDriver: Driver {
         return try W3CTimeout().sendRequest(with: currentSession.id, and: timeoutType, and: 300)
     }
 
+    public func getScreenOrientation() throws -> String {
+        return try W3CGetScreenOrientation().sendRequest(with: currentSession.id)
+    }
+
+    @discardableResult public func rotate(to orientation: ScreenOrientationEnum) throws -> String {
+        //return ""
+        return try W3CSetScreenOrientation().sendRequest(with: currentSession.id, to: orientation)
+    }
     @discardableResult public func quit() -> String {
         return W3CEndSession().sendRequest(with: currentSession.id)
     }

@@ -54,6 +54,14 @@
 		7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271E74D245C8CBE0019F6DD /* EndSessionTests.swift */; };
 		728DD59C2461A665004E6800 /* GoBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59B2461A665004E6800 /* GoBack.swift */; };
 		728DD5A02461DF6E004E6800 /* GoBackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59F2461DF6E004E6800 /* GoBackTest.swift */; };
+		72C6773324696B3400176D85 /* GetScreenOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6773224696B3400176D85 /* GetScreenOrientation.swift */; };
+		72C677362469717C00176D85 /* GetScreenOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C677352469717C00176D85 /* GetScreenOrientation.swift */; };
+		72C677382469773300176D85 /* SetScreenOrientationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C677372469773300176D85 /* SetScreenOrientationTests.swift */; };
+		72C6773A2469894000176D85 /* ScreenOrientationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C677392469894000176D85 /* ScreenOrientationEnum.swift */; };
+		72C6773C24698BFF00176D85 /* SetScreenOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6773B24698BFF00176D85 /* SetScreenOrientation.swift */; };
+		72C6773E24699CA500176D85 /* LandscapeOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6773D24699CA500176D85 /* LandscapeOrientationTest.swift */; };
+		72C677402469C9C100176D85 /* FunctionalBaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6773F2469C9C100176D85 /* FunctionalBaseTest.swift */; };
+		72C677422469CE8D00176D85 /* PortraitOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C677412469CE8D00176D85 /* PortraitOrientationTest.swift */; };
 		72CA79602462B4A000988CDE /* Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA795F2462B4A000988CDE /* Timeout.swift */; };
 		72CA79642464085500988CDE /* TimeoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA79632464085500988CDE /* TimeoutTests.swift */; };
 		72E6E5A7245F580F004E8A0C /* EndSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E6E5A6245F580F004E8A0C /* EndSession.swift */; };
@@ -145,6 +153,14 @@
 		7271E74D245C8CBE0019F6DD /* EndSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSessionTests.swift; sourceTree = "<group>"; };
 		728DD59B2461A665004E6800 /* GoBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBack.swift; sourceTree = "<group>"; };
 		728DD59F2461DF6E004E6800 /* GoBackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackTest.swift; sourceTree = "<group>"; };
+		72C6773224696B3400176D85 /* GetScreenOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetScreenOrientation.swift; sourceTree = "<group>"; };
+		72C677352469717C00176D85 /* GetScreenOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetScreenOrientation.swift; sourceTree = "<group>"; };
+		72C677372469773300176D85 /* SetScreenOrientationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetScreenOrientationTests.swift; sourceTree = "<group>"; };
+		72C677392469894000176D85 /* ScreenOrientationEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenOrientationEnum.swift; sourceTree = "<group>"; };
+		72C6773B24698BFF00176D85 /* SetScreenOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetScreenOrientation.swift; sourceTree = "<group>"; };
+		72C6773D24699CA500176D85 /* LandscapeOrientationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeOrientationTest.swift; sourceTree = "<group>"; };
+		72C6773F2469C9C100176D85 /* FunctionalBaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalBaseTest.swift; sourceTree = "<group>"; };
+		72C677412469CE8D00176D85 /* PortraitOrientationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitOrientationTest.swift; sourceTree = "<group>"; };
 		72CA795F2462B4A000988CDE /* Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeout.swift; sourceTree = "<group>"; };
 		72CA79632464085500988CDE /* TimeoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutTests.swift; sourceTree = "<group>"; };
 		72E6E5A6245F580F004E8A0C /* EndSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSession.swift; sourceTree = "<group>"; };
@@ -248,6 +264,7 @@
 		7252E19021A25FA1000B5855 /* W3C */ = {
 			isa = PBXGroup;
 			children = (
+				72C677442469D17D00176D85 /* orientation */,
 				7246FB3721DB3EF1004CDA8F /* screenshot */,
 				7213358821DA46A800CBE9E3 /* context */,
 				7252E1B021A43307000B5855 /* FindElementTests.swift */,
@@ -269,6 +286,9 @@
 				7252E1AB21A2A19B000B5855 /* app */,
 				7252E19F21A29C4D000B5855 /* AppiumFuncTests.swift */,
 				7252E1A121A29C4D000B5855 /* Info.plist */,
+				72C6773D24699CA500176D85 /* LandscapeOrientationTest.swift */,
+				72C6773F2469C9C100176D85 /* FunctionalBaseTest.swift */,
+				72C677412469CE8D00176D85 /* PortraitOrientationTest.swift */,
 			);
 			path = AppiumFuncTests;
 			sourceTree = "<group>";
@@ -371,6 +391,7 @@
 		726196B321998C8B00730A67 /* W3C */ = {
 			isa = PBXGroup;
 			children = (
+				72C677432469D15E00176D85 /* orientation */,
 				7246FB3A21DB3F94004CDA8F /* screenshot */,
 				7213358521DA460200CBE9E3 /* context */,
 				726196AA219977D600730A67 /* CreateSession.swift */,
@@ -394,6 +415,25 @@
 				726196C5219D35F700730A67 /* WebDriverError.swift */,
 			);
 			path = error;
+			sourceTree = "<group>";
+		};
+		72C677432469D15E00176D85 /* orientation */ = {
+			isa = PBXGroup;
+			children = (
+				72C6773B24698BFF00176D85 /* SetScreenOrientation.swift */,
+				72C677392469894000176D85 /* ScreenOrientationEnum.swift */,
+				72C6773224696B3400176D85 /* GetScreenOrientation.swift */,
+			);
+			path = orientation;
+			sourceTree = "<group>";
+		};
+		72C677442469D17D00176D85 /* orientation */ = {
+			isa = PBXGroup;
+			children = (
+				72C677372469773300176D85 /* SetScreenOrientationTests.swift */,
+				72C677352469717C00176D85 /* GetScreenOrientation.swift */,
+			);
+			path = orientation;
 			sourceTree = "<group>";
 		};
 		8F5497D68ACFEB93BCF5B486 /* Frameworks */ = {
@@ -689,6 +729,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72C6773E24699CA500176D85 /* LandscapeOrientationTest.swift in Sources */,
+				72C677422469CE8D00176D85 /* PortraitOrientationTest.swift in Sources */,
+				72C677402469C9C100176D85 /* FunctionalBaseTest.swift in Sources */,
 				7252E1A021A29C4D000B5855 /* AppiumFuncTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -710,11 +753,13 @@
 				726196A62195187F00730A67 /* driver.swift in Sources */,
 				7246FB3E21DCF81F004CDA8F /* W3CElementScreenshot.swift in Sources */,
 				72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */,
+				72C6773324696B3400176D85 /* GetScreenOrientation.swift in Sources */,
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,
 				726196B02199790A00730A67 /* Method.swift in Sources */,
 				720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */,
 				72CA79602462B4A000988CDE /* Timeout.swift in Sources */,
 				726196C3219D30FA00730A67 /* CommandParamProtocol.swift in Sources */,
+				72C6773A2469894000176D85 /* ScreenOrientationEnum.swift in Sources */,
 				726196BB2199C90E00730A67 /* Session.swift in Sources */,
 				726196AB219977D600730A67 /* CreateSession.swift in Sources */,
 				726196AD2199780800730A67 /* W3CCommands.swift in Sources */,
@@ -723,6 +768,7 @@
 				7213358E21DA488200CBE9E3 /* SetContext.swift in Sources */,
 				7213358721DA463000CBE9E3 /* CurrentContext.swift in Sources */,
 				726196A12194960D00730A67 /* Capabilities.swift in Sources */,
+				72C6773C24698BFF00176D85 /* SetScreenOrientation.swift in Sources */,
 				7246FB3C21DB3FA2004CDA8F /* Screenshot.swift in Sources */,
 				7213358221DA25CD00CBE9E3 /* AvailableContexts.swift in Sources */,
 			);
@@ -733,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				720CA7FE2460737100D85732 /* GetPageSourceTest.swift in Sources */,
+				72C677382469773300176D85 /* SetScreenOrientationTests.swift in Sources */,
 				7246FB4021DCFA2C004CDA8F /* ElementScreenshotTests.swift in Sources */,
 				7252E1B121A43307000B5855 /* FindElementTests.swift in Sources */,
 				728DD5A02461DF6E004E6800 /* GoBackTest.swift in Sources */,
@@ -744,6 +791,7 @@
 				72CA79642464085500988CDE /* TimeoutTests.swift in Sources */,
 				7252E1B521A4407A000B5855 /* ClickTests.swift in Sources */,
 				7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */,
+				72C677362469717C00176D85 /* GetScreenOrientation.swift in Sources */,
 				7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */,
 				726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */,
 				7246FB3921DB3F10004CDA8F /* ScreenshotTests.swift in Sources */,

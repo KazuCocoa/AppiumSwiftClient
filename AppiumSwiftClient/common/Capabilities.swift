@@ -8,7 +8,7 @@
 
 public enum DesiredCapabilitiesEnum: String {
     case platformName, automationName, app, platformVersion, deviceName
-    case reduceMotion // Option
+    case reduceMotion, orientation // Option
     case sessionId // Additional
 }
 
@@ -19,6 +19,7 @@ public struct OssDesiredCapability: Codable {
     let platformVersion: String
     let deviceName: String
     var reduceMotion: String = "false"
+    let orientation: String
 
     init(with caps: AppiumCapabilities) {
         let desiredCaps = caps.desiredCapability
@@ -28,6 +29,7 @@ public struct OssDesiredCapability: Codable {
         platformVersion = desiredCaps[.platformVersion] ?? ""
         deviceName = desiredCaps[.deviceName] ?? ""
         reduceMotion = desiredCaps[.reduceMotion] ?? "false"
+        orientation = desiredCaps[.orientation] ?? ScreenOrientationEnum.portrait.rawValue
     }
 }
 
@@ -38,6 +40,7 @@ public struct W3CDesiredCapability: Codable {
     let platformVersion: String
     let deviceName: String
     var reduceMotion: String = "false"
+    let orientation: String
 
     init(with caps: AppiumCapabilities) {
         let desiredCaps = caps.desiredCapability
@@ -47,10 +50,11 @@ public struct W3CDesiredCapability: Codable {
         platformVersion = desiredCaps[.platformVersion] ?? ""
         deviceName = desiredCaps[.deviceName] ?? ""
         reduceMotion = desiredCaps[.reduceMotion] ?? "false"
+        orientation = desiredCaps[.orientation] ?? ScreenOrientationEnum.portrait.rawValue
     }
 
     enum CodingKeys: String, CodingKey {
-        case platformName, automationName, platformVersion, deviceName
+        case platformName, automationName, platformVersion, deviceName, orientation
         case app = "appium:app"
     }
 }
@@ -66,12 +70,12 @@ public struct AppiumCapabilities: Capabilities {
 
     public init(_ opts: [DesiredCapabilitiesEnum: String]) {
         guard let platformName = opts[.platformName] else {
-            fatalError("platformName is mondatory")
+            fatalError("platformName is mandatory")
         }
         self.desiredCapability[.platformName] = platformName
 
         guard let automationName = opts[.automationName] else {
-            fatalError("automationName is mondatory")
+            fatalError("automationName is mandatory")
         }
         self.desiredCapability[.automationName] = automationName
 
@@ -81,12 +85,12 @@ public struct AppiumCapabilities: Capabilities {
         self.desiredCapability[.app] = app
 
         guard let platformVersion = opts[.platformVersion] else {
-            fatalError("platformVersion is mondatory")
+            fatalError("platformVersion is mandatory")
         }
         self.desiredCapability[.platformVersion] = platformVersion
 
         guard let deviceName = opts[.deviceName] else {
-            fatalError("deviceName is mondatory")
+            fatalError("deviceName is mandatory")
         }
         self.desiredCapability[.deviceName] = deviceName
 
@@ -96,6 +100,10 @@ public struct AppiumCapabilities: Capabilities {
 
         if opts[.reduceMotion] != nil {
             self.desiredCapability[.reduceMotion] = opts[.reduceMotion]
+        }
+
+        if opts[.orientation] != nil {
+            self.desiredCapability[.orientation] = opts[.orientation]
         }
     }
 
