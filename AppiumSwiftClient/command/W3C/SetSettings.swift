@@ -9,7 +9,7 @@
 import Foundation
 
 struct W3CSetSettings: CommandProtocol {
-    func sendRequest(with sessionId: Session.Id, and setting: SettingsEnum, to value: AnyValue) throws -> String {
+    func sendRequest(with sessionId: Session.Id, and setting: SettingsEnum.RawValue, to value: AnyValue) throws -> String {
         let json = generateBodyData(setting: setting, value: value)
         let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.setSettings.0, commandPath: commandUrl(with: sessionId), json: json)
         if statusCode == 200 {
@@ -26,8 +26,8 @@ struct W3CSetSettings: CommandProtocol {
         return W3CCommands().url(for: W3CCommands.setSettings, with: sessionId)
     }
 
-    func generateBodyData(setting: SettingsEnum, value: AnyValue) -> Data {
-        let setSettings = CommandParam(setting: setting.rawValue, value: value)
+    func generateBodyData(setting: SettingsEnum.RawValue, value: AnyValue) -> Data {
+        let setSettings = CommandParam(setting: setting, value: value)
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = .sortedKeys

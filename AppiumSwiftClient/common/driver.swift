@@ -28,7 +28,7 @@ protocol DriverProtocol {
     func getScreenOrientation() throws -> String
     func rotate(to orientation: ScreenOrientationEnum) throws -> String
     func getSettings() throws -> [String: Any]
-    func setSettings(this setting: SettingsEnum, and value: AnyValue) throws -> String
+    func setSettings(this setting: SettingsEnum.RawValue, and value: AnyValue) throws -> String
     func setShouldUseCompactResponsesSetting(to value: Bool) throws -> String
     func setElementResponseAttributes(to value: String) throws -> String
     func quit() -> String
@@ -159,16 +159,16 @@ public class AppiumDriver: DriverProtocol {
         return try W3CGetSettings().sendRequest(with: currentSession.id)
     }
 
-    @discardableResult internal func setSettings(this setting: SettingsEnum, and value: AnyValue) throws -> String {
+    @discardableResult internal func setSettings(this setting: SettingsEnum.RawValue, and value: AnyValue) throws -> String {
         return try W3CSetSettings().sendRequest(with: currentSession.id, and: setting, to: value)
     }
 
     @discardableResult public func setShouldUseCompactResponsesSetting(to value: Bool) throws -> String {
-        return try setSettings(this: SettingsEnum.shouldUseCompactResponses, and: AnyValue(value))
+        return try setSettings(this: SettingsEnum.shouldUseCompactResponses.rawValue, and: AnyValue(value))
     }
 
     @discardableResult public func setElementResponseAttributes(to value: String) throws -> String {
-        return try setSettings(this: SettingsEnum.elementResponseAttributes, and: AnyValue(value))
+        return try setSettings(this: SettingsEnum.elementResponseAttributes.rawValue, and: AnyValue(value))
     }
 
     @discardableResult public func quit() -> String {
