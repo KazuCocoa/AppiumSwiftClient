@@ -38,5 +38,5 @@ This repository has not been stable yet. Has no concrete roadmap. But let me try
     - https://github.com/appium/selenium-swift
 
 # License
-MIT
+Apache License 2.0
 
