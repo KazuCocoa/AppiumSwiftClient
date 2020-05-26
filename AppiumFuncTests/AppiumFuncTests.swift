@@ -164,4 +164,13 @@ class AppiumFuncTests: XCTestCase {
             XCTAssertTrue(error is WebDriverErrorEnum)
         }
     }
+
+    func testGetSettings() {
+        do {
+            let settings = try driver.getSettings()
+            XCTAssertNotNil(settings)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
 }

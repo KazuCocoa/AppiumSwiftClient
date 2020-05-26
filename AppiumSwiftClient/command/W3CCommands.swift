@@ -129,6 +129,10 @@ public struct W3CCommands {
 
     static let getLocation:             CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/location")
     static let setLocation:             CommandType = (HttpMethod.post,   "session/\(Id.session.rawValue)/location")
+    
+    static let getSettings:             CommandType = (HttpMethod.get, "session/\(Id.session.rawValue)/appium/settings")
+    
+    static let setSettings:             CommandType = (HttpMethod.post, "session/\(Id.session.rawValue)/appium/settings")
 
     static let imeGetAvailableEngines:  CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/ime/available_engines")
     static let imeGetActiveEngine:      CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/ime/active_engine")

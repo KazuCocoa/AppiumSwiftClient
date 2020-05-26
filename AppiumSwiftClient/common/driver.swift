@@ -9,14 +9,34 @@
 import Foundation
 import UIKit // For screenshot
 
-protocol Driver {
-    // no
+protocol DriverProtocol {
+    var currentSessionCapabilities: AppiumCapabilities { get }
+    func findElement(by locator: SearchContext, with value: String) throws -> Element
+    func findElements(by locator: SearchContext, with value: String) throws -> [Element]
+    func getCapabilities() -> [String: Any]
+    func getAvailableContexts() -> [String]
+    func getCurrentContext() -> String
+    func setContext(name: String) throws -> String
+    func getBase64Screenshot() -> String
+    func saveScreenshot(to filePath: String) -> String
+    func getPageSource() throws -> String
+    func back() throws -> String
+    func setImplicitTimeout(timeoutInMillisencods: Int) throws -> String
+    func setPageLoadTimeout(timeoutInMillisencods: Int) throws -> String
+    func setScriptTimeout(timeoutInMillisencods: Int) throws -> String
+    func setTimeout(with timeoutType: TimeoutTypesEnum, and timeoutInMilliseconds: Int) throws -> String
+    func getScreenOrientation() throws -> String
+    func rotate(to orientation: ScreenOrientationEnum) throws -> String
+    func getSettings() throws -> [String: Any]
+    func setSettings(this setting: SettingsEnum.RawValue, and value: AnyValue) throws -> String
+    func setShouldUseCompactResponsesSetting(to value: Bool) throws -> String
+    func setElementResponseAttributes(to value: String) throws -> String
+    func quit() -> String
 }
 
 // sessionId should be global id.
 // Will create Class as the driver. All of methods are struct. The class has them.
-public class AppiumDriver: Driver {
-
+public class AppiumDriver: DriverProtocol {
     public var currentSessionCapabilities: AppiumCapabilities
 
     public var currentSession: Session = Session(id: "")
@@ -123,8 +143,7 @@ public class AppiumDriver: Driver {
         return try setTimeout(with: TimeoutTypesEnum.script, and: timeoutInMillisencods)
     }
 
-    @discardableResult private func setTimeout(with timeoutType: TimeoutTypesEnum,
-                                               and timeoutInMilliseconds: Int) throws -> String {
+    @discardableResult internal func setTimeout(with timeoutType: TimeoutTypesEnum, and timeoutInMilliseconds: Int) throws -> String {
         return try W3CTimeout().sendRequest(with: currentSession.id, and: timeoutType, and: 300)
     }
 
@@ -133,9 +152,25 @@ public class AppiumDriver: Driver {
     }
 
     @discardableResult public func rotate(to orientation: ScreenOrientationEnum) throws -> String {
-        //return ""
         return try W3CSetScreenOrientation().sendRequest(with: currentSession.id, to: orientation)
     }
+
+    public func getSettings() throws -> [String: Any] {
+        return try W3CGetSettings().sendRequest(with: currentSession.id)
+    }
+
+    @discardableResult internal func setSettings(this setting: SettingsEnum.RawValue, and value: AnyValue) throws -> String {
+        return try W3CSetSettings().sendRequest(with: currentSession.id, and: setting, to: value)
+    }
+
+    @discardableResult public func setShouldUseCompactResponsesSetting(to value: Bool) throws -> String {
+        return try setSettings(this: SettingsEnum.shouldUseCompactResponses.rawValue, and: AnyValue(value))
+    }
+
+    @discardableResult public func setElementResponseAttributes(to value: String) throws -> String {
+        return try setSettings(this: SettingsEnum.elementResponseAttributes.rawValue, and: AnyValue(value))
+    }
+
     @discardableResult public func quit() -> String {
         return W3CEndSession().sendRequest(with: currentSession.id)
     }

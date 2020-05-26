@@ -19,6 +19,7 @@
 		7246FB3C21DB3FA2004CDA8F /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3B21DB3FA2004CDA8F /* Screenshot.swift */; };
 		7246FB3E21DCF81F004CDA8F /* W3CElementScreenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3D21DCF81F004CDA8F /* W3CElementScreenshot.swift */; };
 		7246FB4021DCFA2C004CDA8F /* ElementScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3F21DCFA2C004CDA8F /* ElementScreenshotTests.swift */; };
+		724BF8DD247530BE0008FA15 /* SetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724BF8DC247530BE0008FA15 /* SetSettings.swift */; };
 		7252E19221A25FB8000B5855 /* CreateSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19121A25FB8000B5855 /* CreateSessionTests.swift */; };
 		7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */; };
 		7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */; };
@@ -52,8 +53,14 @@
 		726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196CA21A193CD00730A67 /* FindElementHelper.swift */; };
 		72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72686A9A21A1B3670042D385 /* GetCapabilities.swift */; };
 		7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271E74D245C8CBE0019F6DD /* EndSessionTests.swift */; };
+		728AAE0D2473F83900B2F8D8 /* GetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728AAE0C2473F83900B2F8D8 /* GetSettings.swift */; };
 		728DD59C2461A665004E6800 /* GoBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59B2461A665004E6800 /* GoBack.swift */; };
 		728DD5A02461DF6E004E6800 /* GoBackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59F2461DF6E004E6800 /* GoBackTest.swift */; };
+		72C0CDAA2475D00A00657933 /* AnyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDA92475D00900657933 /* AnyValue.swift */; };
+		72C0CDAC2475DE1E00657933 /* SetSettingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDAB2475DE1E00657933 /* SetSettingTest.swift */; };
+		72C0CDAE2475E13000657933 /* SetSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDAD2475E13000657933 /* SetSettingsTests.swift */; };
+		72C0CDB02475E2FF00657933 /* IOSDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDAF2475E2FF00657933 /* IOSDriver.swift */; };
+		72C0CDB22475E35A00657933 /* AndroidDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDB12475E35A00657933 /* AndroidDriver.swift */; };
 		72C6773324696B3400176D85 /* GetScreenOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6773224696B3400176D85 /* GetScreenOrientation.swift */; };
 		72C677362469717C00176D85 /* GetScreenOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C677352469717C00176D85 /* GetScreenOrientation.swift */; };
 		72C677382469773300176D85 /* SetScreenOrientationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C677372469773300176D85 /* SetScreenOrientationTests.swift */; };
@@ -64,6 +71,7 @@
 		72C677422469CE8D00176D85 /* PortraitOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C677412469CE8D00176D85 /* PortraitOrientationTest.swift */; };
 		72CA79602462B4A000988CDE /* Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA795F2462B4A000988CDE /* Timeout.swift */; };
 		72CA79642464085500988CDE /* TimeoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA79632464085500988CDE /* TimeoutTests.swift */; };
+		72E0FF4B24741D9500F6EE8A /* GetSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E0FF4A24741D9500F6EE8A /* GetSettingsTest.swift */; };
 		72E6E5A7245F580F004E8A0C /* EndSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E6E5A6245F580F004E8A0C /* EndSession.swift */; };
 		B56734569980A912ACF56DD3 /* Pods_AppiumFuncTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E6ECFC48DFA5AE5D6A70AC /* Pods_AppiumFuncTests.framework */; };
 		E28580FF8C70AAAB238380C8 /* Pods_AppiumSwiftClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97571B30B80D0F7CDF96796 /* Pods_AppiumSwiftClient.framework */; };
@@ -115,6 +123,7 @@
 		7246FB3B21DB3FA2004CDA8F /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		7246FB3D21DCF81F004CDA8F /* W3CElementScreenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W3CElementScreenshot.swift; sourceTree = "<group>"; };
 		7246FB3F21DCFA2C004CDA8F /* ElementScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementScreenshotTests.swift; sourceTree = "<group>"; };
+		724BF8DC247530BE0008FA15 /* SetSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSettings.swift; sourceTree = "<group>"; };
 		7252E19121A25FB8000B5855 /* CreateSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionTests.swift; sourceTree = "<group>"; };
 		7252E19321A260EC000B5855 /* AppiumSwiftClientTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppiumSwiftClientTestBase.swift; sourceTree = "<group>"; };
 		7252E19521A261AA000B5855 /* GetCapabilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCapabilitiesTests.swift; sourceTree = "<group>"; };
@@ -151,8 +160,14 @@
 		726196CA21A193CD00730A67 /* FindElementHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElementHelper.swift; sourceTree = "<group>"; };
 		72686A9A21A1B3670042D385 /* GetCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCapabilities.swift; sourceTree = "<group>"; };
 		7271E74D245C8CBE0019F6DD /* EndSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSessionTests.swift; sourceTree = "<group>"; };
+		728AAE0C2473F83900B2F8D8 /* GetSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSettings.swift; sourceTree = "<group>"; };
 		728DD59B2461A665004E6800 /* GoBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBack.swift; sourceTree = "<group>"; };
 		728DD59F2461DF6E004E6800 /* GoBackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackTest.swift; sourceTree = "<group>"; };
+		72C0CDA92475D00900657933 /* AnyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyValue.swift; sourceTree = "<group>"; };
+		72C0CDAB2475DE1E00657933 /* SetSettingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSettingTest.swift; sourceTree = "<group>"; };
+		72C0CDAD2475E13000657933 /* SetSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSettingsTests.swift; sourceTree = "<group>"; };
+		72C0CDAF2475E2FF00657933 /* IOSDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDriver.swift; sourceTree = "<group>"; };
+		72C0CDB12475E35A00657933 /* AndroidDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndroidDriver.swift; sourceTree = "<group>"; };
 		72C6773224696B3400176D85 /* GetScreenOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetScreenOrientation.swift; sourceTree = "<group>"; };
 		72C677352469717C00176D85 /* GetScreenOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetScreenOrientation.swift; sourceTree = "<group>"; };
 		72C677372469773300176D85 /* SetScreenOrientationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetScreenOrientationTests.swift; sourceTree = "<group>"; };
@@ -163,6 +178,7 @@
 		72C677412469CE8D00176D85 /* PortraitOrientationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitOrientationTest.swift; sourceTree = "<group>"; };
 		72CA795F2462B4A000988CDE /* Timeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeout.swift; sourceTree = "<group>"; };
 		72CA79632464085500988CDE /* TimeoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutTests.swift; sourceTree = "<group>"; };
+		72E0FF4A24741D9500F6EE8A /* GetSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSettingsTest.swift; sourceTree = "<group>"; };
 		72E6E5A6245F580F004E8A0C /* EndSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSession.swift; sourceTree = "<group>"; };
 		7786E63B28F1CA6CB9369CAD /* Pods-AppiumFuncTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumFuncTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumFuncTests/Pods-AppiumFuncTests.debug.xcconfig"; sourceTree = "<group>"; };
 		829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClientUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +292,8 @@
 				720CA7FD2460737100D85732 /* GetPageSourceTest.swift */,
 				728DD59F2461DF6E004E6800 /* GoBackTest.swift */,
 				72CA79632464085500988CDE /* TimeoutTests.swift */,
+				72E0FF4A24741D9500F6EE8A /* GetSettingsTest.swift */,
+				72C0CDAD2475E13000657933 /* SetSettingsTests.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -289,6 +307,7 @@
 				72C6773D24699CA500176D85 /* LandscapeOrientationTest.swift */,
 				72C6773F2469C9C100176D85 /* FunctionalBaseTest.swift */,
 				72C677412469CE8D00176D85 /* PortraitOrientationTest.swift */,
+				72C0CDAB2475DE1E00657933 /* SetSettingTest.swift */,
 			);
 			path = AppiumFuncTests;
 			sourceTree = "<group>";
@@ -355,6 +374,8 @@
 				726196B62199C1C900730A67 /* SearchContext.swift */,
 				726196BA2199C90E00730A67 /* Session.swift */,
 				726196BC2199D67900730A67 /* Element.swift */,
+				72C0CDAF2475E2FF00657933 /* IOSDriver.swift */,
+				72C0CDB12475E35A00657933 /* AndroidDriver.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -371,6 +392,7 @@
 		726196A9219977BE00730A67 /* command */ = {
 			isa = PBXGroup;
 			children = (
+				72C0CDA82475CFF700657933 /* helpers */,
 				726196AC2199780800730A67 /* W3CCommands.swift */,
 				726196B42199BF9800730A67 /* CommandProtocol.swift */,
 				726196C2219D30FA00730A67 /* CommandParamProtocol.swift */,
@@ -404,6 +426,8 @@
 				72E6E5A6245F580F004E8A0C /* EndSession.swift */,
 				720CA7F92460613900D85732 /* GetPageSource.swift */,
 				728DD59B2461A665004E6800 /* GoBack.swift */,
+				728AAE0C2473F83900B2F8D8 /* GetSettings.swift */,
+				724BF8DC247530BE0008FA15 /* SetSettings.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -415,6 +439,14 @@
 				726196C5219D35F700730A67 /* WebDriverError.swift */,
 			);
 			path = error;
+			sourceTree = "<group>";
+		};
+		72C0CDA82475CFF700657933 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				72C0CDA92475D00900657933 /* AnyValue.swift */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 		72C677432469D15E00176D85 /* orientation */ = {
@@ -730,6 +762,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C6773E24699CA500176D85 /* LandscapeOrientationTest.swift in Sources */,
+				72C0CDAC2475DE1E00657933 /* SetSettingTest.swift in Sources */,
 				72C677422469CE8D00176D85 /* PortraitOrientationTest.swift in Sources */,
 				72C677402469C9C100176D85 /* FunctionalBaseTest.swift in Sources */,
 				7252E1A021A29C4D000B5855 /* AppiumFuncTests.swift in Sources */,
@@ -742,6 +775,7 @@
 			files = (
 				726196892194929600730A67 /* AppiumSwiftClient.swift in Sources */,
 				726196B72199C1C900730A67 /* SearchContext.swift in Sources */,
+				72C0CDB02475E2FF00657933 /* IOSDriver.swift in Sources */,
 				728DD59C2461A665004E6800 /* GoBack.swift in Sources */,
 				726196BD2199D67900730A67 /* Element.swift in Sources */,
 				726196C6219D35F700730A67 /* WebDriverError.swift in Sources */,
@@ -750,6 +784,7 @@
 				726196B92199C28300730A67 /* FindElement.swift in Sources */,
 				726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */,
 				726196B221997E4400730A67 /* Client.swift in Sources */,
+				724BF8DD247530BE0008FA15 /* SetSettings.swift in Sources */,
 				726196A62195187F00730A67 /* driver.swift in Sources */,
 				7246FB3E21DCF81F004CDA8F /* W3CElementScreenshot.swift in Sources */,
 				72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */,
@@ -757,6 +792,8 @@
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,
 				726196B02199790A00730A67 /* Method.swift in Sources */,
 				720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */,
+				72C0CDB22475E35A00657933 /* AndroidDriver.swift in Sources */,
+				72C0CDAA2475D00A00657933 /* AnyValue.swift in Sources */,
 				72CA79602462B4A000988CDE /* Timeout.swift in Sources */,
 				726196C3219D30FA00730A67 /* CommandParamProtocol.swift in Sources */,
 				72C6773A2469894000176D85 /* ScreenOrientationEnum.swift in Sources */,
@@ -769,6 +806,7 @@
 				7213358721DA463000CBE9E3 /* CurrentContext.swift in Sources */,
 				726196A12194960D00730A67 /* Capabilities.swift in Sources */,
 				72C6773C24698BFF00176D85 /* SetScreenOrientation.swift in Sources */,
+				728AAE0D2473F83900B2F8D8 /* GetSettings.swift in Sources */,
 				7246FB3C21DB3FA2004CDA8F /* Screenshot.swift in Sources */,
 				7213358221DA25CD00CBE9E3 /* AvailableContexts.swift in Sources */,
 			);
@@ -778,6 +816,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E0FF4B24741D9500F6EE8A /* GetSettingsTest.swift in Sources */,
 				720CA7FE2460737100D85732 /* GetPageSourceTest.swift in Sources */,
 				72C677382469773300176D85 /* SetScreenOrientationTests.swift in Sources */,
 				7246FB4021DCFA2C004CDA8F /* ElementScreenshotTests.swift in Sources */,
@@ -794,6 +833,7 @@
 				72C677362469717C00176D85 /* GetScreenOrientation.swift in Sources */,
 				7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */,
 				726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */,
+				72C0CDAE2475E13000657933 /* SetSettingsTests.swift in Sources */,
 				7246FB3921DB3F10004CDA8F /* ScreenshotTests.swift in Sources */,
 				7252E19221A25FB8000B5855 /* CreateSessionTests.swift in Sources */,
 				726196A821952CF300730A67 /* DriverTest.swift in Sources */,
