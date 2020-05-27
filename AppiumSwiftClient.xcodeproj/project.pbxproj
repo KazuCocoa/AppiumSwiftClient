@@ -15,6 +15,8 @@
 		7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358921DA46C900CBE9E3 /* CurrentContextTests.swift */; };
 		7213358C21DA47F700CBE9E3 /* SetContectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358B21DA47F700CBE9E3 /* SetContectTests.swift */; };
 		7213358E21DA488200CBE9E3 /* SetContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358D21DA488200CBE9E3 /* SetContext.swift */; };
+		723673C1247E5F13006009C8 /* GetAvailableLogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */; };
+		723673C3247E6ED1006009C8 /* GetAvailableLogTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */; };
 		7246FB3921DB3F10004CDA8F /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3821DB3F10004CDA8F /* ScreenshotTests.swift */; };
 		7246FB3C21DB3FA2004CDA8F /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3B21DB3FA2004CDA8F /* Screenshot.swift */; };
 		7246FB3E21DCF81F004CDA8F /* W3CElementScreenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3D21DCF81F004CDA8F /* W3CElementScreenshot.swift */; };
@@ -119,6 +121,8 @@
 		7213358921DA46C900CBE9E3 /* CurrentContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentContextTests.swift; sourceTree = "<group>"; };
 		7213358B21DA47F700CBE9E3 /* SetContectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContectTests.swift; sourceTree = "<group>"; };
 		7213358D21DA488200CBE9E3 /* SetContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContext.swift; sourceTree = "<group>"; };
+		723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypes.swift; sourceTree = "<group>"; };
+		723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypesTests.swift; sourceTree = "<group>"; };
 		7246FB3821DB3F10004CDA8F /* ScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
 		7246FB3B21DB3FA2004CDA8F /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		7246FB3D21DCF81F004CDA8F /* W3CElementScreenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W3CElementScreenshot.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 				72CA79632464085500988CDE /* TimeoutTests.swift */,
 				72E0FF4A24741D9500F6EE8A /* GetSettingsTest.swift */,
 				72C0CDAD2475E13000657933 /* SetSettingsTests.swift */,
+				723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 				728DD59B2461A665004E6800 /* GoBack.swift */,
 				728AAE0C2473F83900B2F8D8 /* GetSettings.swift */,
 				724BF8DC247530BE0008FA15 /* SetSettings.swift */,
+				723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -779,6 +785,7 @@
 				728DD59C2461A665004E6800 /* GoBack.swift in Sources */,
 				726196BD2199D67900730A67 /* Element.swift in Sources */,
 				726196C6219D35F700730A67 /* WebDriverError.swift in Sources */,
+				723673C1247E5F13006009C8 /* GetAvailableLogTypes.swift in Sources */,
 				726196B52199BF9800730A67 /* CommandProtocol.swift in Sources */,
 				726196BF2199D75700730A67 /* Click.swift in Sources */,
 				726196B92199C28300730A67 /* FindElement.swift in Sources */,
@@ -825,6 +832,7 @@
 				7213358421DA284B00CBE9E3 /* AvailableContextsTests.swift in Sources */,
 				726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */,
 				7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */,
+				723673C3247E6ED1006009C8 /* GetAvailableLogTypesTests.swift in Sources */,
 				7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */,
 				7252E1B321A43C96000B5855 /* FindElementsTests.swift in Sources */,
 				72CA79642464085500988CDE /* TimeoutTests.swift in Sources */,
