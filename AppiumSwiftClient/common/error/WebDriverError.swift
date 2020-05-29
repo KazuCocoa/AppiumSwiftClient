@@ -9,6 +9,7 @@
 import Foundation
 
 protocol WebDriverErrorProtocol {
+
 }
 
 public struct WebDriverError: WebDriverErrorProtocol {
@@ -22,11 +23,12 @@ public struct WebDriverError: WebDriverErrorProtocol {
     //            }
     //        }
     //    }
+
     public struct W3C: Codable {
         let error: String
         let message: String
         let stacktrace: String
-        let data: W3CData
+        let data: W3CData?
     }
 
     public struct W3CData: Codable {
@@ -50,7 +52,24 @@ public struct WebDriverError: WebDriverErrorProtocol {
         self.capitalizedError = "\(capitalized)Error"
     }
 
-    func raise() throws {
+    /*
+     POC: Overload constructor that accepts error Data as argument, subsequentially should decode to Object Value of type W3C
+     */
+    init(errorResult: Data) {
+        self.originalError = try! JSONDecoder().decode(ValueOf<W3C>.self, from: errorResult).value // swiftlint:disable:this force_try
+        let capitalized = originalError.error
+            .trimmingCharacters(in: .whitespaces)
+            .capitalized
+            .components(separatedBy: .whitespaces)
+            .joined()
+        self.capitalizedError = "\(capitalized)Error"
+    }
+
+    /*
+     POC: Refactor raise function to throw Error so we can throw it at Command implementation level
+     instead of returning a fabicated response in case of failure
+     */
+    func raise() throws -> Error {
         switch self.capitalizedError {
         case "SessionNotCreatedError":
             throw WebDriverErrorEnum.sessionNotCreatedError(error: originalError)
@@ -68,4 +87,22 @@ public struct WebDriverError: WebDriverErrorProtocol {
             throw WebDriverErrorEnum.webDriverError(error: originalError)
         }
     }
+}
+
+/*
+ POC: Generic struct that accepts decodable conformant types that represents a driver response. It is meant
+ to be a reusable struct and should be placed in its own file and used whenever fit (Mostly POST request
+ responses as it does not decode sessionId value?)
+ */
+struct ValueOf<T: Decodable>: Decodable {
+    let value: T
+
+    private enum CodingKeys: String, CodingKey {
+            case value
+        }
+
+        init(from decoder: Decoder) {
+            let container = try! decoder.container(keyedBy: CodingKeys.self) // swiftlint:disable:this force_try
+            value = try! container.decode(T.self, forKey: .value) // swiftlint:disable:this force_try
+        }
 }

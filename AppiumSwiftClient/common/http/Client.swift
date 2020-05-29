@@ -60,6 +60,54 @@ struct HttpClient {
         return (statusCode, returnValue)
     }
 
+    /*
+     POC: function that returns reponse Data rather than a Array of String and Any. In my opinion it shouldn't
+     be a HTTP client's task to figure out what to do with the response Data, rather an Endpoint implementation task.
+     */
+    func sendSyncRequestReturningData(method: HttpMethod, commandPath: String, json: Data) -> (Int, Data) {
+        let uri = "\(endpoint)\(commandPath)"
+
+        var returnData: Data = "".data(using: .utf8)!
+        var statusCode: Int = 0
+
+        guard let url = URL(string: uri) else {
+            print("failed to create session")
+            return (0, returnData)
+        }
+
+        let semaphore = DispatchSemaphore(value: 0)
+
+        var commandURLRequest = URLRequest(url: url)
+        commandURLRequest.httpMethod = method.rawValue
+        commandURLRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        commandURLRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        commandURLRequest.timeoutInterval = 60.0 // 60 secons
+
+        if method == HttpMethod.post {
+            commandURLRequest.httpBody = json
+        }
+
+        let session = URLSession.shared
+
+        let task = session.dataTask(with: commandURLRequest) { (data, response, error) in
+            if let resp = response {
+                statusCode = (resp as! HTTPURLResponse).statusCode // swiftlint:disable:this force_cast
+            }
+
+            guard let responseData = data, error == nil else {
+                print("Error calling \(method.rawValue) on \(uri)")
+                return
+            }
+
+            returnData = responseData
+            semaphore.signal()
+        }
+        task.resume()
+        _ = semaphore.wait(timeout: .distantFuture)
+
+        return (statusCode, returnData)
+    }
+
     struct WebDriverResponseValue {
         let value: Any
 
