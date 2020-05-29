@@ -9,7 +9,7 @@
 import XCTest
 @testable import AppiumSwiftClient
 
-class SetSettingTest: XCTestCase {
+class IOSDriverTests: XCTestCase {
     var driver: IOSDriver!
 
     override func setUp() {
@@ -21,7 +21,7 @@ class SetSettingTest: XCTestCase {
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "\(packageRootPath)/AppiumFuncTests/app/UICatalog.app.zip",
-            DesiredCapabilitiesEnum.platformVersion: "13.4",
+            DesiredCapabilitiesEnum.platformVersion: "13.5",
             DesiredCapabilitiesEnum.deviceName: "iPhone 8",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
@@ -41,6 +41,15 @@ class SetSettingTest: XCTestCase {
             let mjpegServerFramerateAfter = settingsAfter["mjpegServerFramerate"] as! Int // swiftlint:disable:this force_cast
             XCTAssertNotEqual(mjpegServerFramerateBefore, mjpegServerFramerateAfter)
         } catch let error {
+            XCTFail("\(error)")
+        }
+    }
+
+    func testCanGetSyslog() {
+        do {
+            let syslog = try driver.getSyslog()
+            XCTAssertFalse(syslog.isEmpty)
+        } catch {
             XCTFail("\(error)")
         }
     }

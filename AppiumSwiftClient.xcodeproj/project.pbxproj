@@ -17,6 +17,7 @@
 		7213358E21DA488200CBE9E3 /* SetContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358D21DA488200CBE9E3 /* SetContext.swift */; };
 		723673C1247E5F13006009C8 /* GetAvailableLogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */; };
 		723673C3247E6ED1006009C8 /* GetAvailableLogTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */; };
+		723673C5247E7654006009C8 /* GetLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C4247E7654006009C8 /* GetLog.swift */; };
 		7246FB3921DB3F10004CDA8F /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3821DB3F10004CDA8F /* ScreenshotTests.swift */; };
 		7246FB3C21DB3FA2004CDA8F /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3B21DB3FA2004CDA8F /* Screenshot.swift */; };
 		7246FB3E21DCF81F004CDA8F /* W3CElementScreenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3D21DCF81F004CDA8F /* W3CElementScreenshot.swift */; };
@@ -59,7 +60,7 @@
 		728DD59C2461A665004E6800 /* GoBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59B2461A665004E6800 /* GoBack.swift */; };
 		728DD5A02461DF6E004E6800 /* GoBackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59F2461DF6E004E6800 /* GoBackTest.swift */; };
 		72C0CDAA2475D00A00657933 /* AnyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDA92475D00900657933 /* AnyValue.swift */; };
-		72C0CDAC2475DE1E00657933 /* SetSettingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDAB2475DE1E00657933 /* SetSettingTest.swift */; };
+		72C0CDAC2475DE1E00657933 /* IOSDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDAB2475DE1E00657933 /* IOSDriverTests.swift */; };
 		72C0CDAE2475E13000657933 /* SetSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDAD2475E13000657933 /* SetSettingsTests.swift */; };
 		72C0CDB02475E2FF00657933 /* IOSDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDAF2475E2FF00657933 /* IOSDriver.swift */; };
 		72C0CDB22475E35A00657933 /* AndroidDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDB12475E35A00657933 /* AndroidDriver.swift */; };
@@ -75,6 +76,7 @@
 		72CA79642464085500988CDE /* TimeoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA79632464085500988CDE /* TimeoutTests.swift */; };
 		72E0FF4B24741D9500F6EE8A /* GetSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E0FF4A24741D9500F6EE8A /* GetSettingsTest.swift */; };
 		72E6E5A7245F580F004E8A0C /* EndSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E6E5A6245F580F004E8A0C /* EndSession.swift */; };
+		72F2ADB52481158D0017B51B /* GetLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F2ADB42481158D0017B51B /* GetLogTests.swift */; };
 		B56734569980A912ACF56DD3 /* Pods_AppiumFuncTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E6ECFC48DFA5AE5D6A70AC /* Pods_AppiumFuncTests.framework */; };
 		E28580FF8C70AAAB238380C8 /* Pods_AppiumSwiftClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97571B30B80D0F7CDF96796 /* Pods_AppiumSwiftClient.framework */; };
 		EC5272DF704D29C639E20678 /* Pods_AppiumSwiftClientUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4D6C775222B615F1F73876 /* Pods_AppiumSwiftClientUnitTests.framework */; };
@@ -123,6 +125,7 @@
 		7213358D21DA488200CBE9E3 /* SetContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContext.swift; sourceTree = "<group>"; };
 		723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypes.swift; sourceTree = "<group>"; };
 		723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypesTests.swift; sourceTree = "<group>"; };
+		723673C4247E7654006009C8 /* GetLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLog.swift; sourceTree = "<group>"; };
 		7246FB3821DB3F10004CDA8F /* ScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
 		7246FB3B21DB3FA2004CDA8F /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		7246FB3D21DCF81F004CDA8F /* W3CElementScreenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W3CElementScreenshot.swift; sourceTree = "<group>"; };
@@ -168,7 +171,7 @@
 		728DD59B2461A665004E6800 /* GoBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBack.swift; sourceTree = "<group>"; };
 		728DD59F2461DF6E004E6800 /* GoBackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackTest.swift; sourceTree = "<group>"; };
 		72C0CDA92475D00900657933 /* AnyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyValue.swift; sourceTree = "<group>"; };
-		72C0CDAB2475DE1E00657933 /* SetSettingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSettingTest.swift; sourceTree = "<group>"; };
+		72C0CDAB2475DE1E00657933 /* IOSDriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDriverTests.swift; sourceTree = "<group>"; };
 		72C0CDAD2475E13000657933 /* SetSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSettingsTests.swift; sourceTree = "<group>"; };
 		72C0CDAF2475E2FF00657933 /* IOSDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDriver.swift; sourceTree = "<group>"; };
 		72C0CDB12475E35A00657933 /* AndroidDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndroidDriver.swift; sourceTree = "<group>"; };
@@ -184,6 +187,7 @@
 		72CA79632464085500988CDE /* TimeoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeoutTests.swift; sourceTree = "<group>"; };
 		72E0FF4A24741D9500F6EE8A /* GetSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSettingsTest.swift; sourceTree = "<group>"; };
 		72E6E5A6245F580F004E8A0C /* EndSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSession.swift; sourceTree = "<group>"; };
+		72F2ADB42481158D0017B51B /* GetLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLogTests.swift; sourceTree = "<group>"; };
 		7786E63B28F1CA6CB9369CAD /* Pods-AppiumFuncTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumFuncTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumFuncTests/Pods-AppiumFuncTests.debug.xcconfig"; sourceTree = "<group>"; };
 		829351B1E5E17CE108DB2E0E /* Pods-AppiumSwiftClientUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClientUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		89DEB940E024EED2A2C4CC51 /* Pods-AppiumSwiftClientUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumSwiftClientUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumSwiftClientUnitTests/Pods-AppiumSwiftClientUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 				72E0FF4A24741D9500F6EE8A /* GetSettingsTest.swift */,
 				72C0CDAD2475E13000657933 /* SetSettingsTests.swift */,
 				723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */,
+				72F2ADB42481158D0017B51B /* GetLogTests.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -312,7 +317,7 @@
 				72C6773D24699CA500176D85 /* LandscapeOrientationTest.swift */,
 				72C6773F2469C9C100176D85 /* FunctionalBaseTest.swift */,
 				72C677412469CE8D00176D85 /* PortraitOrientationTest.swift */,
-				72C0CDAB2475DE1E00657933 /* SetSettingTest.swift */,
+				72C0CDAB2475DE1E00657933 /* IOSDriverTests.swift */,
 			);
 			path = AppiumFuncTests;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				728AAE0C2473F83900B2F8D8 /* GetSettings.swift */,
 				724BF8DC247530BE0008FA15 /* SetSettings.swift */,
 				723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */,
+				723673C4247E7654006009C8 /* GetLog.swift */,
 			);
 			path = W3C;
 			sourceTree = "<group>";
@@ -768,7 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C6773E24699CA500176D85 /* LandscapeOrientationTest.swift in Sources */,
-				72C0CDAC2475DE1E00657933 /* SetSettingTest.swift in Sources */,
+				72C0CDAC2475DE1E00657933 /* IOSDriverTests.swift in Sources */,
 				72C677422469CE8D00176D85 /* PortraitOrientationTest.swift in Sources */,
 				72C677402469C9C100176D85 /* FunctionalBaseTest.swift in Sources */,
 				7252E1A021A29C4D000B5855 /* AppiumFuncTests.swift in Sources */,
@@ -796,6 +802,7 @@
 				7246FB3E21DCF81F004CDA8F /* W3CElementScreenshot.swift in Sources */,
 				72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */,
 				72C6773324696B3400176D85 /* GetScreenOrientation.swift in Sources */,
+				723673C5247E7654006009C8 /* GetLog.swift in Sources */,
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,
 				726196B02199790A00730A67 /* Method.swift in Sources */,
 				720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */,
@@ -835,6 +842,7 @@
 				723673C3247E6ED1006009C8 /* GetAvailableLogTypesTests.swift in Sources */,
 				7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */,
 				7252E1B321A43C96000B5855 /* FindElementsTests.swift in Sources */,
+				72F2ADB52481158D0017B51B /* GetLogTests.swift in Sources */,
 				72CA79642464085500988CDE /* TimeoutTests.swift in Sources */,
 				7252E1B521A4407A000B5855 /* ClickTests.swift in Sources */,
 				7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */,

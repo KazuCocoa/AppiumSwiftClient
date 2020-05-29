@@ -24,6 +24,11 @@ protocol IOSDriverProtocol: DriverProtocol {
     func setAcceptAlertButtonSelector(to value: String) throws -> String
     func setDismissAlertButtonSelector(to value: String) throws -> String
     func setScreenshotOrientation(to value: String) throws -> String
+    func getSyslog() throws -> [LogEntry]
+    func getCrashlog() throws -> [LogEntry]
+    func getPerformanceLog() throws -> [LogEntry]
+    func getSafariConsoleLog() throws -> [LogEntry]
+    func getSafariNetworkLog() throws -> [LogEntry]
 }
 
 public class IOSDriver: AppiumDriver, IOSDriverProtocol {
@@ -94,5 +99,25 @@ public class IOSDriver: AppiumDriver, IOSDriverProtocol {
 
     @discardableResult public func setScreenshotOrientation(to value: String) throws -> String {
         return try setSettings(this: SettingsEnum.screenshotOrientation.rawValue, and: AnyValue(value))
+    }
+
+    public func getSyslog() throws -> [LogEntry] {
+        return try super.getLog(logType: "syslog")
+    }
+
+    public func getCrashlog() throws -> [LogEntry] {
+        return try super.getLog(logType: "crashlog")
+    }
+
+    public func getPerformanceLog() throws -> [LogEntry] {
+        return try super.getLog(logType: "performance")
+    }
+
+    public func getSafariConsoleLog() throws -> [LogEntry] {
+        return try super.getLog(logType: "safariConsole")
+    }
+
+    public func getSafariNetworkLog() throws -> [LogEntry] {
+        return try super.getLog(logType: "safariNetwork")
     }
 }

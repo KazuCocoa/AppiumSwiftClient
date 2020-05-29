@@ -31,6 +31,9 @@ protocol DriverProtocol {
     func setSettings(this setting: SettingsEnum.RawValue, and value: AnyValue) throws -> String
     func setShouldUseCompactResponsesSetting(to value: Bool) throws -> String
     func setElementResponseAttributes(to value: String) throws -> String
+    func getAvailableLogTypes() throws -> [String]
+    func getLog(logType: String) throws -> [LogEntry]
+    func getServerLog() throws -> [LogEntry]
     func quit() -> String
 }
 
@@ -170,9 +173,17 @@ public class AppiumDriver: DriverProtocol {
     @discardableResult public func setElementResponseAttributes(to value: String) throws -> String {
         return try setSettings(this: SettingsEnum.elementResponseAttributes.rawValue, and: AnyValue(value))
     }
-    
+
     public func getAvailableLogTypes() throws -> [String] {
         return try W3CGetAvailableLogTypes().sendRequest(with: currentSession.id)
+    }
+
+    public func getLog(logType: String) throws -> [LogEntry] {
+        return try W3CGetLog().sendRequest(with: currentSession.id, and: logType)
+    }
+
+    public func getServerLog() throws -> [LogEntry] {
+        return try getLog(logType: "server")
     }
 
     @discardableResult public func quit() -> String {
