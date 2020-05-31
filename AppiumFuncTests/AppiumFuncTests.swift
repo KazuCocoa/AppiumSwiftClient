@@ -22,7 +22,7 @@ class AppiumFuncTests: XCTestCase {
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "\(packageRootPath)/AppiumFuncTests/app/UICatalog.app.zip",
-            DesiredCapabilitiesEnum.platformVersion: "13.4",
+            DesiredCapabilitiesEnum.platformVersion: "13.5",
             DesiredCapabilitiesEnum.deviceName: "iPhone 8",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
@@ -169,6 +169,16 @@ class AppiumFuncTests: XCTestCase {
         do {
             let settings = try driver.getSettings()
             XCTAssertNotNil(settings)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
+
+    func testCanGetAvailableLogTypes() {
+        do {
+            let availableLogTypes = try driver.getAvailableLogTypes()
+            XCTAssertFalse(availableLogTypes.isEmpty)
+            print(availableLogTypes)
         } catch {
             XCTFail("\(error)")
         }

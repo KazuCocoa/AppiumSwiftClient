@@ -18,6 +18,8 @@ protocol AndroidDriverProtocol: DriverProtocol {
     func setKeyInjectionDelay(timeInMilliseconds: Int) throws -> String
     func setShutdownOnPowerDisconnect(to value: Bool) throws -> String
     func setTrackScrollEvents(to value: Bool) throws -> String
+    func getLogcat() throws -> [LogEntry]
+    func getBugReportLog() throws -> [LogEntry]
 }
 
 public class AndroidDriver: AppiumDriver, AndroidDriverProtocol {
@@ -64,5 +66,13 @@ public class AndroidDriver: AppiumDriver, AndroidDriverProtocol {
 
     @discardableResult public func setTrackScrollEvents(to value: Bool) throws -> String {
         return try setSettings(this: SettingsEnum.trackScrollEvents.rawValue, and: AnyValue(value))
+    }
+
+    public func getLogcat() throws -> [LogEntry] {
+        return try super.getLog(logType: "logcat")
+    }
+
+    public func getBugReportLog() throws -> [LogEntry] {
+        return try super.getLog(logType: "bugreport")
     }
 }
