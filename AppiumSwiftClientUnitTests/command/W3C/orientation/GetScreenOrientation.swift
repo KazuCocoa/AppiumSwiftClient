@@ -13,10 +13,12 @@ import Mockingjay
 
 class GetScreenOrientationTests: AppiumSwiftClientTestBase {
     func testGestScreenOrientation() {
-        let body = [
-            "value": "PORTRAIT",
-            "sessionId": "3CB9E12B-419C-49B1-855A-45322861F1F7"
-        ]
+        let response = """
+            {
+              "value": "PORTRAIT",
+              "sessionId": "54934a99-e8e6-4cf9-b24d-7046161068ef"
+            }
+        """.data(using: .utf8)!
         
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/orientation") {
@@ -27,8 +29,8 @@ class GetScreenOrientationTests: AppiumSwiftClientTestBase {
             }
         }
         
-        stub(matcher, json(body, status: 200))
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
-        XCTAssertEqual(try driver.getScreenOrientation(), "PORTRAIT")
+        stub(matcher, jsonData(response, status: 200))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
+        XCTAssertEqual(try driver.getScreenOrientation().get(), "PORTRAIT")
     }
 }

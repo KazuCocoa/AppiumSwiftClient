@@ -14,9 +14,6 @@ import Mockingjay
 class GetLogTests: AppiumSwiftClientTestBase {
     
     func testCanGetSyslogTest() {
-        /*
-         Mock response from appium server, encode it to Data
-         */
         let response = """
         {
           "value": [
@@ -47,9 +44,9 @@ class GetLogTests: AppiumSwiftClientTestBase {
          Use jsonData instead of json
          */
         stub(matcher, jsonData(response, status: 200))
-        let driver = try! IOSDriver(AppiumCapabilities(super.opts))
+        let driver = try! IOSDriver(AppiumCapabilities(super.iOSOpts))
         do {
-            let syslog = try driver.getSyslog()
+            let syslog = try driver.getSyslog().get()
             XCTAssertTrue(syslog.count == 2)
         } catch {
             XCTFail()
@@ -65,7 +62,7 @@ class GetLogTests: AppiumSwiftClientTestBase {
                 "stacktrace": "NoSuchDriverError: A session is either terminated or not started\\n    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:255:15)"
               }
             }
-            """.data(using: .utf8)!
+        """.data(using: .utf8)!
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/log") {
                 XCTAssertEqual(HttpMethod.post.rawValue, request.httpMethod)
@@ -76,8 +73,8 @@ class GetLogTests: AppiumSwiftClientTestBase {
         }
 
         stub(matcher, jsonData(response, status: 404))
-        let driver = try! IOSDriver(AppiumCapabilities(super.opts))
-        XCTAssertThrowsError(try driver.getSyslog()) {
+        let driver = try! IOSDriver(AppiumCapabilities(super.iOSOpts))
+        XCTAssertThrowsError(try driver.getSyslog().get()) {
             error in guard case WebDriverErrorEnum.invalidSessionIdError(error: let error) = error else {
                 return XCTFail()
             }

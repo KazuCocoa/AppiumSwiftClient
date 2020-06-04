@@ -8,22 +8,29 @@
 
 import Foundation
 
+public typealias SetSetting = Result<String, Error>
 struct W3CSetSettings: CommandProtocol {
-    func sendRequest(with sessionId: Session.Id, and setting: SettingsEnum.RawValue, to value: AnyValue) throws -> String {
-        let json = generateBodyData(setting: setting, value: value)
-        let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.setSettings.0, commandPath: commandUrl(with: sessionId), json: json)
-        if statusCode == 200 {
-            return ""
-        } else {
-            print("invalid parameter")
-            print(returnValue)
-            let webDriverError = WebDriverError(errorResult: returnValue["value"] as! [String: String]) // swiftlint:disable:this force_cast
-            try webDriverError.raise()
-            return ""
-        }
+
+    private let command = W3CCommands.setSettings
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
+
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
     }
-    func commandUrl(with sessionId: Session.Id, and _: Element.Id = "") -> W3CCommands.CommandPath {
-        return W3CCommands().url(for: W3CCommands.setSettings, with: sessionId)
+
+    func sendRequest(and setting: SettingsEnum.RawValue, to value: AnyValue) -> SetSetting {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                         commandPath: commandUrl,
+                                         json: generateBodyData(setting: setting, value: value))
+
+        guard statusCode == 200 else {
+            print("Command Set Setting \(setting) with Value \(value) Failed for \(sessionId) with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
+        }
+        return .success("")
     }
 
     func generateBodyData(setting: SettingsEnum.RawValue, value: AnyValue) -> Data {

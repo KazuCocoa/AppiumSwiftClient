@@ -8,25 +8,28 @@
 
 import Foundation
 
+public typealias SetScreenOrientation = Result<String, Error>
 struct W3CSetScreenOrientation: CommandProtocol {
 
-    func sendRequest(with sessionId: Session.Id, to orientation: ScreenOrientationEnum) throws -> String {
-        let json = generateBodyData(with: orientation)
-        let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.setScreenOrientation.0, commandPath: commandUrl(with: sessionId), json: json)
+    private let command = W3CCommands.setScreenOrientation
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
 
-        if statusCode == 200 {
-            return ""
-        } else {
-            print("Failed to set screen orientation to \(orientation.rawValue) with status code \(statusCode) on session \(sessionId)")
-            print(returnValue)
-            let webDriverError = WebDriverError(errorResult: returnValue["value"] as! [String: String]) // swiftlint:disable:this force_cast
-            try webDriverError.raise()
-            return ""
-        }
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
     }
 
-    func commandUrl(with sessionId: Session.Id, and _: Element.Id = "") -> W3CCommands.CommandPath {
-        return W3CCommands().url(for: W3CCommands.setScreenOrientation, with: sessionId)
+    func sendRequest(to orientation: ScreenOrientationEnum) -> SetScreenOrientation {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                         commandPath: commandUrl,
+                                         json: generateBodyData(with: orientation))
+        guard statusCode == 200 else {
+            print("Command Set Screen Orientation to \(orientation.rawValue) Failed for \(sessionId) with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
+        }
+        return .success("")
     }
 
     private func generateBodyData(with orientation: ScreenOrientationEnum) -> Data {
@@ -44,7 +47,7 @@ struct W3CSetScreenOrientation: CommandProtocol {
         let value: String
 
         func toDictionary() -> [String: String] {
-            return NSDictionary(dictionary: ["orientation": value.self]) as! [String: String] // swiftlint:disable:this force_cast
+            return ["orientation": value.self]
         }
     }
 }

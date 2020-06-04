@@ -14,7 +14,7 @@ class IOSDriverTests: XCTestCase {
 
     override func setUp() {
         let packageRootPath = URL(
-            fileURLWithPath: #file.replacingOccurrences(of: "AppiumFuncTests/IOSDriverTests.swift", with: "")
+            fileURLWithPath: #file.replacingOccurrences(of: "AppiumFuncTests/IOSDriver/IOSDriverTests.swift", with: "")
             ).path
 
         let opts = [
@@ -32,13 +32,22 @@ class IOSDriverTests: XCTestCase {
         }
     }
 
+    func testGetSettings() {
+        do {
+            let settings = try driver.getSettings().get()
+            XCTAssertNotNil(settings)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
+
     func testCanSetSetting() {
         do {
-            let settings = try driver.getSettings()
-            let mjpegServerFramerateBefore = settings["mjpegServerFramerate"] as! Int // swiftlint:disable:this force_cast
-            try driver.setMjpegServerFramerate(to: 30)
-            let settingsAfter = try driver.getSettings()
-            let mjpegServerFramerateAfter = settingsAfter["mjpegServerFramerate"] as! Int // swiftlint:disable:this force_cast
+            let settings = try driver.getSettings().get()
+            let mjpegServerFramerateBefore = settings.mjpegServerFramerate
+            driver.setMjpegServerFramerate(to: 30)
+            let settingsAfter = try driver.getSettings().get()
+            let mjpegServerFramerateAfter = settingsAfter.mjpegServerFramerate
             XCTAssertNotEqual(mjpegServerFramerateBefore, mjpegServerFramerateAfter)
         } catch let error {
             XCTFail("\(error)")
@@ -47,7 +56,7 @@ class IOSDriverTests: XCTestCase {
 
     func testCanGetSyslog() {
         do {
-            let syslog = try driver.getSyslog()
+            let syslog = try driver.getSyslog().get()
             XCTAssertFalse(syslog.isEmpty)
         } catch {
             XCTFail("\(error)")
@@ -55,6 +64,10 @@ class IOSDriverTests: XCTestCase {
     }
 
     override func tearDown() {
-        driver.quit()
+        do {
+            try driver.quit().get()
+        } catch {
+            XCTFail("Failed to quit driver: \(error)")
+        }
     }
 }

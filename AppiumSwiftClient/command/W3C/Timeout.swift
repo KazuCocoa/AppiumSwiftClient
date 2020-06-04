@@ -8,24 +8,28 @@
 
 import Foundation
 
+public typealias Timeout = Result<String, Error>
 struct W3CTimeout: CommandProtocol {
-    func sendRequest(with sessionId: Session.Id,
-                     and timeoutType: TimeoutTypesEnum,
-                     and timeoutInMilliseconds: Int) throws -> String {
-        let json = generateBodyData(with: timeoutType, and: timeoutInMilliseconds)
-        let (statusCode, returnValue) =
-        HttpClient().sendSyncRequest(method: W3CCommands.setTimeout.0,
-                                     commandPath: commandUrl(with: sessionId),
-                                     json: json)
-        if statusCode == 200 {
-            return ""
-        } else {
-            print("invalid parameter")
-            print(returnValue)
-            let webDriverError = WebDriverError(errorResult: returnValue["value"] as! [String: String]) // swiftlint:disable:this force_cast
-            try webDriverError.raise()
-            return ""
+
+    private let command = W3CCommands.setTimeout
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
+
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
+    }
+
+    func sendRequest(type: TimeoutTypesEnum, timeoutInMilliseconds: Int) -> Timeout {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                                      commandPath: commandUrl,
+                                                      json: generateBodyData(with: type, and: timeoutInMilliseconds))
+        guard statusCode == 200 else {
+            print("Command Set Timeout \(type.rawValue) Failed for \(sessionId) with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
         }
+        return .success("")
     }
 
     func commandUrl(with sessionId: Session.Id, and elementId: Element.Id = "") -> W3CCommands.CommandPath {
@@ -48,7 +52,7 @@ struct W3CTimeout: CommandProtocol {
         let value: Int
 
         func toDictionary() -> [String: Int] {
-            return NSDictionary(dictionary: [type: value]) as! [String: Int] // swiftlint:disable:this force_cast
+            return [type: value]
         }
     }
 }

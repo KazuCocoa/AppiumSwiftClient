@@ -12,29 +12,30 @@ import Mockingjay
 @testable import AppiumSwiftClient
 
 class CreateSessionTests: XCTestCase {
-    let body = [
-        "value": [
-            "capabilities": [
-                "webStorageEnabled": false,
-                "locationContextEnabled": false,
-                "browserName":"",
-                "platform":"MAC",
-                "javascriptEnabled":true,
-                "databaseEnabled":false,
-                "takesScreenshot":true,
-                "networkConnectionEnabled":false,
-                "platformName":"iOS",
-                "reduceMotion":true,
-                "automationName":"xcuitest",
-                "deviceName":"iPhone 8",
-                "platformVersion":"11.4",
-                "app": "path/to/app",
-                "udid": "3CB9E12B-419C-49B1-855A-45322861F1F7"
-            ],
-            "sessionId":"3CB9E12B-419C-49B1-855A-45322861F1F7",
-            "status": 0
-        ]
-    ]
+    let response = """
+        {
+          "value": {
+            "capabilities": {
+              "webStorageEnabled": false,
+              "locationContextEnabled": false,
+              "browserName": "",
+              "platform": "MAC",
+              "javascriptEnabled": true,
+              "databaseEnabled": false,
+              "takesScreenshot": true,
+              "networkConnectionEnabled": false,
+              "platformName": "iOS",
+              "reduceMotion": true,
+              "automationName": "xcuitest",
+              "app": "path/to/app",
+              "platformVersion": "13.5",
+              "deviceName": "iPhone 8",
+              "udid": "3CB9E12B-419C-49B1-855A-45322861F1F7"
+            },
+            "sessionId": "3CB9E12B-419C-49B1-855A-45322861F1F7"
+          }
+        }
+    """.data(using: .utf8)!
 
     override func setUp() {
         super.setUp()
@@ -50,7 +51,7 @@ class CreateSessionTests: XCTestCase {
                 return false
             }
         }
-        stub(matcher, json(body, status: 200))
+        stub(matcher, jsonData(response, status: 200))
 
         let opts = [
             DesiredCapabilitiesEnum.platformName: "iOS",
@@ -66,13 +67,15 @@ class CreateSessionTests: XCTestCase {
     }
 
     func testCreateSessionWith500Error() {
-        let errorMessage = [
-            "value": [
+        let errorMessage = """
+            {
+              "value": {
                 "error": "session not created",
                 "message": "error messages",
                 "stacktrace": "dummy stack trace"
-            ]
-        ]
+              }
+            }
+        """.data(using: .utf8)!
 
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session") {
@@ -82,7 +85,7 @@ class CreateSessionTests: XCTestCase {
                 return false
             }
         }
-        stub(matcher, json(errorMessage, status: 500))
+        stub(matcher, jsonData(errorMessage, status: 500))
 
         let opts = [
             DesiredCapabilitiesEnum.platformName: "iOS",

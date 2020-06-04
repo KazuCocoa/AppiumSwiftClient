@@ -9,42 +9,32 @@
 import Foundation
 
 struct W3CElementScreenshot: CommandProtocol {
-    func sendRequest(_ elementId: Element.Id, with sessionId: Session.Id) -> String {
-        let json = generateBodyData()
-        let (statusCode, returnValue) =
-            HttpClient().sendSyncRequest(method: W3CCommands.takeElementScreenshot.0,
-                                         commandPath: commandUrl(with: sessionId, and: elementId),
-                                         json: json)
 
-        if statusCode == 200 {
-            // Return base64 encoded string
-            return returnValue["value"] as! String // swiftlint:disable:this force_cast
-        } else {
-            print("Status code is \(statusCode)")
-            print(returnValue)
-            return ""
+    private let command = W3CCommands.takeElementScreenshot
+    private let sessionId: Session.Id
+
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+    }
+
+    func sendRequest(_ elementId: Element.Id) -> TakeScreenshot {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                         commandPath: commandUrl(with: elementId))
+
+        guard statusCode == 200 else {
+            print("Command Get Screenshot for Element with id \(elementId) Failed for \(sessionId) with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
         }
-    }
-
-    func commandUrl(with sessionId: Session.Id, and elementId: Element.Id) -> W3CCommands.CommandPath {
-        return W3CCommands().url(for: W3CCommands.takeElementScreenshot, with: sessionId, and: elementId)
-    }
-
-    func generateBodyData() -> Data {
-        let invalidJson = "invalid JSON"
-
-        let getCapabilitiesParam = CommandParam()
-
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .sortedKeys
-
         do {
-            return try encoder.encode(getCapabilitiesParam)
-        } catch {
-            return invalidJson.data(using: .utf8)!
+            let response = try JSONDecoder().decode(ValueOf<String>.self, from: returnData).value
+            return .success(response)
+        } catch let error {
+            return .failure(error)
         }
     }
 
-    fileprivate struct CommandParam: CommandParamProtocol {
+    func commandUrl(with elementId: Element.Id) -> W3CCommands.CommandPath {
+        return W3CCommands().url(for: command, with: sessionId, and: elementId)
     }
 }

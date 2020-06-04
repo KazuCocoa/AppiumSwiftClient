@@ -23,6 +23,10 @@ open class FunctionalBaseTest: XCTestCase {
     }
 
     open override func tearDown() {
-        driver.quit()
+        do {
+            try driver.quit()
+        } catch {
+            XCTFail("Failed to quit driver: \(error)")
+        }
     }
 }

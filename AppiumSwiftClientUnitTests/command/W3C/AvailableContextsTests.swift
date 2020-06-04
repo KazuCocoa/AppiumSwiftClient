@@ -14,9 +14,9 @@ import Mockingjay
 class AvailableContextsTests: AppiumSwiftClientTestBase {
 
     func testAvailableCOntexts() {
-        let body = [
-            "value": ["NATIVE_APP", "WEBVIEW"]
-        ]
+        let response = """
+            {"value":["NATIVE_APP", "WEBVIEW"]}
+        """.data(using: .utf8)!
 
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/contexts") {
@@ -26,8 +26,11 @@ class AvailableContextsTests: AppiumSwiftClientTestBase {
                 return false
             }
         }
-        stub(matcher, json(body, status: 200))
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
-        XCTAssertEqual(driver.getAvailableContexts(), ["NATIVE_APP", "WEBVIEW"])
+
+        stub(matcher, jsonData(response, status: 200))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
+        let contexts = try! driver.getAvailableContexts().get()
+        XCTAssertEqual(contexts, ["NATIVE_APP", "WEBVIEW"])
+        XCTAssertTrue(contexts.count == 2)
     }
 }

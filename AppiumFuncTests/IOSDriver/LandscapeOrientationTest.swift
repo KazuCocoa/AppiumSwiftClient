@@ -25,15 +25,15 @@ class LandscapeOrientationTest: FunctionalBaseTest {
 
     func testAppLaunchInPortraitModeDefault() {
         do {
-            XCTAssertTrue(try driver.getScreenOrientation() == ScreenOrientationEnum.portrait.rawValue)
+            XCTAssertTrue(try driver.getScreenOrientation().get() == ScreenOrientationEnum.portrait.rawValue)
         }
     }
 
     func testCanRotateScreenToLandscape() {
         do {
-            let orientationBefore = try driver.getScreenOrientation()
-            try driver.rotate(to: ScreenOrientationEnum.landscape)
-            let orientationAfter = try driver.getScreenOrientation()
+            let orientationBefore = try driver.getScreenOrientation().get()
+            driver.rotate(to: ScreenOrientationEnum.landscape)
+            let orientationAfter = try driver.getScreenOrientation().get()
             XCTAssertTrue(orientationBefore != orientationAfter)
             XCTAssertTrue(orientationAfter == ScreenOrientationEnum.landscape.rawValue)
         } catch let error {

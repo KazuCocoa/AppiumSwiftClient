@@ -8,37 +8,81 @@
 
 import Foundation
 
+public typealias GetSettings<T> = Result<T, Error>
 struct W3CGetSettings: CommandProtocol {
-    func sendRequest(with sessionId: Session.Id) throws -> [String: Any] {
-        let json = generateBodyData()
-        let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.getSettings.0, commandPath: commandUrl(with: sessionId), json: json)
-        if statusCode == 200 {
-            return returnValue["value"] as! [String: Any] // swiftlint:disable:this force_cast
-        } else {
+
+    private let command = W3CCommands.getSettings
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
+
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
+    }
+
+    func sendRequest<T: Decodable>() -> GetSettings<T> {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                         commandPath: commandUrl)
+
+        guard statusCode == 200 else {
             print("Command Get Settings Failed for \(sessionId) with Status Code: \(statusCode)")
-            print(returnValue)
-            let webDriverError = WebDriverError(errorResult: returnValue["value"] as! [String: String]) // swiftlint:disable:this force_cast
-            try webDriverError.raise()
-            return ["": ""]
+            return .failure(WebDriverError(errorResult: returnData).raise())
         }
-    }
-    func commandUrl(with sessionId: Session.Id, and _: Element.Id = "") -> W3CCommands.CommandPath {
-        return W3CCommands().url(for: W3CCommands.getSettings, with: sessionId)
-    }
-
-    func generateBodyData() -> Data {
-        let getSettings = CommandParam()
-
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .sortedKeys
-
         do {
-            return try encoder.encode(getSettings)
-        } catch {
-            return "{}".data(using: .utf8)!
+            let response = try JSONDecoder().decode(ValueOf<T>.self, from: returnData).value
+            return .success(response)
+        } catch let error {
+            return .failure(error)
         }
     }
+}
 
-    fileprivate struct CommandParam: CommandParamProtocol {
-    }
+public struct IOSSettings: Codable {
+    let imageMatchThreshold: Double?
+    let fixImageFindScreenshotDims: Bool?
+    let fixImageTemplateSize: Bool?
+    let fixImageTemplateScale: Bool?
+    let defaultImageTemplateScale: Int?
+    let checkForImageElementStaleness: Bool?
+    let autoUpdateImageElementPosition: Bool?
+    let imageElementTapStrategy: String?
+    let getMatchedImageResult: Bool?
+    let nativeWebTap: Bool?
+    let nativeWebTapStrict: Bool?
+    let useJSONSource: Bool?
+    let shouldUseCompactResponses: Bool
+    let elementResponseAttributes: String
+    let mjpegServerScreenshotQuality: Int?
+    let mjpegServerFramerate: Int?
+    let screenshotQuality: Int?
+    let mjpegScalingFactor: Int?
+    let reduceMotion: Bool?
+}
+
+public struct AndroidSettings: Codable {
+    let imageMatchThreshold: Double?
+    let fixImageFindScreenshotDims: Bool?
+    let fixImageTemplateSize: Bool?
+    let fixImageTemplateScale: Bool?
+    let defaultImageTemplateScale: Int?
+    let checkForImageElementStaleness: Bool?
+    let autoUpdateImageElementPosition: Bool?
+    let imageElementTapStrategy: String?
+    let getMatchedImageResult: Bool?
+    let ignoreUnimportantViews: Bool?
+    let allowInvisibleElements: Bool?
+    let actionAcknowledgmentTimeout: Int?
+    let elementResponseAttributes: String?
+    let enableMultiWindows: Bool?
+    let enableNotificationListener: Bool?
+    let keyInjectionDelay: Int?
+    let scrollAcknowledgmentTimeout: Int?
+    let shouldUseCompactResponses: Bool?
+    let waitForIdleTimeout: Int?
+    let waitForSelectorTimeout: Int?
+    let normalizeTagNames: Bool?
+    let shutdownOnPowerDisconnect: Bool?
+    let trackScrollEvents: Bool?
+    let wakeLockTimeout: Int?
 }

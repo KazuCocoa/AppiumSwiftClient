@@ -78,7 +78,6 @@ public struct AnyValue: Codable {
         try container.encodeNil()
     }
 
-
     func value() -> Any? {
         return self.int ?? self.string ?? self.bool ?? self.double
     }

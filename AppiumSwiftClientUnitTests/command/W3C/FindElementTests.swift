@@ -13,11 +13,13 @@ import Mockingjay
 
 class FindElementTests: AppiumSwiftClientTestBase {
     func testFindElement() {
-        let body = [
-            "value": [
-                "element-6066-11e4-a52e-4f735466cecf": "test-element-id",
-            ]
-        ]
+        let response = """
+            {
+              "value": {
+                "element-6066-11e4-a52e-4f735466cecf": "test-element-id"
+              }
+            }
+        """.data(using: .utf8)!
 
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/element") {
@@ -27,23 +29,25 @@ class FindElementTests: AppiumSwiftClientTestBase {
                 return false
             }
         }
-        stub(matcher, json(body, status: 200))
+        stub(matcher, jsonData(response, status: 200))
 
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
 
-        let element = try! driver.findElement(by: .accessibilityId, with: "name")
+        let element = try! driver.findElement(by: .accessibilityId, with: "name").get()
         XCTAssertEqual(element.sessionId, "3CB9E12B-419C-49B1-855A-45322861F1F7")
         XCTAssertEqual(element.id, "test-element-id")
     }
 
     func testFindElementNoSuchElementError() {
-        let errorMessage = [
-            "value": [
+        let errorMessage = """
+            {
+              "value": {
                 "error": "no such element",
                 "message": "error messages",
                 "stacktrace": "dummy stack trace"
-            ]
-        ]
+              }
+            }
+        """.data(using: .utf8)!
 
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/element") {
@@ -53,11 +57,11 @@ class FindElementTests: AppiumSwiftClientTestBase {
                 return false
             }
         }
-        stub(matcher, json(errorMessage, status: 404))
+        stub(matcher, jsonData(errorMessage, status: 404))
 
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
 
-        XCTAssertThrowsError(try driver.findElement(by: .accessibilityId, with: "name")) { error in
+        XCTAssertThrowsError(try driver.findElement(by: .accessibilityId, with: "name").get()) { error in
             guard case WebDriverErrorEnum.noSuchElementError(let error) = error else {
                 return XCTFail()
             }

@@ -8,41 +8,57 @@
 
 import Foundation
 
+public typealias GetCapabilities = Result<SessionCapabilities, Error>
 struct W3CGetCapabilities: CommandProtocol {
-    func sendRequest(with sessionId: Session.Id) -> [String: Any] {
-        let json = generateBodyData()
-        let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.getCapabilities.0,
-                                                                     commandPath: commandUrl(with: sessionId),
-                                                                     json: json)
 
-        if statusCode == 200 {
-            return returnValue["value"] as! [String: Any] // swiftlint:disable:this force_cast
-        } else {
-            print("Status code is \(statusCode)")
-            print(returnValue)
-            return ["": ""]
+    private let command = W3CCommands.getCapabilities
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
+
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
+    }
+
+    func sendRequest() -> GetCapabilities {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                         commandPath: commandUrl)
+        guard statusCode == 200 else {
+            print("Command Capabilities Failed for \(sessionId) with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
         }
-    }
-
-    func commandUrl(with sessionId: Session.Id, and elementId: Element.Id = "") -> W3CCommands.CommandPath {
-        return W3CCommands().url(for: W3CCommands.getCapabilities, with: sessionId)
-    }
-
-    func generateBodyData() -> Data {
-        let invalidJson = "invalid JSON"
-
-        let getCapabilitiesParam = CommandParam()
-
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .sortedKeys
-
         do {
-            return try encoder.encode(getCapabilitiesParam)
-        } catch {
-            return invalidJson.data(using: .utf8)!
+            let response = try JSONDecoder().decode(ValueOf<SessionCapabilities>.self, from: returnData).value
+            return .success(response)
+        } catch let error {
+            return .failure(error)
         }
     }
+}
 
-    fileprivate struct CommandParam: CommandParamProtocol {
+public struct SessionCapabilities: Codable {
+    let udid: String?
+    let platformName: String?
+    let app: String?
+    let platformVersion: String?
+    let deviceName: String?
+    let device: String?
+    let browserName: String?
+    let sdkVersion: String?
+    let CFBundleIdentifier: String?
+    let pixelRatio: Int?
+    let statBarHeight: Int?
+    let viewportRect: ViewportRect?
+}
+
+public struct ViewportRect: Codable {
+    let left: Int
+    let top: Int
+    let width: Int
+    let height: Int
+
+    public func asDictionary() -> [String: Int] {
+        return ["left": left, "top": top, "width": width, "height": height]
     }
 }

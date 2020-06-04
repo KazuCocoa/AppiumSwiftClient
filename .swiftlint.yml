@@ -4,3 +4,6 @@ included:
   - AppiumSwiftClientTests
 excluded:
   - Pods
+disabled_rules: # rule identifiers to exclude from running
+  - force_try
+  - line_length

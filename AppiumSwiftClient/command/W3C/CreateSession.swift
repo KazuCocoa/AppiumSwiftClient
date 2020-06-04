@@ -18,37 +18,30 @@ import Foundation
 // <1> finished with error - code: -1004
 //Error calling POST on http://127.0.0.1:4723/wd/hub/session
 struct W3CCreateSession: CommandProtocol {
-    func sendRequest(with caps: AppiumCapabilities) throws -> String {
-        let json = generateBodyData(with: caps)
 
-        // {"value":{"sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","capabilities":
-        //  {"device":"iphone","browserName":"UICatalog","sdkVersion":"11.4",
-        //    "CFBundleIdentifier":"com.example.apple-samplecode.UICatalog"}},
-        //    "sessionId":"9C9D08C2-6024-4132-8E2C-D2292672C0E2","status":0}
-        let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.newSession.0,
-                                                                     commandPath: commandUrl(),
-                                                                     json: json)
+    private let command = W3CCommands.newSession
+    private let commandUrl: W3CCommands.CommandPath
+    public typealias CreateSession = Result<SessionDetails, Error>
 
-        guard let value = returnValue["value"] as? [String: Any] else {
-            return ""
-        }
-
-        if statusCode == 200 {
-            let sessionId = value["sessionId"] as! String // swiftlint:disable:this force_cast
-            return sessionId
-        } else if statusCode == 500 {
-            // swiftlint:disable force_cast
-            let webDriverError = WebDriverError(errorResult: value as! [String: String])
-            try webDriverError.raise()
-            return "error happened"
-        } else {
-            print("Status code is \(statusCode)")
-            return "error happened"
-        }
+    init() {
+        self.commandUrl = command.1
     }
 
-    func commandUrl(with sessionId: Session.Id = "", and elementId: Element.Id = "") -> W3CCommands.CommandPath {
-        return W3CCommands.newSession.1
+    func sendRequest(with caps: AppiumCapabilities) throws -> CreateSession {
+        let (statusCode, returnData) =
+        HttpClient().sendSyncRequest(method: command.0,
+                                     commandPath: commandUrl,
+                                     json: generateBodyData(with: caps))
+
+        guard statusCode == 200 else {
+            return .failure(WebDriverError(errorResult: returnData).raise())
+        }
+        do {
+            let response = try JSONDecoder().decode(ValueOf<SessionDetails>.self, from: returnData).value
+            return .success(response)
+        } catch let error {
+            return .failure(error)
+        }
     }
 
     func generateBodyData(with caps: AppiumCapabilities) -> Data {
@@ -78,4 +71,8 @@ struct W3CCreateSession: CommandProtocol {
     fileprivate struct W3CFirstMatch: CommandParamProtocol {
         let firstMatch: [W3CDesiredCapability]
     }
+}
+
+public struct SessionDetails: Decodable {
+    let sessionId: String
 }
