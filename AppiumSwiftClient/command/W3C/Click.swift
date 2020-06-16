@@ -8,27 +8,29 @@
 
 import Foundation
 
+public typealias Click = Result<String, Error>
 struct W3CElementClick: CommandProtocol {
-    private let noElement = "no element"
 
-    func sendRequest(_ elementId: Element.Id, with sessionId: Session.Id) -> String {
-        let json = generateBodyData()
-        let (statusCode, returnValue) =
-            HttpClient().sendSyncRequest(method: W3CCommands.elementClick.0,
+    private let command = W3CCommands.elementClick
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
+
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
+    }
+
+    func sendRequest(_ elementId: Element.Id) -> Click {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
                                          commandPath: commandUrl(with: sessionId, and: elementId),
-                                         json: json)
+                                         json: generateBodyData())
 
-        if statusCode == 200 {
-            return ""
-        } else if statusCode == 400 {
-            print("invalid parameter")
-            print(returnValue)
-            return noElement
-        } else {
-            print("Status code is \(statusCode)")
-            print(returnValue)
-            return noElement
+        guard statusCode == 200 else {
+            print("Command Click on Element \(elementId) Failed for \(sessionId) with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
         }
+        return .success("")
     }
 
     func commandUrl(with sessionId: Session.Id, and elementId: Element.Id) -> W3CCommands.CommandPath {

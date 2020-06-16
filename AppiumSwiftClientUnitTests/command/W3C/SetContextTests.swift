@@ -15,9 +15,9 @@ import Mockingjay
 class SetContextTests: AppiumSwiftClientTestBase {
 
     func testSetContext() {
-        let body = [
-            "value": ""
-        ]
+        let response = """
+            {"value":""}
+        """.data(using: .utf8)!
 
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/context") {
@@ -27,19 +27,21 @@ class SetContextTests: AppiumSwiftClientTestBase {
                 return false
             }
         }
-        stub(matcher, json(body, status: 200))
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
-        XCTAssertEqual(try driver.setContext(name: "NATIVE_APP"), "")
+        stub(matcher, jsonData(response, status: 200))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
+        XCTAssertNoThrow(try! driver.setContext(name: "NATIVE_APP").get())
     }
 
     func testSetContextNoSuchContextError() {
-        let errorMessage = [
-            "value": [
-                "error": "no such context",
-                "message": "No such context found.",
-                "stacktrace": "Encountered internal error running command: NoSuchContextError: No such context found."
-            ]
-        ]
+        let errorMessage = """
+        {
+          "value": {
+            "error": "unknown error",
+            "message": "No such context found.",
+            "stacktrace": "NoSuchContextError: No such context found."
+          }
+        }
+        """.data(using: .utf8)!
 
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/context") {
@@ -49,15 +51,15 @@ class SetContextTests: AppiumSwiftClientTestBase {
                 return false
             }
         }
-        stub(matcher, json(errorMessage, status: 400))
+        stub(matcher, jsonData(errorMessage, status: 400))
 
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
 
-        XCTAssertThrowsError(try driver.setContext(name: "NATIVE")) { error in
-            guard case WebDriverErrorEnum.noSuchContextError(let error) = error else {
+        XCTAssertThrowsError(try driver.setContext(name: "NATIVE").get()) { error in
+            guard case WebDriverErrorEnum.unknownError(let error) = error else {
                 return XCTFail()
             }
-            XCTAssertEqual(error.error, "no such context")
+            XCTAssertEqual(error.message, "No such context found.")
         }
     }
 }

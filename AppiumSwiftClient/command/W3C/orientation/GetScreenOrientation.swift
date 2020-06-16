@@ -8,43 +8,35 @@
 
 import Foundation
 
+public typealias ScreenOrientation = String
+public typealias GetScreenOrientation = Result<ScreenOrientation, Error>
 struct W3CGetScreenOrientation: CommandProtocol {
 
-    func sendRequest(with sessionId: Session.Id) throws -> String {
-        let json = generateBodyData()
-        let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.getScreenOrientation.0,
-                                                                     commandPath: commandUrl(with: sessionId),
-                                                                     json: json)
-        if statusCode == 200 {
-            return returnValue["value"] as! String // swiftlint:disable:this force_cast
-        } else {
-            print("Status Code \(statusCode)")
-            print(returnValue)
-            // swiftlint:disable force_cast
-            let webDriverError = WebDriverError(errorResult: returnValue["value"] as! [String: String])
-            try webDriverError.raise()
-            return "Error Happened"
+    private let command = W3CCommands.getScreenOrientation
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
+
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
+    }
+
+    func sendRequest() -> GetScreenOrientation {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                         commandPath: commandUrl)
+        guard statusCode == 200 else {
+            print("Command Get Screen Orientation Failed for \(sessionId) with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
         }
-    }
-
-    func commandUrl(with sessionId: Session.Id, and _: Element.Id = "") -> W3CCommands.CommandPath {
-        return W3CCommands().url(for: W3CCommands.getScreenOrientation, with: sessionId)
-    }
-
-    func generateBodyData() -> Data {
-        let goBack = CommandParam()
-
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .sortedKeys
-
         do {
-            return try encoder.encode(goBack)
-        } catch {
-            return "{}".data(using: .utf8)!
+            let response = try JSONDecoder().decode(ValueOf<ScreenOrientation>.self, from: returnData).value
+            return .success(response)
+        } catch let error {
+            return .failure(error)
         }
     }
+}
 
-    fileprivate struct CommandParam: CommandParamProtocol {
-    }
-    
+public struct GetScreenOrientationResult: Decodable {
 }

@@ -14,9 +14,9 @@ import Mockingjay
 class ClickTests: AppiumSwiftClientTestBase {
 
     func testFindElements() {
-        let body = [
-            "value": ""
-        ]
+        let response = """
+            {"value":""}
+        """.data(using: .utf8)!
 
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/element/test-element-id/click") {
@@ -26,9 +26,9 @@ class ClickTests: AppiumSwiftClientTestBase {
                 return false
             }
         }
-        stub(matcher, json(body, status: 200))
+        stub(matcher, jsonData(response, status: 200))
 
         let element = Element(id: "test-element-id", sessionId: "3CB9E12B-419C-49B1-855A-45322861F1F7")
-        XCTAssertEqual(element.click(), "")
+        XCTAssertNoThrow(try element.click().get())
     }
 }

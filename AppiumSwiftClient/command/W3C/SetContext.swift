@@ -8,32 +8,29 @@
 
 import Foundation
 
+public typealias SetContext = Result<String, Error>
 struct W3CSetContext: CommandProtocol {
-    func sendRequest(with sessionId: Session.Id, andWith context: String) throws -> String {
-        let json = generateBodyData(context)
-        let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.setContext.0,
-                                                                     commandPath: commandUrl(with: sessionId),
-                                                                     json: json)
 
-        if statusCode == 200 {
-            // Appium returns NSNull as returnValue["value"]
-            return ""
-        } else if statusCode == 400 {
-            // Encountered internal error running command: NoSuchContextError: No such context found.
-            // swiftlint:disable force_cast
-            let webDriverError = WebDriverError(errorResult: returnValue["value"] as! [String: String])
-            // TODO: Should add tests
-            try webDriverError.raise()
-            return ""
-        } else {
-            print("Status code is \(statusCode)")
-            print(returnValue)
-            return ""
-        }
+    private let command = W3CCommands.setContext
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
+
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
     }
 
-    func commandUrl(with sessionId: Session.Id, and elementId: Element.Id = "") -> W3CCommands.CommandPath {
-        return W3CCommands().url(for: W3CCommands.setContext, with: sessionId)
+    func sendRequest(with context: String) -> SetContext {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                         commandPath: commandUrl,
+                                         json: generateBodyData(context))
+
+        guard statusCode == 200 else {
+            print("Command Set Context \(context) Failed for \(sessionId) with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
+        }
+        return .success("")
     }
 
     func generateBodyData(_ context: String) -> Data {

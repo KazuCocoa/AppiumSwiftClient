@@ -16,9 +16,9 @@ class GoBackTest: AppiumSwiftClientTestBase {
     private var url = "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/back"
     
     func testCanGoBack() {
-        let body = [
-            "value": ""
-        ]
+        let response = """
+            {"value":""}
+        """.data(using: .utf8)!
         
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == url) {
@@ -28,8 +28,8 @@ class GoBackTest: AppiumSwiftClientTestBase {
                 return false
             }
         }
-        stub(matcher, json(body, status: 200))
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
-        XCTAssertEqual(try! driver.back(), "")
+        stub(matcher, jsonData(response, status: 200))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
+        XCTAssertNoThrow(try driver.back().get())
     }
 }

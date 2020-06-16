@@ -14,20 +14,6 @@ public enum WebDriverErrorEnum: Error {
     case noStringLengthError // 4
     case noStringWrapperError // 5
     case noSuchDriverError // 6
-
-    // swiftlint:disable line_length
-    // An element could not be located on the page using the given search parameters.
-    // # example
-    // ["value": {
-    //                error = "no such element";
-    //                message = "An element could not be located on the page using the given search parameters.";
-    //                stacktrace = "NoSuchElementError: An element could not be located on the page using the given search parameters.\n
-    //    at XCUITestDriver.<anonymous> (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/lib/commands/find.js:130:13)\n
-    //    at Generator.throw (<anonymous>)\n
-    //    at asyncGeneratorStep (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:24)\n
-    //    at _throw (/Users/kazuaki/GitHub/appium/node_modules/appium-xcuitest-driver/node_modules/@babel/runtime/helpers/asyncToGenerator.js:29:9)\n
-    //    at <anonymous>";
-    //                }]
     case noSuchElementError(error: WebDriverError.W3C) // 7
 
     // A command to switch to a frame could not be satisfied because the frame could not be found.

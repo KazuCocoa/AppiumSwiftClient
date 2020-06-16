@@ -8,38 +8,26 @@
 
 import Foundation
 
+public typealias EndSession = Result<String, Error>
 struct W3CEndSession: CommandProtocol {
-    func sendRequest(with sessionId: Session.Id) -> String {
-        let json = generateBodyData()
-        let (statusCode, returnValue) =
-            HttpClient().sendSyncRequest(method: W3CCommands.deleteSession.0,
-                                         commandPath: commandUrl(with: sessionId),
-                                         json: json)
 
-        if statusCode == 404 {
-            print("Status Code \(statusCode): No Session with id \(sessionId) found?")
-            print(returnValue)
+    private let command = W3CCommands.deleteSession
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
+
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
+    }
+
+    func sendRequest() -> EndSession {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                         commandPath: commandUrl)
+        guard statusCode == 200 else {
+            print("Command Quit Failed for \(sessionId) with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
         }
-        return ""
-    }
-
-    func commandUrl(with sessionId: Session.Id, and _: Element.Id = "") -> W3CCommands.CommandPath {
-        return W3CCommands().url(for: W3CCommands.deleteSession, with: sessionId)
-    }
-
-    func generateBodyData() -> Data {
-        let endSessionParam = CommandParam()
-
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .sortedKeys
-
-        do {
-            return try encoder.encode(endSessionParam)
-        } catch {
-            return "{}".data(using: .utf8)!
-        }
-    }
-
-    fileprivate struct CommandParam: CommandParamProtocol {
+        return .success("")
     }
 }

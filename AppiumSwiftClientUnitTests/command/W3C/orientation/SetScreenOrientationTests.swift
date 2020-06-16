@@ -27,14 +27,14 @@ class SetScreenOrientationTest: AppiumSwiftClientTestBase {
         }
         
         stub(matcher, json(body, status: 200))
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
-        XCTAssertEqual(try driver.rotate(to: ScreenOrientationEnum.landscape), "")
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
+        XCTAssertNoThrow(try driver.rotate(to: ScreenOrientationEnum.landscape).get())
     }
     
     func testCanRotateToPortrait() {
-        let body = [
-            "value": ""
-        ]
+        let response = """
+            {"value":""}
+        """.data(using: .utf8)!
         
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/orientation") {
@@ -45,19 +45,21 @@ class SetScreenOrientationTest: AppiumSwiftClientTestBase {
             }
         }
         
-        stub(matcher, json(body, status: 200))
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
-        XCTAssertEqual(try driver.rotate(to: ScreenOrientationEnum.portrait), "")
+        stub(matcher, jsonData(response, status: 200))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
+        XCTAssertNoThrow(try driver.rotate(to: ScreenOrientationEnum.portrait).get())
     }
     
     func testRotateDeviceFailsWith500() {
-        let body = [
-            "value": [
+        let response = """
+            {
+              "value": {
                 "error": "unknown error",
                 "message": "An unknown server-side error occurred while processing the command. Original error: Unable To Rotate Device",
                 "stacktrace": "UnknownError: An unknown server-side error occurred while processing the command. Original error: Unable To Rotate Device"
-            ]
-        ]
+              }
+            }
+        """.data(using: .utf8)!
         
         func matcher(request: URLRequest) -> Bool {
             if (request.url?.absoluteString == "http://127.0.0.1:4723/wd/hub/session/3CB9E12B-419C-49B1-855A-45322861F1F7/orientation") {
@@ -68,9 +70,9 @@ class SetScreenOrientationTest: AppiumSwiftClientTestBase {
             }
         }
         
-        stub(matcher, json(body, status: 500))
-        let driver = try! AppiumDriver(AppiumCapabilities(super.opts))
-        XCTAssertThrowsError(try driver.rotate(to: ScreenOrientationEnum.portrait)) {
+        stub(matcher, jsonData(response, status: 500))
+        let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
+        XCTAssertThrowsError(try driver.rotate(to: ScreenOrientationEnum.portrait).get()) {
             error in guard case WebDriverErrorEnum.unknownError(error: let error) = error else {
                 return XCTFail()
             }

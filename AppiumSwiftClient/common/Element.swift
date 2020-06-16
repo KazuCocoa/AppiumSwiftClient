@@ -17,14 +17,7 @@ public struct Element {
         self.sessionId = sessionId
     }
 
-    @discardableResult public func click() -> String {
-        let result = W3CElementClick().sendRequest(self.id, with: sessionId)
-
-        guard result != "" else {
-            print(result)
-            return result
-        }
-
-        return result
+    @discardableResult public func click() -> Click {
+        return W3CElementClick(sessionId: sessionId).sendRequest(self.id)
     }
 }

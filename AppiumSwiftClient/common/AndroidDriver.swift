@@ -7,72 +7,76 @@
 //
 
 protocol AndroidDriverProtocol: DriverProtocol {
-    func setIgnoreUnimportantViews(to value: Bool) throws -> String
-    func setWaitForIdleTimeout(timeInMilliseconds: Int) throws -> String
-    func setWaitForSelectorTimeout(timeInMilliseconds: Int) throws -> String
-    func setScrollAcknowledgmentTimeout(timeInMilliseconds: Int) throws -> String
-    func setActionAcknowledgmentTimeout(timeInMilliseconds: Int) throws -> String
-    func setAllowInvisibleElements(to value: Bool) throws -> String
-    func setEnableNotificationListener(to value: Bool) throws -> String
-    func setNormalizeTagNames(to value: Bool) throws -> String
-    func setKeyInjectionDelay(timeInMilliseconds: Int) throws -> String
-    func setShutdownOnPowerDisconnect(to value: Bool) throws -> String
-    func setTrackScrollEvents(to value: Bool) throws -> String
-    func getLogcat() throws -> [LogEntry]
-    func getBugReportLog() throws -> [LogEntry]
+    func setIgnoreUnimportantViews(to value: Bool) -> SetSetting
+    func setWaitForIdleTimeout(timeInMilliseconds: Int) -> SetSetting
+    func setWaitForSelectorTimeout(timeInMilliseconds: Int) -> SetSetting
+    func setScrollAcknowledgmentTimeout(timeInMilliseconds: Int) -> SetSetting
+    func setActionAcknowledgmentTimeout(timeInMilliseconds: Int) -> SetSetting
+    func setAllowInvisibleElements(to value: Bool) -> SetSetting
+    func setEnableNotificationListener(to value: Bool) -> SetSetting
+    func setNormalizeTagNames(to value: Bool) -> SetSetting
+    func setKeyInjectionDelay(timeInMilliseconds: Int) -> SetSetting
+    func setShutdownOnPowerDisconnect(to value: Bool) -> SetSetting
+    func setTrackScrollEvents(to value: Bool) -> SetSetting
+    func getLogcat() -> Log
+    func getBugReportLog() -> Log
 }
 
 public class AndroidDriver: AppiumDriver, AndroidDriverProtocol {
 
-    @discardableResult public func setIgnoreUnimportantViews(to value: Bool) throws -> String {
-        return try setSettings(this: SettingsEnum.ignoreUnimportantViews.rawValue, and: AnyValue(value))
+    public func getSettings() -> GetSettings<AndroidSettings> {
+        return super.getSettings()
     }
 
-    @discardableResult public func setWaitForIdleTimeout(timeInMilliseconds: Int) throws -> String {
-        return try setSettings(this: SettingsEnum.waitForIdleTimeout.rawValue, and: AnyValue(timeInMilliseconds))
+    @discardableResult public func setIgnoreUnimportantViews(to value: Bool) -> SetSetting {
+        return setSettings(this: SettingsEnum.ignoreUnimportantViews.rawValue, and: AnyValue(value))
     }
 
-    @discardableResult public func setWaitForSelectorTimeout(timeInMilliseconds: Int) throws -> String {
-        return try setSettings(this: SettingsEnum.waitForSelectorTimeout.rawValue, and: AnyValue(timeInMilliseconds))
+    @discardableResult public func setWaitForIdleTimeout(timeInMilliseconds: Int) -> SetSetting {
+        return setSettings(this: SettingsEnum.waitForIdleTimeout.rawValue, and: AnyValue(timeInMilliseconds))
     }
 
-    @discardableResult public func setScrollAcknowledgmentTimeout(timeInMilliseconds: Int) throws -> String {
-        return try setSettings(this: SettingsEnum.scrollAcknowledgmentTimeout.rawValue, and: AnyValue(timeInMilliseconds))
+    @discardableResult public func setWaitForSelectorTimeout(timeInMilliseconds: Int) -> SetSetting {
+        return setSettings(this: SettingsEnum.waitForSelectorTimeout.rawValue, and: AnyValue(timeInMilliseconds))
     }
 
-    @discardableResult public func setActionAcknowledgmentTimeout(timeInMilliseconds: Int) throws -> String {
-        return try setSettings(this: SettingsEnum.actionAcknowledgmentTimeout.rawValue, and: AnyValue(timeInMilliseconds))
+    @discardableResult public func setScrollAcknowledgmentTimeout(timeInMilliseconds: Int) -> SetSetting {
+        return setSettings(this: SettingsEnum.scrollAcknowledgmentTimeout.rawValue, and: AnyValue(timeInMilliseconds))
     }
 
-    @discardableResult public func setAllowInvisibleElements(to value: Bool) throws -> String {
-        return try setSettings(this: SettingsEnum.allowInvisibleElements.rawValue, and: AnyValue(value))
+    @discardableResult public func setActionAcknowledgmentTimeout(timeInMilliseconds: Int) -> SetSetting {
+        return setSettings(this: SettingsEnum.actionAcknowledgmentTimeout.rawValue, and: AnyValue(timeInMilliseconds))
     }
 
-    @discardableResult public func setEnableNotificationListener(to value: Bool) throws -> String {
-        return try setSettings(this: SettingsEnum.enableNotificationListener.rawValue, and: AnyValue(value))
+    @discardableResult public func setAllowInvisibleElements(to value: Bool) -> SetSetting {
+        return setSettings(this: SettingsEnum.allowInvisibleElements.rawValue, and: AnyValue(value))
     }
 
-    @discardableResult public func setNormalizeTagNames(to value: Bool) throws -> String {
-        return try setSettings(this: SettingsEnum.normalizeTagNames.rawValue, and: AnyValue(value))
+    @discardableResult public func setEnableNotificationListener(to value: Bool) -> SetSetting {
+        return setSettings(this: SettingsEnum.enableNotificationListener.rawValue, and: AnyValue(value))
     }
 
-    @discardableResult public func setKeyInjectionDelay(timeInMilliseconds: Int) throws -> String {
-        return try setSettings(this: SettingsEnum.keyInjectionDelay.rawValue, and: AnyValue(timeInMilliseconds))
+    @discardableResult public func setNormalizeTagNames(to value: Bool) -> SetSetting {
+        return setSettings(this: SettingsEnum.normalizeTagNames.rawValue, and: AnyValue(value))
     }
 
-    @discardableResult public func setShutdownOnPowerDisconnect(to value: Bool) throws -> String {
-        return try setSettings(this: SettingsEnum.shutdownOnPowerDisconnect.rawValue, and: AnyValue(value))
+    @discardableResult public func setKeyInjectionDelay(timeInMilliseconds: Int) -> SetSetting {
+        return setSettings(this: SettingsEnum.keyInjectionDelay.rawValue, and: AnyValue(timeInMilliseconds))
     }
 
-    @discardableResult public func setTrackScrollEvents(to value: Bool) throws -> String {
-        return try setSettings(this: SettingsEnum.trackScrollEvents.rawValue, and: AnyValue(value))
+    @discardableResult public func setShutdownOnPowerDisconnect(to value: Bool) -> SetSetting {
+        return setSettings(this: SettingsEnum.shutdownOnPowerDisconnect.rawValue, and: AnyValue(value))
     }
 
-    public func getLogcat() throws -> [LogEntry] {
-        return try super.getLog(logType: "logcat")
+    @discardableResult public func setTrackScrollEvents(to value: Bool) -> SetSetting {
+        return setSettings(this: SettingsEnum.trackScrollEvents.rawValue, and: AnyValue(value))
     }
 
-    public func getBugReportLog() throws -> [LogEntry] {
-        return try super.getLog(logType: "bugreport")
+    public func getLogcat() -> Log {
+        return super.getLog(logType: "logcat")
+    }
+
+    public func getBugReportLog() -> Log {
+        return super.getLog(logType: "bugreport")
     }
 }

@@ -13,7 +13,7 @@
 		7213358421DA284B00CBE9E3 /* AvailableContextsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358321DA284B00CBE9E3 /* AvailableContextsTests.swift */; };
 		7213358721DA463000CBE9E3 /* CurrentContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358621DA463000CBE9E3 /* CurrentContext.swift */; };
 		7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358921DA46C900CBE9E3 /* CurrentContextTests.swift */; };
-		7213358C21DA47F700CBE9E3 /* SetContectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358B21DA47F700CBE9E3 /* SetContectTests.swift */; };
+		7213358C21DA47F700CBE9E3 /* SetContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358B21DA47F700CBE9E3 /* SetContextTests.swift */; };
 		7213358E21DA488200CBE9E3 /* SetContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358D21DA488200CBE9E3 /* SetContext.swift */; };
 		723673C1247E5F13006009C8 /* GetAvailableLogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */; };
 		723673C3247E6ED1006009C8 /* GetAvailableLogTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */; };
@@ -121,7 +121,7 @@
 		7213358321DA284B00CBE9E3 /* AvailableContextsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableContextsTests.swift; sourceTree = "<group>"; };
 		7213358621DA463000CBE9E3 /* CurrentContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentContext.swift; sourceTree = "<group>"; };
 		7213358921DA46C900CBE9E3 /* CurrentContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentContextTests.swift; sourceTree = "<group>"; };
-		7213358B21DA47F700CBE9E3 /* SetContectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContectTests.swift; sourceTree = "<group>"; };
+		7213358B21DA47F700CBE9E3 /* SetContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContextTests.swift; sourceTree = "<group>"; };
 		7213358D21DA488200CBE9E3 /* SetContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContext.swift; sourceTree = "<group>"; };
 		723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypes.swift; sourceTree = "<group>"; };
 		723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypesTests.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 			children = (
 				7213358321DA284B00CBE9E3 /* AvailableContextsTests.swift */,
 				7213358921DA46C900CBE9E3 /* CurrentContextTests.swift */,
-				7213358B21DA47F700CBE9E3 /* SetContectTests.swift */,
+				7213358B21DA47F700CBE9E3 /* SetContextTests.swift */,
 			);
 			name = context;
 			sourceTree = "<group>";
@@ -311,13 +311,11 @@
 		7252E19E21A29C4D000B5855 /* AppiumFuncTests */ = {
 			isa = PBXGroup;
 			children = (
-				7252E1AB21A2A19B000B5855 /* app */,
-				7252E19F21A29C4D000B5855 /* AppiumFuncTests.swift */,
-				7252E1A121A29C4D000B5855 /* Info.plist */,
-				72C6773D24699CA500176D85 /* LandscapeOrientationTest.swift */,
 				72C6773F2469C9C100176D85 /* FunctionalBaseTest.swift */,
-				72C677412469CE8D00176D85 /* PortraitOrientationTest.swift */,
-				72C0CDAB2475DE1E00657933 /* IOSDriverTests.swift */,
+				727AEB92248A9DAE001A49DE /* AppiumDriver */,
+				727AEB91248A9D4E001A49DE /* IOSDriver */,
+				7252E1AB21A2A19B000B5855 /* app */,
+				7252E1A121A29C4D000B5855 /* Info.plist */,
 			);
 			path = AppiumFuncTests;
 			sourceTree = "<group>";
@@ -451,6 +449,24 @@
 				726196C5219D35F700730A67 /* WebDriverError.swift */,
 			);
 			path = error;
+			sourceTree = "<group>";
+		};
+		727AEB91248A9D4E001A49DE /* IOSDriver */ = {
+			isa = PBXGroup;
+			children = (
+				72C0CDAB2475DE1E00657933 /* IOSDriverTests.swift */,
+				72C677412469CE8D00176D85 /* PortraitOrientationTest.swift */,
+				72C6773D24699CA500176D85 /* LandscapeOrientationTest.swift */,
+			);
+			path = IOSDriver;
+			sourceTree = "<group>";
+		};
+		727AEB92248A9DAE001A49DE /* AppiumDriver */ = {
+			isa = PBXGroup;
+			children = (
+				7252E19F21A29C4D000B5855 /* AppiumFuncTests.swift */,
+			);
+			path = AppiumDriver;
 			sourceTree = "<group>";
 		};
 		72C0CDA82475CFF700657933 /* helpers */ = {
@@ -853,7 +869,7 @@
 				7246FB3921DB3F10004CDA8F /* ScreenshotTests.swift in Sources */,
 				7252E19221A25FB8000B5855 /* CreateSessionTests.swift in Sources */,
 				726196A821952CF300730A67 /* DriverTest.swift in Sources */,
-				7213358C21DA47F700CBE9E3 /* SetContectTests.swift in Sources */,
+				7213358C21DA47F700CBE9E3 /* SetContextTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -971,6 +987,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -1025,6 +1042,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

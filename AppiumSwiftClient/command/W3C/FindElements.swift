@@ -8,36 +8,38 @@
 
 import Foundation
 
+public typealias FindElements = Result<[Element], Error>
 struct W3CFindElements: CommandProtocol {
+
+    private let command = W3CCommands.findElements
+    private let sessionId: Session.Id
+    private let commandUrl: W3CCommands.CommandPath
     private let helper: W3CFindElementHelper
 
-    init() {
+    init(sessionId: Session.Id) {
+        self.sessionId = sessionId
+        self.commandUrl = W3CCommands().url(for: command, with: sessionId)
         helper = W3CFindElementHelper()
     }
 
-    func sendRequest(by locator: SearchContext, with value: String, to sessionId: Session.Id) throws -> [Element] {
-        let json = helper.generateBodyData(by: locator, with: value)
+    func sendRequest(by locator: SearchContext, with value: String) -> FindElements {
+        let (statusCode, returnData) =
+            HttpClient().sendSyncRequest(method: command.0,
+                                         commandPath: commandUrl,
+                                         json: helper.generateBodyData(by: locator, with: value))
 
-        let (statusCode, returnValue) = HttpClient().sendSyncRequest(method: W3CCommands.findElements.0,
-                                                                     commandPath: commandUrl(with: sessionId),
-                                                                     json: json)
-
-        if statusCode == 200 {
-            return (returnValue["value"] as! W3CFindElementHelper.ElementsValue) // swiftlint:disable:this force_cast
-                .map {
-                    Element(id: helper.elementIdFrom(param: $0),
-                            sessionId: sessionId)
-            }
-        } else if statusCode == 404 {
-            print(returnValue)
-            return []
-        } else {
-            print("Status code is \(statusCode)")
-            return []
+        guard statusCode == 200 else {
+            print("Command Find Elements with Search Context \(locator.rawValue) and Value \(value) failed with Status Code: \(statusCode)")
+            return .failure(WebDriverError(errorResult: returnData).raise())
         }
-    }
-
-    func commandUrl(with sessionId: Session.Id, and elementId: Element.Id = "") -> W3CCommands.CommandPath {
-        return W3CCommands().url(for: W3CCommands.findElements, with: sessionId)
+        do {
+            let response = try JSONDecoder()
+                .decode(ValueOf<W3CFindElementHelper.ElementsValue>.self, from: returnData)
+                .value
+                .map { Element(id: helper.elementIdFrom(param: $0), sessionId: sessionId) }
+            return .success(response)
+        } catch let error {
+            return .failure(error)
+        }
     }
 }
