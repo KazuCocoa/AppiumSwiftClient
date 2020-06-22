@@ -34,6 +34,8 @@ protocol DriverProtocol {
     func getAvailableLogTypes() -> AvailableLogTypes
     func getLog(logType: String) -> Log
     func getServerLog() -> Log
+    func logEvent(with vendorName: String, and eventName: String) -> LogEvent
+    func getEvents() throws -> EventsResult
     func quit() -> EndSession
 }
 
@@ -196,6 +198,19 @@ public class AppiumDriver: DriverProtocol {
 
     public func getServerLog() -> Log {
         return getLog(logType: "server")
+    }
+
+    @discardableResult public func logEvent(with vendorName: String, and eventName: String) -> LogEvent {
+        return W3CLogEvent(sessionId: currentSession.id).sendRequest(vendorName: vendorName, eventName: eventName)
+    }
+
+    public func getEvents() throws -> EventsResult {
+        switch W3CGetEvents(sessionId: currentSession.id).sendRequest() {
+        case .value(let eventsResult):
+            return eventsResult
+        case .error(let error):
+            throw error
+        }
     }
 
     @discardableResult public func quit() -> EndSession {
