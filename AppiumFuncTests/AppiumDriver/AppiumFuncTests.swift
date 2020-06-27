@@ -184,4 +184,13 @@ class AppiumFuncTests: XCTestCase {
             XCTFail("\(error)")
         }
     }
+
+    func testCanLogCustomEventsAndRetreiveEvents() {
+        let events = try? driver.getEvents()
+        guard let countBefore = events?.events.count else { return }
+        driver.logEvent(with: "Appium", and: "funEvent")
+        let eventsAfter = try? driver.getEvents()
+        guard let countAfter = eventsAfter?.events.count else { return }
+        XCTAssertTrue(countAfter > countBefore)
+    }
 }

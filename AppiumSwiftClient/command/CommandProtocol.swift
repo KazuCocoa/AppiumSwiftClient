@@ -44,3 +44,8 @@ public struct ValueOf<T: Decodable>: Decodable {
 enum DecodingError: Error {
     case decodingError(Error)
 }
+
+public enum WebDriverResult<T> {
+    case value(T)
+    case error(Error)
+}

@@ -59,6 +59,10 @@
 		728AAE0D2473F83900B2F8D8 /* GetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728AAE0C2473F83900B2F8D8 /* GetSettings.swift */; };
 		728DD59C2461A665004E6800 /* GoBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59B2461A665004E6800 /* GoBack.swift */; };
 		728DD5A02461DF6E004E6800 /* GoBackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59F2461DF6E004E6800 /* GoBackTest.swift */; };
+		729BD0ED249D0567008025F0 /* LogEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729BD0EC249D0567008025F0 /* LogEvent.swift */; };
+		729BD0EF249D113B008025F0 /* LogEventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729BD0EE249D113B008025F0 /* LogEventTest.swift */; };
+		729BD0F3249D1F93008025F0 /* GetEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729BD0F2249D1F93008025F0 /* GetEvents.swift */; };
+		72AE3D19249F9E9F00D242E3 /* GetEventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AE3D18249F9E9F00D242E3 /* GetEventsTests.swift */; };
 		72C0CDAA2475D00A00657933 /* AnyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDA92475D00900657933 /* AnyValue.swift */; };
 		72C0CDAC2475DE1E00657933 /* IOSDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDAB2475DE1E00657933 /* IOSDriverTests.swift */; };
 		72C0CDAE2475E13000657933 /* SetSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C0CDAD2475E13000657933 /* SetSettingsTests.swift */; };
@@ -170,6 +174,10 @@
 		728AAE0C2473F83900B2F8D8 /* GetSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSettings.swift; sourceTree = "<group>"; };
 		728DD59B2461A665004E6800 /* GoBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBack.swift; sourceTree = "<group>"; };
 		728DD59F2461DF6E004E6800 /* GoBackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackTest.swift; sourceTree = "<group>"; };
+		729BD0EC249D0567008025F0 /* LogEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEvent.swift; sourceTree = "<group>"; };
+		729BD0EE249D113B008025F0 /* LogEventTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEventTest.swift; sourceTree = "<group>"; };
+		729BD0F2249D1F93008025F0 /* GetEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEvents.swift; sourceTree = "<group>"; };
+		72AE3D18249F9E9F00D242E3 /* GetEventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventsTests.swift; sourceTree = "<group>"; };
 		72C0CDA92475D00900657933 /* AnyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyValue.swift; sourceTree = "<group>"; };
 		72C0CDAB2475DE1E00657933 /* IOSDriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDriverTests.swift; sourceTree = "<group>"; };
 		72C0CDAD2475E13000657933 /* SetSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSettingsTests.swift; sourceTree = "<group>"; };
@@ -288,6 +296,7 @@
 		7252E19021A25FA1000B5855 /* W3C */ = {
 			isa = PBXGroup;
 			children = (
+				72AE3D1A24A11BB300D242E3 /* events */,
 				72C677442469D17D00176D85 /* orientation */,
 				7246FB3721DB3EF1004CDA8F /* screenshot */,
 				7213358821DA46A800CBE9E3 /* context */,
@@ -421,6 +430,7 @@
 		726196B321998C8B00730A67 /* W3C */ = {
 			isa = PBXGroup;
 			children = (
+				729BD0F4249D1FA1008025F0 /* events */,
 				72C677432469D15E00176D85 /* orientation */,
 				7246FB3A21DB3F94004CDA8F /* screenshot */,
 				7213358521DA460200CBE9E3 /* context */,
@@ -467,6 +477,24 @@
 				7252E19F21A29C4D000B5855 /* AppiumFuncTests.swift */,
 			);
 			path = AppiumDriver;
+			sourceTree = "<group>";
+		};
+		729BD0F4249D1FA1008025F0 /* events */ = {
+			isa = PBXGroup;
+			children = (
+				729BD0F2249D1F93008025F0 /* GetEvents.swift */,
+				729BD0EC249D0567008025F0 /* LogEvent.swift */,
+			);
+			path = events;
+			sourceTree = "<group>";
+		};
+		72AE3D1A24A11BB300D242E3 /* events */ = {
+			isa = PBXGroup;
+			children = (
+				72AE3D18249F9E9F00D242E3 /* GetEventsTests.swift */,
+				729BD0EE249D113B008025F0 /* LogEventTest.swift */,
+			);
+			path = events;
 			sourceTree = "<group>";
 		};
 		72C0CDA82475CFF700657933 /* helpers */ = {
@@ -808,6 +836,7 @@
 				726196BD2199D67900730A67 /* Element.swift in Sources */,
 				726196C6219D35F700730A67 /* WebDriverError.swift in Sources */,
 				723673C1247E5F13006009C8 /* GetAvailableLogTypes.swift in Sources */,
+				729BD0F3249D1F93008025F0 /* GetEvents.swift in Sources */,
 				726196B52199BF9800730A67 /* CommandProtocol.swift in Sources */,
 				726196BF2199D75700730A67 /* Click.swift in Sources */,
 				726196B92199C28300730A67 /* FindElement.swift in Sources */,
@@ -817,6 +846,7 @@
 				726196A62195187F00730A67 /* driver.swift in Sources */,
 				7246FB3E21DCF81F004CDA8F /* W3CElementScreenshot.swift in Sources */,
 				72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */,
+				729BD0ED249D0567008025F0 /* LogEvent.swift in Sources */,
 				72C6773324696B3400176D85 /* GetScreenOrientation.swift in Sources */,
 				723673C5247E7654006009C8 /* GetLog.swift in Sources */,
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,
@@ -859,8 +889,10 @@
 				7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */,
 				7252E1B321A43C96000B5855 /* FindElementsTests.swift in Sources */,
 				72F2ADB52481158D0017B51B /* GetLogTests.swift in Sources */,
+				729BD0EF249D113B008025F0 /* LogEventTest.swift in Sources */,
 				72CA79642464085500988CDE /* TimeoutTests.swift in Sources */,
 				7252E1B521A4407A000B5855 /* ClickTests.swift in Sources */,
+				72AE3D19249F9E9F00D242E3 /* GetEventsTests.swift in Sources */,
 				7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */,
 				72C677362469717C00176D85 /* GetScreenOrientation.swift in Sources */,
 				7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */,

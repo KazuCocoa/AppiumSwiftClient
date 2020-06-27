@@ -144,6 +144,8 @@ public struct W3CCommands {
 
     static let getAvailableLogTypes:    CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/log/types")
     static let getLog:                  CommandType = (HttpMethod.post,   "session/\(Id.session.rawValue)/log")
+    static let logEvent:                CommandType = (HttpMethod.post,   "session/\(Id.session.rawValue)/appium/log_event")
+    static let getEvents:               CommandType = (HttpMethod.post,   "session/\(Id.session.rawValue)/appium/events")
 
     // Common
     static let getAvailableContexts:    CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/contexts")
