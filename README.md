@@ -1,6 +1,6 @@
 **This is completely experimental library**
 
-[![Build Status](https://dev.azure.com/kazucocoa/AppiumSwiftClient/_apis/build/status/KazuCocoa.AppiumSwiftClient)](https://dev.azure.com/kazucocoa/AppiumSwiftClient/_build/latest?definitionId=2)
+![Swift](https://github.com/KazuCocoa/AppiumSwiftClient/workflows/Swift/badge.svg?branch=master)
 
 # About this library
 
