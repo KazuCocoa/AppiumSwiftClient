@@ -26,4 +26,4 @@ jobs:
     - name: Run Unit tests
       run: xcodebuild test -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClientUnitTests -sdk iphonesimulator -configuration Debug -destination "platform=iOS Simulator,name=iPhone X"
     - name: Run Build
-      run: xcodebuild build -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClient -sdk iphoneos -configuration Debug -destination generic
+      run: xcodebuild build -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClient -sdk iphoneos -configuration Debug -destination "generic"
