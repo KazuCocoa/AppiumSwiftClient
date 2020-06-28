@@ -23,7 +23,7 @@ jobs:
       run: bundle exec pod install
     - name: Swift Lint
       run: Pods/SwiftLint/swiftlint
-    - name: Run Uunit tests
-      run: xcodebuild clean test -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClientUnitTests -sdk iphonesimulator -configuration Debug -destination "platform=iOS Simulator,name=iPhone 8"
+    - name: Run Unit tests
+      run: xcodebuild test -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClientUnitTests -sdk iphonesimulator -configuration Debug -destination "platform=iOS Simulator"
     - name: Run Build
-      run: xcodebuild build -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClientUnitTests -sdk iphoneos -configuration Debug -destination generic
+      run: xcodebuild build -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClient -sdk iphoneos -configuration Debug -destination generic
