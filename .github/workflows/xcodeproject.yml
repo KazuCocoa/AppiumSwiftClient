@@ -15,10 +15,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: List available Xcode
       run: ls -all /Applications/Xcode*
+    - name: Setup Xcode version
+      run: sudo xcode-select -s /Applications/Xcode_10.3.app/Contents/Developer
     - name: Setup Cocoapods
-      uses: maxim-lobanov/setup-cocoapods@v1.1
+      run: bundle install
     - name: Pod install
-      run: pod install
+      run: bundle exec pod install
     - name: Swift Lint
       run: Pods/SwiftLint/swiftlint
     - name: Run Uunit tests
