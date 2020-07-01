@@ -12,6 +12,7 @@ import UIKit
 protocol Element {
     func click() -> Click
     func getBase64Screenshot() -> TakeScreenshot
+    func sendKeys(with text: String) -> SendKeys
 }
 
 public struct MobileElement: Element {
@@ -26,11 +27,11 @@ public struct MobileElement: Element {
     }
 
     @discardableResult public func click() -> Click {
-        return W3CElementClick(sessionId: sessionId).sendRequest(self.id)
+        return W3CElementClick(sessionId: sessionId).sendRequest(id)
     }
 
     public func getBase64Screenshot() -> TakeScreenshot {
-        return W3CElementScreenshot(sessionId: sessionId).sendRequest(self.id)
+        return W3CElementScreenshot(sessionId: sessionId).sendRequest(id)
     }
 
     public func saveScreenshot(to filePath: String) throws -> String {
@@ -49,5 +50,9 @@ public struct MobileElement: Element {
             print(error)
             throw NSError()
         }
+    }
+    
+    @discardableResult public func sendKeys(with text: String) -> SendKeys {
+        return W3CElementSendKeys(sessionId: sessionId, elementId: id).sendRequest(text)
     }
 }

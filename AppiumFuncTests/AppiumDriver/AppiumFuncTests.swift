@@ -193,4 +193,36 @@ class AppiumFuncTests: XCTestCase {
         guard let countAfter = eventsAfter?.events.count else { return }
         XCTAssertTrue(countAfter > countBefore)
     }
+
+    func testCanTypeTextOntoTextField() {
+        try! driver.findElement(by: .name, with: "TextFields").click()
+        let textFld = try! driver.findElement(by: .name, with: "Rounded")
+        textFld.click()
+        textFld.sendKeys(with: "Send Keys Test")
+        // TODO: refactor this assertion once https://appium.io/docs/en/commands/element/attributes/text/ is implemented
+        XCTAssertTrue(try! driver.getPageSource().get().contains("Send Keys Test"))
+    }
+
+    func testCantTypeTextOntoInvalidElements() {
+        /** Something odd happens here: if driver tries to type text onto a button, the first keystroke actually clicks the target button,
+         changing screens and throwing an "invalid element state" error. Not sure if this is expected behaviour or a WebDriverAgent bug?
+        **/
+        let buttonsBtn = try! driver.findElement(by: .accessibilityId, with: "Buttons")
+        XCTAssertThrowsError((try buttonsBtn.sendKeys(with: "Should Fail").get())) { error in
+            guard case WebDriverErrorEnum.invalidElementStateError(let error) = error else {
+                return XCTFail("should raise invalid element state error")
+            }
+            XCTAssertEqual("invalid element state", error.error)
+            XCTAssertTrue(error.message.contains("The on-screen keyboard must be present to send keys"))
+        }
+
+        let grayBtn = try! driver.findElement(by: .name, with: "Gray")
+        XCTAssertThrowsError((try grayBtn.sendKeys(with: "Should Fail").get())) { error in
+            guard case WebDriverErrorEnum.invalidElementStateError(let error) = error else {
+                return XCTFail("should raise invalid element state error")
+            }
+            XCTAssertEqual("invalid element state", error.error)
+            XCTAssertTrue(error.message.contains("The on-screen keyboard must be present to send keys"))
+        }
+    }
 }
