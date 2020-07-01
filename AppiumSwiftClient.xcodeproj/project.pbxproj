@@ -247,6 +247,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		72045A2124ACA026007B22A4 /* element */ = {
+			isa = PBXGroup;
+			children = (
+				726196BE2199D75700730A67 /* Click.swift */,
+			);
+			path = element;
+			sourceTree = "<group>";
+		};
 		7213358521DA460200CBE9E3 /* context */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +438,7 @@
 		726196B321998C8B00730A67 /* W3C */ = {
 			isa = PBXGroup;
 			children = (
+				72045A2124ACA026007B22A4 /* element */,
 				729BD0F4249D1FA1008025F0 /* events */,
 				72C677432469D15E00176D85 /* orientation */,
 				7246FB3A21DB3F94004CDA8F /* screenshot */,
@@ -438,7 +447,6 @@
 				72CA795F2462B4A000988CDE /* Timeout.swift */,
 				726196B82199C28300730A67 /* FindElement.swift */,
 				726196C821A17B6C00730A67 /* FindElements.swift */,
-				726196BE2199D75700730A67 /* Click.swift */,
 				726196CA21A193CD00730A67 /* FindElementHelper.swift */,
 				72686A9A21A1B3670042D385 /* GetCapabilities.swift */,
 				72E6E5A6245F580F004E8A0C /* EndSession.swift */,

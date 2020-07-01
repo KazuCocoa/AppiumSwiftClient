@@ -28,7 +28,7 @@ class ClickTests: AppiumSwiftClientTestBase {
         }
         stub(matcher, jsonData(response, status: 200))
 
-        let element = Element(id: "test-element-id", sessionId: "3CB9E12B-419C-49B1-855A-45322861F1F7")
+        let element = MobileElement(id: "test-element-id", sessionId: "3CB9E12B-419C-49B1-855A-45322861F1F7")
         XCTAssertNoThrow(try element.click().get())
     }
 }

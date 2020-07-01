@@ -20,7 +20,7 @@ struct W3CElementClick: CommandProtocol {
         self.commandUrl = W3CCommands().url(for: command, with: sessionId)
     }
 
-    func sendRequest(_ elementId: Element.Id) -> Click {
+    func sendRequest(_ elementId: MobileElement.Id) -> Click {
         let (statusCode, returnData) =
             HttpClient().sendSyncRequest(method: command.0,
                                          commandPath: commandUrl(with: sessionId, and: elementId),
@@ -33,7 +33,7 @@ struct W3CElementClick: CommandProtocol {
         return .success("")
     }
 
-    func commandUrl(with sessionId: Session.Id, and elementId: Element.Id) -> W3CCommands.CommandPath {
+    func commandUrl(with sessionId: Session.Id, and elementId: MobileElement.Id) -> W3CCommands.CommandPath {
         return W3CCommands().url(for: W3CCommands.elementClick, with: sessionId, and: elementId)
     }
 

@@ -39,7 +39,7 @@ class FindElementsTests: AppiumSwiftClientTestBase {
 
         let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
 
-        let elements = try! driver.findElements(by: .accessibilityId, with: "name").get()
+        let elements = try! driver.findElements(by: .accessibilityId, with: "name")
         XCTAssertEqual(elements.first?.sessionId, "3CB9E12B-419C-49B1-855A-45322861F1F7")
         XCTAssertEqual(elements.first?.id, "test-element-id1")
         XCTAssertEqual(elements.count, 2)
@@ -64,7 +64,7 @@ class FindElementsTests: AppiumSwiftClientTestBase {
 
         let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
 
-        let elements = try! driver.findElements(by: .accessibilityId, with: "name").get()
+        let elements = try! driver.findElements(by: .accessibilityId, with: "name")
         XCTAssertEqual(elements.count, 0)
     }
 }

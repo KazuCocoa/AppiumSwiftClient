@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias FindElement = Result<Element, Error>
+public typealias FindElement = Result<MobileElement, Error>
 struct W3CFindElement: CommandProtocol {
 
     private let command = W3CCommands.findElement
@@ -32,7 +32,7 @@ struct W3CFindElement: CommandProtocol {
         }
         do {
             let response = try JSONDecoder().decode(ValueOf<W3CFindElementHelper.ElementValue>.self, from: returnData).value
-            return .success(Element(id: helper.elementIdFrom(param: response), sessionId: sessionId))
+            return .success(MobileElement(id: helper.elementIdFrom(param: response), sessionId: sessionId))
         } catch let error {
             return .failure(error)
         }

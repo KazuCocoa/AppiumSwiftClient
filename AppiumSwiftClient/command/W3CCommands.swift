@@ -25,7 +25,7 @@ public struct W3CCommands {
     /**
      Get a path of W3CCommands with given session id and element id.
     **/
-    func url(for urlBase: CommandType, with sessionId: Session.Id = "", and elementId: Element.Id = "") -> W3CCommands.CommandPath {
+    func url(for urlBase: CommandType, with sessionId: Session.Id = "", and elementId: MobileElement.Id = "") -> W3CCommands.CommandPath {
         let commandUrl = urlBase.1
             .replacingOccurrences(of: W3CCommands.Id.session.rawValue, with: sessionId)
             .replacingOccurrences(of: W3CCommands.Id.element.rawValue, with: elementId)

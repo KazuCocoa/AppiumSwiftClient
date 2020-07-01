@@ -55,7 +55,7 @@ class AppiumFuncTests: XCTestCase {
 
     func testCanFindElements() {
         do {
-            let els = try driver.findElements(by: .accessibilityId, with: "Buttons").get()
+            let els = try driver.findElements(by: .accessibilityId, with: "Buttons")
             XCTAssertEqual(els.count, 1)
             XCTAssert(els[0].id != "")
         } catch let exception {
@@ -65,7 +65,7 @@ class AppiumFuncTests: XCTestCase {
 
     func testCanFindElement() {
         do {
-            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons").get()
+            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
             XCTAssert(ele.id != "")
         } catch let exception {
             XCTFail("\(exception)")
@@ -74,8 +74,8 @@ class AppiumFuncTests: XCTestCase {
 
     func testCanTakeScreenshotOfElement() {
         do {
-            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons").get()
-            let elementScreenshotPath = try driver.saveScreenshot(with: ele, to: "element_screenshot.png")
+            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
+            let elementScreenshotPath = try ele.saveScreenshot(to: "element_screenshot.png")
             XCTAssertNotEqual(elementScreenshotPath, "")
         } catch let exception {
             XCTFail("\(exception)")
@@ -93,14 +93,14 @@ class AppiumFuncTests: XCTestCase {
 
     func testCantFindInexistentElement() {
         do {
-            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons").get()
+            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
             ele.click()
-            let buttonGray = try driver.findElement(by: .name, with: "Gray").get()
+            let buttonGray = try driver.findElement(by: .name, with: "Gray")
             XCTAssert(buttonGray.id != "NoSuchElementError")
 
-            XCTAssertEqual((try driver.findElements(by: .accessibilityId, with: "Grey").get()).count, 0)
+            XCTAssertEqual((try driver.findElements(by: .accessibilityId, with: "Grey")).count, 0)
 
-            XCTAssertThrowsError((try driver.findElement(by: .name, with: "Grey").get())) { error in
+            XCTAssertThrowsError((try driver.findElement(by: .name, with: "Grey"))) { error in
                 guard case WebDriverErrorEnum.noSuchElementError(let error) = error else {
                     return XCTFail("should raise no such element error")
                 }
@@ -124,7 +124,7 @@ class AppiumFuncTests: XCTestCase {
 
     func testCanGoBack() {
         do {
-            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons").get()
+            let ele = try driver.findElement(by: .accessibilityId, with: "Buttons")
             let firstViewSource = try driver.getPageSource().get()
             ele.click()
             let nextPageSource = try driver.getPageSource().get()
@@ -142,7 +142,7 @@ class AppiumFuncTests: XCTestCase {
         var deltaWithoutImplicitWait: Double = 0
         let initTimeWithoutImplicitWait = NSDate().timeIntervalSince1970
         do {
-            _ = try driver.findElement(by: .name, with: "Bogus Element").get()
+            _ = try driver.findElement(by: .name, with: "Bogus Element")
         } catch {
             deltaWithoutImplicitWait = NSDate().timeIntervalSince1970 - initTimeWithoutImplicitWait
         }
@@ -150,7 +150,7 @@ class AppiumFuncTests: XCTestCase {
         var deltaWithImplicitWait: Double = 0
         let initTimeWithImplicitWait = NSDate().timeIntervalSince1970
         do {
-            _ = try driver.findElement(by: .name, with: "Bogus Element").get()
+            _ = try driver.findElement(by: .name, with: "Bogus Element")
         } catch {
             deltaWithImplicitWait = NSDate().timeIntervalSince1970 - initTimeWithImplicitWait
         }
