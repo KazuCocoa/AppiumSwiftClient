@@ -198,9 +198,19 @@ class AppiumFuncTests: XCTestCase {
         try! driver.findElement(by: .name, with: "TextFields").click()
         let textFld = try! driver.findElement(by: .name, with: "Rounded")
         textFld.click()
-        textFld.sendKeys(with: "Send Keys Test")
+        let text = "Send Keys Test"
+        textFld.sendKeys(with: text)
         // TODO: refactor this assertion once https://appium.io/docs/en/commands/element/attributes/text/ is implemented
-        XCTAssertTrue(try! driver.getPageSource().get().contains("Send Keys Test"))
+        XCTAssertTrue(try! driver.getPageSource().get().contains(text))
+    }
+
+    func testCantTypeUnicode() {
+        try! driver.findElement(by: .name, with: "TextFields").click()
+        let textFld = try! driver.findElement(by: .name, with: "Rounded")
+        textFld.click()
+        let emoji = "🤷"
+        textFld.sendKeys(with: emoji)
+        XCTAssertTrue(try! driver.getPageSource().get().contains(emoji))
     }
 
     func testCantTypeTextOntoInvalidElements() {
