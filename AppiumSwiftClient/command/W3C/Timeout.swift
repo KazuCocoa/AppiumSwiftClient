@@ -32,7 +32,7 @@ struct W3CTimeout: CommandProtocol {
         return .success("")
     }
 
-    func commandUrl(with sessionId: Session.Id, and elementId: Element.Id = "") -> W3CCommands.CommandPath {
+    func commandUrl(with sessionId: Session.Id, and elementId: MobileElement.Id = "") -> W3CCommands.CommandPath {
         return W3CCommands().url(for: W3CCommands.setTimeout, with: sessionId)
     }
 

@@ -11,8 +11,8 @@ import UIKit // For screenshot
 
 protocol DriverProtocol {
     var currentSessionCapabilities: AppiumCapabilities { get }
-    func findElement(by locator: SearchContext, with value: String) -> FindElement
-    func findElements(by locator: SearchContext, with value: String) -> FindElements
+    func findElement(by locator: SearchContext, with value: String) throws -> MobileElement
+    func findElements(by locator: SearchContext, with value: String) throws -> [MobileElement]
     func getCapabilities() -> GetCapabilities
     func getAvailableContexts() -> AvailableContexts
     func getCurrentContext() -> CurrentContext
@@ -72,12 +72,12 @@ public class AppiumDriver: DriverProtocol {
          - locator: xx.
          - value: xx.
      **/
-    public func findElement(by locator: SearchContext, with value: String) -> FindElement {
-        return W3CFindElement(sessionId: currentSession.id).sendRequest(by: locator, with: value)
+    public func findElement(by locator: SearchContext, with value: String) throws -> MobileElement {
+        return try W3CFindElement(sessionId: currentSession.id).sendRequest(by: locator, with: value).get()
     }
 
-    public func findElements(by locator: SearchContext, with value: String) -> FindElements {
-        return W3CFindElements(sessionId: currentSession.id).sendRequest(by: locator, with: value)
+    public func findElements(by locator: SearchContext, with value: String) throws -> [MobileElement] {
+        return try W3CFindElements(sessionId: currentSession.id).sendRequest(by: locator, with: value).get()
     }
 
     public func getCapabilities() -> GetCapabilities {
@@ -103,28 +103,6 @@ public class AppiumDriver: DriverProtocol {
     public func saveScreenshot(to filePath: String) throws -> String {
         do {
             let base64 = try getBase64Screenshot().get()
-            guard let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else {
-                return ""
-            }
-            let pngData = UIImage(data: data)?.pngData()
-
-            let fileURL = FileManager.default.currentDirectoryPath.appending("/\(filePath)")
-            // TODO: create a directory if the path has no full path
-            //writing
-            return FileManager.default.createFile(atPath: fileURL, contents: pngData) ? fileURL : ""
-        } catch let error {
-            print(error)
-            throw NSError()
-        }
-    }
-
-    public func getBase64Screenshot(with element: Element) -> TakeScreenshot {
-        return W3CElementScreenshot(sessionId: currentSession.id).sendRequest(element.id)
-    }
-
-    public func saveScreenshot(with element: Element, to filePath: String) throws -> String {
-        do {
-            let base64 = try getBase64Screenshot(with: element).get()
             guard let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else {
                 return ""
             }

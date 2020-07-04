@@ -31,7 +31,7 @@ public enum WebDriverErrorEnum: Error {
 
     // The target element is in an invalid state, rendering it impossible to interact with, for
     // example if you click a disabled element.
-    case invalidElementStateError // 12
+    case invalidElementStateError(error: WebDriverError.W3C) // 12
 
     // An unknown error occurred in the remote end while processing the command.
     case unknownError(error: WebDriverError.W3C) // 13

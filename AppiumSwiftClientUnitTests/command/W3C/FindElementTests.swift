@@ -33,7 +33,7 @@ class FindElementTests: AppiumSwiftClientTestBase {
 
         let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
 
-        let element = try! driver.findElement(by: .accessibilityId, with: "name").get()
+        let element = try! driver.findElement(by: .accessibilityId, with: "name")
         XCTAssertEqual(element.sessionId, "3CB9E12B-419C-49B1-855A-45322861F1F7")
         XCTAssertEqual(element.id, "test-element-id")
     }
@@ -61,7 +61,7 @@ class FindElementTests: AppiumSwiftClientTestBase {
 
         let driver = try! AppiumDriver(AppiumCapabilities(super.iOSOpts))
 
-        XCTAssertThrowsError(try driver.findElement(by: .accessibilityId, with: "name").get()) { error in
+        XCTAssertThrowsError(try driver.findElement(by: .accessibilityId, with: "name")) { error in
             guard case WebDriverErrorEnum.noSuchElementError(let error) = error else {
                 return XCTFail()
             }

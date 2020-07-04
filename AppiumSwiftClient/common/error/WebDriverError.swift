@@ -52,6 +52,8 @@ public struct WebDriverError: WebDriverErrorProtocol {
             return WebDriverErrorEnum.invalidArgumentError(error: originalError)
         case "UnknownErrorError":
             return WebDriverErrorEnum.unknownError(error: originalError)
+        case "InvalidElementStateError":
+            return WebDriverErrorEnum.invalidElementStateError(error: originalError)
         default:
             return WebDriverErrorEnum.webDriverError(error: originalError)
         }

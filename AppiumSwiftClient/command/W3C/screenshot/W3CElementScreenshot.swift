@@ -17,7 +17,7 @@ struct W3CElementScreenshot: CommandProtocol {
         self.sessionId = sessionId
     }
 
-    func sendRequest(_ elementId: Element.Id) -> TakeScreenshot {
+    func sendRequest(_ elementId: MobileElement.Id) -> TakeScreenshot {
         let (statusCode, returnData) =
             HttpClient().sendSyncRequest(method: command.0,
                                          commandPath: commandUrl(with: elementId))
@@ -34,7 +34,7 @@ struct W3CElementScreenshot: CommandProtocol {
         }
     }
 
-    func commandUrl(with elementId: Element.Id) -> W3CCommands.CommandPath {
+    func commandUrl(with elementId: MobileElement.Id) -> W3CCommands.CommandPath {
         return W3CCommands().url(for: command, with: sessionId, and: elementId)
     }
 }
