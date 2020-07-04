@@ -21,8 +21,7 @@ class AppiumFuncTests: XCTestCase {
         let opts = [
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
-            DesiredCapabilitiesEnum.app: "https://github.com/appium/ruby_lib_core/blob/master/test/functional/app/iOS13__UICatalog.app.zip?raw=true",
-//            "\(packageRootPath)/AppiumFuncTests/app/UICatalog.app.zip",
+            DesiredCapabilitiesEnum.app: "\(packageRootPath)/AppiumFuncTests/app/UICatalog.app.zip",
             DesiredCapabilitiesEnum.platformVersion: "13.5",
             DesiredCapabilitiesEnum.deviceName: "iPhone 8",
             DesiredCapabilitiesEnum.reduceMotion: "true"
