@@ -223,7 +223,6 @@ class AppiumFuncTests: XCTestCase {
                 return XCTFail("should raise invalid element state error")
             }
             XCTAssertEqual("invalid element state", error.error)
-            XCTAssertTrue(error.message.contains("The on-screen keyboard must be present to send keys"))
         }
 
         let grayBtn = try! driver.findElement(by: .name, with: "Gray")
@@ -232,7 +231,6 @@ class AppiumFuncTests: XCTestCase {
                 return XCTFail("should raise invalid element state error")
             }
             XCTAssertEqual("invalid element state", error.error)
-            XCTAssertTrue(error.message.contains("The on-screen keyboard must be present to send keys"))
         }
     }
 }

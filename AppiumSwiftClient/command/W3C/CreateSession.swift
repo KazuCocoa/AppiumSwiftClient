@@ -50,9 +50,9 @@ struct W3CCreateSession: CommandProtocol {
         let oSSdesiredCapability = OssDesiredCapability(with: caps)
 
         let w3cDesiredCapability = W3CDesiredCapability(with: caps)
-        let w3cFirstMatch = W3CFirstMatch(firstMatch: [w3cDesiredCapability])
+        let capabilities = W3CCapability(alwaysMatch: w3cDesiredCapability, firstMatch: [])
 
-        let w3cCapability = CommandParam(desiredCapabilities: oSSdesiredCapability, capabilities: w3cFirstMatch)
+        let w3cCapability = CommandParam(desiredCapabilities: oSSdesiredCapability, capabilities: capabilities)
         let encoder = JSONEncoder()
         encoder.outputFormatting = .sortedKeys
 
@@ -65,10 +65,11 @@ struct W3CCreateSession: CommandProtocol {
 
     fileprivate struct CommandParam: CommandParamProtocol {
         let desiredCapabilities: OssDesiredCapability
-        let capabilities: W3CFirstMatch
+        let capabilities: W3CCapability
     }
 
-    fileprivate struct W3CFirstMatch: CommandParamProtocol {
+    fileprivate struct W3CCapability: CommandParamProtocol {
+        let alwaysMatch: W3CDesiredCapability
         let firstMatch: [W3CDesiredCapability]
     }
 }
