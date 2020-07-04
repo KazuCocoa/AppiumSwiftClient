@@ -54,8 +54,14 @@ public struct W3CDesiredCapability: Codable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case platformName, automationName, platformVersion, deviceName, orientation
-        case app = "appium:app"
+        case platformName
+        case app = "appium:app",
+             reduceMotion = "appium:reduceMotion",
+             orientation = "appium:orientation",
+             automationName = "appium:automationName",
+             deviceName = "appium:deviceName",
+             platformVersion = "appium:platformVersion"
+
     }
 }
 
