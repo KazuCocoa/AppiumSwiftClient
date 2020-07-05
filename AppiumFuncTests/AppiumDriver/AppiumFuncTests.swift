@@ -12,6 +12,10 @@ import XCTest
 class AppiumFuncTests: XCTestCase {
 
     var driver: AppiumDriver!
+    
+    var homeScreen: HomeScreen!
+    var textFieldsScreen: TextFieldsScreen!
+    var buttonsScreen: ButtonsScreen!
 
     override func setUp() {
         let packageRootPath = URL(
@@ -28,6 +32,9 @@ class AppiumFuncTests: XCTestCase {
         ]
         do {
             driver = try AppiumDriver(AppiumCapabilities(opts))
+            homeScreen = HomeScreen(driver)
+            textFieldsScreen = TextFieldsScreen(driver)
+            buttonsScreen = ButtonsScreen(driver)
         } catch {
             XCTFail("Failed to spin up driver: \(error)")
         }
@@ -195,42 +202,45 @@ class AppiumFuncTests: XCTestCase {
     }
 
     func testCanTypeTextOntoTextField() {
-        try! driver.findElement(by: .name, with: "TextFields").click()
-        let textFld = try! driver.findElement(by: .name, with: "Rounded")
-        textFld.click()
+        homeScreen.textFieldsBtn().click()
+        textFieldsScreen.roundedTextField().click()
         let text = "Send Keys Test"
-        textFld.sendKeys(with: text)
+        textFieldsScreen.roundedTextField().sendKeys(with: text)
         // TODO: refactor this assertion once https://appium.io/docs/en/commands/element/attributes/text/ is implemented
         XCTAssertTrue(try! driver.getPageSource().get().contains(text))
     }
 
-    func testCantTypeUnicode() {
-        try! driver.findElement(by: .name, with: "TextFields").click()
-        let textFld = try! driver.findElement(by: .name, with: "Rounded")
-        textFld.click()
+    func testCanTypeUnicode() {
+        homeScreen.textFieldsBtn().click()
+        textFieldsScreen.roundedTextField().click()
         let emoji = "🤷"
-        textFld.sendKeys(with: emoji)
+        textFieldsScreen.roundedTextField().sendKeys(with: emoji)
         XCTAssertTrue(try! driver.getPageSource().get().contains(emoji))
     }
 
     func testCantTypeTextOntoInvalidElements() {
-        /** Something odd happens here: if driver tries to type text onto a button, the first keystroke actually clicks the target button,
-         changing screens and throwing an "invalid element state" error. Not sure if this is expected behaviour or a WebDriverAgent bug?
-        **/
-        let buttonsBtn = try! driver.findElement(by: .accessibilityId, with: "Buttons")
-        XCTAssertThrowsError((try buttonsBtn.sendKeys(with: "Should Fail").get())) { error in
+        XCTAssertThrowsError((try homeScreen.buttonsBtn().sendKeys(with: "Should Fail").get())) { error in
             guard case WebDriverErrorEnum.invalidElementStateError(let error) = error else {
                 return XCTFail("should raise invalid element state error")
             }
             XCTAssertEqual("invalid element state", error.error)
         }
 
-        let grayBtn = try! driver.findElement(by: .name, with: "Gray")
-        XCTAssertThrowsError((try grayBtn.sendKeys(with: "Should Fail").get())) { error in
+        XCTAssertThrowsError((try buttonsScreen.grayBtn().sendKeys(with: "Should Fail").get())) { error in
             guard case WebDriverErrorEnum.invalidElementStateError(let error) = error else {
                 return XCTFail("should raise invalid element state error")
             }
             XCTAssertEqual("invalid element state", error.error)
         }
+    }
+
+    func testCanClearTextValue() {
+        homeScreen.textFieldsBtn().click()
+        textFieldsScreen.roundedTextField().click()
+        let text = "Send Keys Test"
+        textFieldsScreen.roundedTextField().sendKeys(with: text)
+        textFieldsScreen.roundedTextField().clear()
+        let pageSourceAfterClear = try! driver.getPageSource().get()
+        XCTAssertFalse(pageSourceAfterClear.contains(text))
     }
 }
