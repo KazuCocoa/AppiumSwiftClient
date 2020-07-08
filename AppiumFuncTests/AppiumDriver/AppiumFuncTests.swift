@@ -256,4 +256,15 @@ class AppiumFuncTests: XCTestCase {
         let text = try? textFieldsScreen.roundedTextField().getText()
         XCTAssertEqual(text, testText)
     }
+
+    func testCanGetButtonTagName() {
+        let tagName = try? homeScreen.buttonsBtn().getTagName()
+        XCTAssertEqual(tagName, "XCUIElementTypeStaticText")
+    }
+
+    func testCanGetTagNameOfTextBox() {
+        homeScreen.textFieldsBtn().click()
+        let tagName = try? textFieldsScreen.roundedTextField().getTagName()
+        XCTAssertEqual(tagName, "XCUIElementTypeTextField")
+    }
 }

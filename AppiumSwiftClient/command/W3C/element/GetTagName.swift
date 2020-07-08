@@ -1,5 +1,5 @@
 //
-//  GetText.swift
+//  GetTagName.swift
 //  AppiumSwiftClient
 //
 //  Created by Gabriel Fioretti on 08.07.20.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-public typealias ElementText = Result<String, Error>
-struct W3CGetElementText: CommandProtocol {
+public typealias ElementTagName = Result<String, Error>
+struct W3CGetElementTagName: CommandProtocol {
 
-    private let command = W3CCommands.getElementText
+    private let command = W3CCommands.getElementTagName
     private let sessionId: Session.Id
     private let elementId: MobileElement.Id
     private let commandUrl: W3CCommands.CommandPath
@@ -22,13 +22,13 @@ struct W3CGetElementText: CommandProtocol {
         self.commandUrl = W3CCommands().url(for: command, with: sessionId, and: elementId)
     }
 
-    func sendRequest() -> ElementText {
+    func sendRequest() -> ElementTagName {
         let (statusCode, returnData) =
             HttpClient().sendSyncRequest(method: command.0,
                                          commandPath: commandUrl)
 
         guard statusCode == 200 else {
-            print("Command Get Text of Element \(elementId) Failed for \(sessionId) with Status Code: \(statusCode)")
+            print("Command Get Tag Name of Element \(elementId) Failed for \(sessionId) with Status Code: \(statusCode)")
             return .failure(WebDriverError(errorResult: returnData).raise())
         }
         do {
