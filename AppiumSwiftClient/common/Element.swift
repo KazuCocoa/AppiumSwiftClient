@@ -13,6 +13,7 @@ protocol Element {
     func click() -> Click
     func getBase64Screenshot() -> TakeScreenshot
     func sendKeys(with text: String) -> SendKeys
+    func clear() -> Clear
 }
 
 public struct MobileElement: Element {
@@ -51,8 +52,12 @@ public struct MobileElement: Element {
             throw NSError()
         }
     }
-    
+
     @discardableResult public func sendKeys(with text: String) -> SendKeys {
         return W3CElementSendKeys(sessionId: sessionId, elementId: id).sendRequest(text)
+    }
+
+    @discardableResult public func clear() -> Clear {
+        return W3CElementClear(sessionId: sessionId, elementId: id).sendRequest()
     }
 }

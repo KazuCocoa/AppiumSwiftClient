@@ -17,6 +17,11 @@
 		7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358921DA46C900CBE9E3 /* CurrentContextTests.swift */; };
 		7213358C21DA47F700CBE9E3 /* SetContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358B21DA47F700CBE9E3 /* SetContextTests.swift */; };
 		7213358E21DA488200CBE9E3 /* SetContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358D21DA488200CBE9E3 /* SetContext.swift */; };
+		721D9CC724B10B9E0017A64A /* Clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CC624B10B9E0017A64A /* Clear.swift */; };
+		721D9CC924B1119C0017A64A /* ClearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CC824B1119C0017A64A /* ClearTests.swift */; };
+		721D9CCD24B1F9800017A64A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CCC24B1F9800017A64A /* HomeScreen.swift */; };
+		721D9CCF24B1FD370017A64A /* TextFieldsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CCE24B1FD370017A64A /* TextFieldsScreen.swift */; };
+		721D9CD124B200940017A64A /* ButtonsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CD024B200940017A64A /* ButtonsScreen.swift */; };
 		723673C1247E5F13006009C8 /* GetAvailableLogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */; };
 		723673C3247E6ED1006009C8 /* GetAvailableLogTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */; };
 		723673C5247E7654006009C8 /* GetLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C4247E7654006009C8 /* GetLog.swift */; };
@@ -131,6 +136,11 @@
 		7213358921DA46C900CBE9E3 /* CurrentContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentContextTests.swift; sourceTree = "<group>"; };
 		7213358B21DA47F700CBE9E3 /* SetContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContextTests.swift; sourceTree = "<group>"; };
 		7213358D21DA488200CBE9E3 /* SetContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContext.swift; sourceTree = "<group>"; };
+		721D9CC624B10B9E0017A64A /* Clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clear.swift; sourceTree = "<group>"; };
+		721D9CC824B1119C0017A64A /* ClearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearTests.swift; sourceTree = "<group>"; };
+		721D9CCC24B1F9800017A64A /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		721D9CCE24B1FD370017A64A /* TextFieldsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsScreen.swift; sourceTree = "<group>"; };
+		721D9CD024B200940017A64A /* ButtonsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsScreen.swift; sourceTree = "<group>"; };
 		723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypes.swift; sourceTree = "<group>"; };
 		723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypesTests.swift; sourceTree = "<group>"; };
 		723673C4247E7654006009C8 /* GetLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLog.swift; sourceTree = "<group>"; };
@@ -256,6 +266,7 @@
 			children = (
 				726196BE2199D75700730A67 /* Click.swift */,
 				72045A2424ACE887007B22A4 /* SendKeys.swift */,
+				721D9CC624B10B9E0017A64A /* Clear.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -333,6 +344,7 @@
 		7252E19E21A29C4D000B5855 /* AppiumFuncTests */ = {
 			isa = PBXGroup;
 			children = (
+				7256CE2C24B206110043B89A /* PageObjectModels */,
 				72C6773F2469C9C100176D85 /* FunctionalBaseTest.swift */,
 				727AEB92248A9DAE001A49DE /* AppiumDriver */,
 				727AEB91248A9D4E001A49DE /* IOSDriver */,
@@ -348,6 +360,16 @@
 				7252E1AC21A2A19B000B5855 /* UICatalog.app.zip */,
 			);
 			path = app;
+			sourceTree = "<group>";
+		};
+		7256CE2C24B206110043B89A /* PageObjectModels */ = {
+			isa = PBXGroup;
+			children = (
+				721D9CD024B200940017A64A /* ButtonsScreen.swift */,
+				721D9CCE24B1FD370017A64A /* TextFieldsScreen.swift */,
+				721D9CCC24B1F9800017A64A /* HomeScreen.swift */,
+			);
+			path = PageObjectModels;
 			sourceTree = "<group>";
 		};
 		7261967C2194929600730A67 = {
@@ -542,6 +564,7 @@
 			children = (
 				72045A2224ACE692007B22A4 /* SendKeysTests.swift */,
 				7252E1B421A4407A000B5855 /* ClickTests.swift */,
+				721D9CC824B1119C0017A64A /* ClearTests.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -841,7 +864,10 @@
 			files = (
 				72C6773E24699CA500176D85 /* LandscapeOrientationTest.swift in Sources */,
 				72C0CDAC2475DE1E00657933 /* IOSDriverTests.swift in Sources */,
+				721D9CCD24B1F9800017A64A /* HomeScreen.swift in Sources */,
+				721D9CCF24B1FD370017A64A /* TextFieldsScreen.swift in Sources */,
 				72C677422469CE8D00176D85 /* PortraitOrientationTest.swift in Sources */,
+				721D9CD124B200940017A64A /* ButtonsScreen.swift in Sources */,
 				72C677402469C9C100176D85 /* FunctionalBaseTest.swift in Sources */,
 				7252E1A021A29C4D000B5855 /* AppiumFuncTests.swift in Sources */,
 			);
@@ -890,6 +916,7 @@
 				726196A12194960D00730A67 /* Capabilities.swift in Sources */,
 				72C6773C24698BFF00176D85 /* SetScreenOrientation.swift in Sources */,
 				728AAE0D2473F83900B2F8D8 /* GetSettings.swift in Sources */,
+				721D9CC724B10B9E0017A64A /* Clear.swift in Sources */,
 				7246FB3C21DB3FA2004CDA8F /* Screenshot.swift in Sources */,
 				7213358221DA25CD00CBE9E3 /* AvailableContexts.swift in Sources */,
 			);
@@ -920,6 +947,7 @@
 				72C677362469717C00176D85 /* GetScreenOrientation.swift in Sources */,
 				7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */,
 				72045A2324ACE692007B22A4 /* SendKeysTests.swift in Sources */,
+				721D9CC924B1119C0017A64A /* ClearTests.swift in Sources */,
 				726196A4219499C400730A67 /* CapabilitiesTests.swift in Sources */,
 				72C0CDAE2475E13000657933 /* SetSettingsTests.swift in Sources */,
 				7246FB3921DB3F10004CDA8F /* ScreenshotTests.swift in Sources */,
@@ -951,6 +979,9 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = AppiumFuncTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -971,6 +1002,9 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				INFOPLIST_FILE = AppiumFuncTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1035,6 +1069,8 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1091,6 +1127,8 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
