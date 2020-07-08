@@ -17,6 +17,8 @@
 		7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358921DA46C900CBE9E3 /* CurrentContextTests.swift */; };
 		7213358C21DA47F700CBE9E3 /* SetContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358B21DA47F700CBE9E3 /* SetContextTests.swift */; };
 		7213358E21DA488200CBE9E3 /* SetContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358D21DA488200CBE9E3 /* SetContext.swift */; };
+		721AA00424B5C1AC008E5014 /* GetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721AA00324B5C1AC008E5014 /* GetText.swift */; };
+		721AA00624B62F96008E5014 /* GetTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721AA00524B62F96008E5014 /* GetTextTests.swift */; };
 		721D9CC724B10B9E0017A64A /* Clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CC624B10B9E0017A64A /* Clear.swift */; };
 		721D9CC924B1119C0017A64A /* ClearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CC824B1119C0017A64A /* ClearTests.swift */; };
 		721D9CCD24B1F9800017A64A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CCC24B1F9800017A64A /* HomeScreen.swift */; };
@@ -136,6 +138,8 @@
 		7213358921DA46C900CBE9E3 /* CurrentContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentContextTests.swift; sourceTree = "<group>"; };
 		7213358B21DA47F700CBE9E3 /* SetContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContextTests.swift; sourceTree = "<group>"; };
 		7213358D21DA488200CBE9E3 /* SetContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetContext.swift; sourceTree = "<group>"; };
+		721AA00324B5C1AC008E5014 /* GetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetText.swift; sourceTree = "<group>"; };
+		721AA00524B62F96008E5014 /* GetTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTextTests.swift; sourceTree = "<group>"; };
 		721D9CC624B10B9E0017A64A /* Clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clear.swift; sourceTree = "<group>"; };
 		721D9CC824B1119C0017A64A /* ClearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearTests.swift; sourceTree = "<group>"; };
 		721D9CCC24B1F9800017A64A /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 				726196BE2199D75700730A67 /* Click.swift */,
 				72045A2424ACE887007B22A4 /* SendKeys.swift */,
 				721D9CC624B10B9E0017A64A /* Clear.swift */,
+				721AA00324B5C1AC008E5014 /* GetText.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -565,6 +570,7 @@
 				72045A2224ACE692007B22A4 /* SendKeysTests.swift */,
 				7252E1B421A4407A000B5855 /* ClickTests.swift */,
 				721D9CC824B1119C0017A64A /* ClearTests.swift */,
+				721AA00524B62F96008E5014 /* GetTextTests.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -900,6 +906,7 @@
 				723673C5247E7654006009C8 /* GetLog.swift in Sources */,
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,
 				726196B02199790A00730A67 /* Method.swift in Sources */,
+				721AA00424B5C1AC008E5014 /* GetText.swift in Sources */,
 				720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */,
 				72C0CDB22475E35A00657933 /* AndroidDriver.swift in Sources */,
 				72C0CDAA2475D00A00657933 /* AnyValue.swift in Sources */,
@@ -926,6 +933,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				721AA00624B62F96008E5014 /* GetTextTests.swift in Sources */,
 				72E0FF4B24741D9500F6EE8A /* GetSettingsTest.swift in Sources */,
 				720CA7FE2460737100D85732 /* GetPageSourceTest.swift in Sources */,
 				72C677382469773300176D85 /* SetScreenOrientationTests.swift in Sources */,

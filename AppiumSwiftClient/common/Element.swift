@@ -14,6 +14,7 @@ protocol Element {
     func getBase64Screenshot() -> TakeScreenshot
     func sendKeys(with text: String) -> SendKeys
     func clear() -> Clear
+    func getText() throws -> String
 }
 
 public struct MobileElement: Element {
@@ -59,5 +60,9 @@ public struct MobileElement: Element {
 
     @discardableResult public func clear() -> Clear {
         return W3CElementClear(sessionId: sessionId, elementId: id).sendRequest()
+    }
+    
+    public func getText() throws -> String {
+        return try W3CGetElementText(sessionId: sessionId, elementId: id).sendRequest().get()
     }
 }

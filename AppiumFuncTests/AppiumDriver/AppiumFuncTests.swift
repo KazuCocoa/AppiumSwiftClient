@@ -12,7 +12,6 @@ import XCTest
 class AppiumFuncTests: XCTestCase {
 
     var driver: AppiumDriver!
-    
     var homeScreen: HomeScreen!
     var textFieldsScreen: TextFieldsScreen!
     var buttonsScreen: ButtonsScreen!
@@ -242,5 +241,19 @@ class AppiumFuncTests: XCTestCase {
         textFieldsScreen.roundedTextField().clear()
         let pageSourceAfterClear = try! driver.getPageSource().get()
         XCTAssertFalse(pageSourceAfterClear.contains(text))
+    }
+
+    func testCanGetButtonText() {
+        let text = try? homeScreen.buttonsBtn().getText()
+        XCTAssertEqual(text, "Buttons")
+    }
+
+    func testCanGetTextFromTextBox() {
+        homeScreen.textFieldsBtn().click()
+        let testText = "Test Text"
+        textFieldsScreen.roundedTextField().click()
+        textFieldsScreen.roundedTextField().sendKeys(with: testText)
+        let text = try? textFieldsScreen.roundedTextField().getText()
+        XCTAssertEqual(text, testText)
     }
 }
