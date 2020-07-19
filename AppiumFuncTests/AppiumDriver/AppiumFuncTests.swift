@@ -15,6 +15,7 @@ class AppiumFuncTests: XCTestCase {
     var homeScreen: HomeScreen!
     var textFieldsScreen: TextFieldsScreen!
     var buttonsScreen: ButtonsScreen!
+    var segmentsScreen: SegmentsScreen!
 
     override func setUp() {
         let packageRootPath = URL(
@@ -25,7 +26,7 @@ class AppiumFuncTests: XCTestCase {
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "\(packageRootPath)/AppiumFuncTests/app/UICatalog.app.zip",
-            DesiredCapabilitiesEnum.platformVersion: "13.5",
+            DesiredCapabilitiesEnum.platformVersion: "13.6",
             DesiredCapabilitiesEnum.deviceName: "iPhone 8",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
@@ -34,6 +35,7 @@ class AppiumFuncTests: XCTestCase {
             homeScreen = HomeScreen(driver)
             textFieldsScreen = TextFieldsScreen(driver)
             buttonsScreen = ButtonsScreen(driver)
+            segmentsScreen = SegmentsScreen(driver)
         } catch {
             XCTFail("Failed to spin up driver: \(error)")
         }
@@ -274,12 +276,16 @@ class AppiumFuncTests: XCTestCase {
         let name = try? homeScreen.textFieldsBtn().getElementAttribute(with: "name")
         let label = try? homeScreen.textFieldsBtn().getElementAttribute(with: "label")
         let enabled = try? homeScreen.textFieldsBtn().getElementAttribute(with: "enabled")
-        let pageSourceAfterClear = try! driver.getPageSource().get()
         XCTAssertEqual(type, "XCUIElementTypeStaticText")
         XCTAssertEqual(value, "TextFields")
         XCTAssertEqual(name, "TextFields")
         XCTAssertEqual(label, "TextFields")
         XCTAssertEqual(enabled, "true")
-        XCTAssertNotNil(type)
+    }
+
+    func testCanGetElementSelected() {
+        homeScreen.segmentsBtn().click()
+        XCTAssertFalse(try! segmentsScreen.checkBtn().isSelected())
+        XCTAssertTrue(try! segmentsScreen.searchBtn().isSelected())
     }
 }

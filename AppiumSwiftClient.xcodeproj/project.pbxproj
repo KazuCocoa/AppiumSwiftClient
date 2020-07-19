@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		72045A2324ACE692007B22A4 /* SendKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72045A2224ACE692007B22A4 /* SendKeysTests.swift */; };
 		72045A2524ACE887007B22A4 /* SendKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72045A2424ACE887007B22A4 /* SendKeys.swift */; };
+		72051E7224C5055000DDE840 /* SegmentsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7124C5055000DDE840 /* SegmentsScreen.swift */; };
+		72051E7424C5087F00DDE840 /* SelectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7324C5087F00DDE840 /* SelectedTests.swift */; };
 		720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720CA7F92460613900D85732 /* GetPageSource.swift */; };
 		720CA7FE2460737100D85732 /* GetPageSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720CA7FD2460737100D85732 /* GetPageSourceTest.swift */; };
 		7213358221DA25CD00CBE9E3 /* AvailableContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358121DA25CD00CBE9E3 /* AvailableContexts.swift */; };
@@ -69,6 +71,7 @@
 		726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726196CA21A193CD00730A67 /* FindElementHelper.swift */; };
 		72686A9B21A1B3670042D385 /* GetCapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72686A9A21A1B3670042D385 /* GetCapabilities.swift */; };
 		7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271E74D245C8CBE0019F6DD /* EndSessionTests.swift */; };
+		727DFD9224C4FF9200C6BCB4 /* Selected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727DFD9124C4FF9200C6BCB4 /* Selected.swift */; };
 		728AAE0D2473F83900B2F8D8 /* GetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728AAE0C2473F83900B2F8D8 /* GetSettings.swift */; };
 		728DD59C2461A665004E6800 /* GoBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59B2461A665004E6800 /* GoBack.swift */; };
 		728DD5A02461DF6E004E6800 /* GoBackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DD59F2461DF6E004E6800 /* GoBackTest.swift */; };
@@ -134,6 +137,8 @@
 		6B597A9FB3F011F41EC81483 /* Pods-AppiumFuncTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppiumFuncTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppiumFuncTests/Pods-AppiumFuncTests.release.xcconfig"; sourceTree = "<group>"; };
 		72045A2224ACE692007B22A4 /* SendKeysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendKeysTests.swift; sourceTree = "<group>"; };
 		72045A2424ACE887007B22A4 /* SendKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendKeys.swift; sourceTree = "<group>"; };
+		72051E7124C5055000DDE840 /* SegmentsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentsScreen.swift; sourceTree = "<group>"; };
+		72051E7324C5087F00DDE840 /* SelectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTests.swift; sourceTree = "<group>"; };
 		720CA7F92460613900D85732 /* GetPageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageSource.swift; sourceTree = "<group>"; };
 		720CA7FD2460737100D85732 /* GetPageSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageSourceTest.swift; sourceTree = "<group>"; };
 		7213358121DA25CD00CBE9E3 /* AvailableContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableContexts.swift; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 		726196CA21A193CD00730A67 /* FindElementHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindElementHelper.swift; sourceTree = "<group>"; };
 		72686A9A21A1B3670042D385 /* GetCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCapabilities.swift; sourceTree = "<group>"; };
 		7271E74D245C8CBE0019F6DD /* EndSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndSessionTests.swift; sourceTree = "<group>"; };
+		727DFD9124C4FF9200C6BCB4 /* Selected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selected.swift; sourceTree = "<group>"; };
 		728AAE0C2473F83900B2F8D8 /* GetSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSettings.swift; sourceTree = "<group>"; };
 		728DD59B2461A665004E6800 /* GoBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBack.swift; sourceTree = "<group>"; };
 		728DD59F2461DF6E004E6800 /* GoBackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackTest.swift; sourceTree = "<group>"; };
@@ -282,6 +288,7 @@
 				721AA00324B5C1AC008E5014 /* GetText.swift */,
 				721AA00724B63281008E5014 /* GetTagName.swift */,
 				721AA00B24B63B4F008E5014 /* GetAttribute.swift */,
+				727DFD9124C4FF9200C6BCB4 /* Selected.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -383,6 +390,7 @@
 				721D9CD024B200940017A64A /* ButtonsScreen.swift */,
 				721D9CCE24B1FD370017A64A /* TextFieldsScreen.swift */,
 				721D9CCC24B1F9800017A64A /* HomeScreen.swift */,
+				72051E7124C5055000DDE840 /* SegmentsScreen.swift */,
 			);
 			path = PageObjectModels;
 			sourceTree = "<group>";
@@ -583,6 +591,7 @@
 				721AA00524B62F96008E5014 /* GetTextTests.swift */,
 				721AA00924B63581008E5014 /* GetTagNameTests.swift */,
 				723BF78E24BC6255009236FF /* GetElementTests.swift */,
+				72051E7324C5087F00DDE840 /* SelectedTests.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -884,6 +893,7 @@
 				72C0CDAC2475DE1E00657933 /* IOSDriverTests.swift in Sources */,
 				721D9CCD24B1F9800017A64A /* HomeScreen.swift in Sources */,
 				721D9CCF24B1FD370017A64A /* TextFieldsScreen.swift in Sources */,
+				72051E7224C5055000DDE840 /* SegmentsScreen.swift in Sources */,
 				72C677422469CE8D00176D85 /* PortraitOrientationTest.swift in Sources */,
 				721D9CD124B200940017A64A /* ButtonsScreen.swift in Sources */,
 				72C677402469C9C100176D85 /* FunctionalBaseTest.swift in Sources */,
@@ -919,6 +929,7 @@
 				721AA00C24B63B4F008E5014 /* GetAttribute.swift in Sources */,
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,
 				726196B02199790A00730A67 /* Method.swift in Sources */,
+				727DFD9224C4FF9200C6BCB4 /* Selected.swift in Sources */,
 				721AA00424B5C1AC008E5014 /* GetText.swift in Sources */,
 				721AA00824B63281008E5014 /* GetTagName.swift in Sources */,
 				720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */,
@@ -957,6 +968,7 @@
 				7213358421DA284B00CBE9E3 /* AvailableContextsTests.swift in Sources */,
 				726196962194948900730A67 /* AppiumSwiftClientUnitTests.swift in Sources */,
 				7252E19421A260EC000B5855 /* AppiumSwiftClientTestBase.swift in Sources */,
+				72051E7424C5087F00DDE840 /* SelectedTests.swift in Sources */,
 				723673C3247E6ED1006009C8 /* GetAvailableLogTypesTests.swift in Sources */,
 				7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */,
 				7252E1B321A43C96000B5855 /* FindElementsTests.swift in Sources */,
