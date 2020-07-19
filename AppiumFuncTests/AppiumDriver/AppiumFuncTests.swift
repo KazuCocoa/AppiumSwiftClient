@@ -267,4 +267,19 @@ class AppiumFuncTests: XCTestCase {
         let tagName = try? textFieldsScreen.roundedTextField().getTagName()
         XCTAssertEqual(tagName, "XCUIElementTypeTextField")
     }
+
+    func testCanGetButtonAttribute() {
+        let type = try? homeScreen.textFieldsBtn().getElementAttribute(with: "type")
+        let value = try? homeScreen.textFieldsBtn().getElementAttribute(with: "value")
+        let name = try? homeScreen.textFieldsBtn().getElementAttribute(with: "name")
+        let label = try? homeScreen.textFieldsBtn().getElementAttribute(with: "label")
+        let enabled = try? homeScreen.textFieldsBtn().getElementAttribute(with: "enabled")
+        let pageSourceAfterClear = try! driver.getPageSource().get()
+        XCTAssertEqual(type, "XCUIElementTypeStaticText")
+        XCTAssertEqual(value, "TextFields")
+        XCTAssertEqual(name, "TextFields")
+        XCTAssertEqual(label, "TextFields")
+        XCTAssertEqual(enabled, "true")
+        XCTAssertNotNil(type)
+    }
 }

@@ -21,6 +21,7 @@
 		721AA00624B62F96008E5014 /* GetTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721AA00524B62F96008E5014 /* GetTextTests.swift */; };
 		721AA00824B63281008E5014 /* GetTagName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721AA00724B63281008E5014 /* GetTagName.swift */; };
 		721AA00A24B63581008E5014 /* GetTagNameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721AA00924B63581008E5014 /* GetTagNameTests.swift */; };
+		721AA00C24B63B4F008E5014 /* GetAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721AA00B24B63B4F008E5014 /* GetAttribute.swift */; };
 		721D9CC724B10B9E0017A64A /* Clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CC624B10B9E0017A64A /* Clear.swift */; };
 		721D9CC924B1119C0017A64A /* ClearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CC824B1119C0017A64A /* ClearTests.swift */; };
 		721D9CCD24B1F9800017A64A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D9CCC24B1F9800017A64A /* HomeScreen.swift */; };
@@ -29,6 +30,7 @@
 		723673C1247E5F13006009C8 /* GetAvailableLogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */; };
 		723673C3247E6ED1006009C8 /* GetAvailableLogTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */; };
 		723673C5247E7654006009C8 /* GetLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723673C4247E7654006009C8 /* GetLog.swift */; };
+		723BF78F24BC6255009236FF /* GetElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723BF78E24BC6255009236FF /* GetElementTests.swift */; };
 		7246FB3921DB3F10004CDA8F /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3821DB3F10004CDA8F /* ScreenshotTests.swift */; };
 		7246FB3C21DB3FA2004CDA8F /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3B21DB3FA2004CDA8F /* Screenshot.swift */; };
 		7246FB3E21DCF81F004CDA8F /* W3CElementScreenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246FB3D21DCF81F004CDA8F /* W3CElementScreenshot.swift */; };
@@ -144,6 +146,7 @@
 		721AA00524B62F96008E5014 /* GetTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTextTests.swift; sourceTree = "<group>"; };
 		721AA00724B63281008E5014 /* GetTagName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTagName.swift; sourceTree = "<group>"; };
 		721AA00924B63581008E5014 /* GetTagNameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTagNameTests.swift; sourceTree = "<group>"; };
+		721AA00B24B63B4F008E5014 /* GetAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAttribute.swift; sourceTree = "<group>"; };
 		721D9CC624B10B9E0017A64A /* Clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clear.swift; sourceTree = "<group>"; };
 		721D9CC824B1119C0017A64A /* ClearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearTests.swift; sourceTree = "<group>"; };
 		721D9CCC24B1F9800017A64A /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 		723673C0247E5F13006009C8 /* GetAvailableLogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypes.swift; sourceTree = "<group>"; };
 		723673C2247E6ED1006009C8 /* GetAvailableLogTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailableLogTypesTests.swift; sourceTree = "<group>"; };
 		723673C4247E7654006009C8 /* GetLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLog.swift; sourceTree = "<group>"; };
+		723BF78E24BC6255009236FF /* GetElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetElementTests.swift; sourceTree = "<group>"; };
 		7246FB3821DB3F10004CDA8F /* ScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
 		7246FB3B21DB3FA2004CDA8F /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		7246FB3D21DCF81F004CDA8F /* W3CElementScreenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W3CElementScreenshot.swift; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 				721D9CC624B10B9E0017A64A /* Clear.swift */,
 				721AA00324B5C1AC008E5014 /* GetText.swift */,
 				721AA00724B63281008E5014 /* GetTagName.swift */,
+				721AA00B24B63B4F008E5014 /* GetAttribute.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -577,6 +582,7 @@
 				721D9CC824B1119C0017A64A /* ClearTests.swift */,
 				721AA00524B62F96008E5014 /* GetTextTests.swift */,
 				721AA00924B63581008E5014 /* GetTagNameTests.swift */,
+				723BF78E24BC6255009236FF /* GetElementTests.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -910,6 +916,7 @@
 				729BD0ED249D0567008025F0 /* LogEvent.swift in Sources */,
 				72C6773324696B3400176D85 /* GetScreenOrientation.swift in Sources */,
 				723673C5247E7654006009C8 /* GetLog.swift in Sources */,
+				721AA00C24B63B4F008E5014 /* GetAttribute.swift in Sources */,
 				726196C1219A993E00730A67 /* WebDriverErrorEnum.swift in Sources */,
 				726196B02199790A00730A67 /* Method.swift in Sources */,
 				721AA00424B5C1AC008E5014 /* GetText.swift in Sources */,
@@ -953,6 +960,7 @@
 				723673C3247E6ED1006009C8 /* GetAvailableLogTypesTests.swift in Sources */,
 				7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */,
 				7252E1B321A43C96000B5855 /* FindElementsTests.swift in Sources */,
+				723BF78F24BC6255009236FF /* GetElementTests.swift in Sources */,
 				72F2ADB52481158D0017B51B /* GetLogTests.swift in Sources */,
 				721AA00A24B63581008E5014 /* GetTagNameTests.swift in Sources */,
 				729BD0EF249D113B008025F0 /* LogEventTest.swift in Sources */,

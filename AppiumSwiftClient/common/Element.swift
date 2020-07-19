@@ -16,6 +16,7 @@ protocol Element {
     func clear() -> Clear
     func getText() throws -> String
     func getTagName() throws -> String
+    func getElementAttribute(with attributeName: String) throws -> String
 }
 
 public struct MobileElement: Element {
@@ -69,5 +70,9 @@ public struct MobileElement: Element {
 
     public func getTagName() throws -> String {
         return try W3CGetElementTagName(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func getElementAttribute(with attributeName: String) throws -> String {
+        return try W3CGetElementAttribute(sessionId: sessionId, elementId: id).sendRequest(attribute: attributeName).get()
     }
 }
