@@ -288,4 +288,8 @@ class AppiumFuncTests: XCTestCase {
         XCTAssertFalse(try! segmentsScreen.checkBtn().isSelected())
         XCTAssertTrue(try! segmentsScreen.searchBtn().isSelected())
     }
+
+    func testCanGetElementEnabled() {
+        XCTAssertTrue(try! homeScreen.buttonsBtn().isEnabled())
+    }
 }

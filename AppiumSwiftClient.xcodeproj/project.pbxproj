@@ -11,6 +11,8 @@
 		72045A2524ACE887007B22A4 /* SendKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72045A2424ACE887007B22A4 /* SendKeys.swift */; };
 		72051E7224C5055000DDE840 /* SegmentsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7124C5055000DDE840 /* SegmentsScreen.swift */; };
 		72051E7424C5087F00DDE840 /* SelectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7324C5087F00DDE840 /* SelectedTests.swift */; };
+		72051E7624C59D2100DDE840 /* Enabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7524C59D2100DDE840 /* Enabled.swift */; };
+		72051E7824C59E9C00DDE840 /* EnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7724C59E9C00DDE840 /* EnabledTests.swift */; };
 		720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720CA7F92460613900D85732 /* GetPageSource.swift */; };
 		720CA7FE2460737100D85732 /* GetPageSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720CA7FD2460737100D85732 /* GetPageSourceTest.swift */; };
 		7213358221DA25CD00CBE9E3 /* AvailableContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358121DA25CD00CBE9E3 /* AvailableContexts.swift */; };
@@ -139,6 +141,8 @@
 		72045A2424ACE887007B22A4 /* SendKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendKeys.swift; sourceTree = "<group>"; };
 		72051E7124C5055000DDE840 /* SegmentsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentsScreen.swift; sourceTree = "<group>"; };
 		72051E7324C5087F00DDE840 /* SelectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTests.swift; sourceTree = "<group>"; };
+		72051E7524C59D2100DDE840 /* Enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enabled.swift; sourceTree = "<group>"; };
+		72051E7724C59E9C00DDE840 /* EnabledTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnabledTests.swift; sourceTree = "<group>"; };
 		720CA7F92460613900D85732 /* GetPageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageSource.swift; sourceTree = "<group>"; };
 		720CA7FD2460737100D85732 /* GetPageSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageSourceTest.swift; sourceTree = "<group>"; };
 		7213358121DA25CD00CBE9E3 /* AvailableContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableContexts.swift; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 				721AA00724B63281008E5014 /* GetTagName.swift */,
 				721AA00B24B63B4F008E5014 /* GetAttribute.swift */,
 				727DFD9124C4FF9200C6BCB4 /* Selected.swift */,
+				72051E7524C59D2100DDE840 /* Enabled.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 				721AA00924B63581008E5014 /* GetTagNameTests.swift */,
 				723BF78E24BC6255009236FF /* GetElementTests.swift */,
 				72051E7324C5087F00DDE840 /* SelectedTests.swift */,
+				72051E7724C59E9C00DDE840 /* EnabledTests.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -909,6 +915,7 @@
 				726196B72199C1C900730A67 /* SearchContext.swift in Sources */,
 				72C0CDB02475E2FF00657933 /* IOSDriver.swift in Sources */,
 				728DD59C2461A665004E6800 /* GoBack.swift in Sources */,
+				72051E7624C59D2100DDE840 /* Enabled.swift in Sources */,
 				726196BD2199D67900730A67 /* Element.swift in Sources */,
 				726196C6219D35F700730A67 /* WebDriverError.swift in Sources */,
 				723673C1247E5F13006009C8 /* GetAvailableLogTypes.swift in Sources */,
@@ -973,6 +980,7 @@
 				7271E74E245C8CBE0019F6DD /* EndSessionTests.swift in Sources */,
 				7252E1B321A43C96000B5855 /* FindElementsTests.swift in Sources */,
 				723BF78F24BC6255009236FF /* GetElementTests.swift in Sources */,
+				72051E7824C59E9C00DDE840 /* EnabledTests.swift in Sources */,
 				72F2ADB52481158D0017B51B /* GetLogTests.swift in Sources */,
 				721AA00A24B63581008E5014 /* GetTagNameTests.swift in Sources */,
 				729BD0EF249D113B008025F0 /* LogEventTest.swift in Sources */,
