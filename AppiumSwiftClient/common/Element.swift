@@ -19,6 +19,7 @@ protocol Element {
     func getElementAttribute(with attributeName: String) throws -> String
     func isSelected() throws -> Bool
     func isEnabled() throws -> Bool
+    func isDisplayed() throws -> Bool
 }
 
 public struct MobileElement: Element {
@@ -84,5 +85,9 @@ public struct MobileElement: Element {
 
     public func isEnabled() throws -> Bool {
         return try W3CElementEnabled(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func isDisplayed() throws -> Bool {
+        return try W3CElementDisplayed(sessionId: sessionId, elementId: id).sendRequest().get()
     }
 }

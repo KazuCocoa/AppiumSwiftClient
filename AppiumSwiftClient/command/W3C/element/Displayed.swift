@@ -1,5 +1,5 @@
 //
-//  Enabled.swift
+//  Displayed.swift
 //  AppiumSwiftClient
 //
 //  Created by Gabriel Fioretti on 20.07.20.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-public typealias ElementEnabled = Result<Bool, Error>
-struct W3CElementEnabled: CommandProtocol {
+public typealias ElementDisplayed = Result<Bool, Error>
+struct W3CElementDisplayed: CommandProtocol {
 
-    private let command = W3CCommands.isElementEnabled
+    private let command = W3CCommands.isElementDisplayed
     private let sessionId: Session.Id
     private let elementId: MobileElement.Id
     private let commandUrl: W3CCommands.CommandPath
@@ -22,13 +22,13 @@ struct W3CElementEnabled: CommandProtocol {
         self.commandUrl = W3CCommands().url(for: command, with: sessionId, and: elementId)
     }
 
-    func sendRequest() -> ElementEnabled {
+    func sendRequest() -> ElementDisplayed {
         let (statusCode, returnData) =
             HttpClient().sendSyncRequest(method: command.0,
                                          commandPath: commandUrl)
 
         guard statusCode == 200 else {
-            print("Command Element Enabled of Element \(elementId) Failed for \(sessionId) with Status Code: \(statusCode)")
+            print("Command Element Displayed of Element \(elementId) Failed for \(sessionId) with Status Code: \(statusCode)")
             return .failure(WebDriverError(errorResult: returnData).raise())
         }
         do {

@@ -292,4 +292,8 @@ class AppiumFuncTests: XCTestCase {
     func testCanGetElementEnabled() {
         XCTAssertTrue(try! homeScreen.buttonsBtn().isEnabled())
     }
+
+    func testCanGetElementDisplayed() {
+        XCTAssertTrue(try! homeScreen.buttonsBtn().isDisplayed())
+    }
 }
