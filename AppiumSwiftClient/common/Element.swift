@@ -21,6 +21,7 @@ protocol Element {
     func isEnabled() throws -> Bool
     func isDisplayed() throws -> Bool
     func getElementLocation() throws -> Point
+    func getElementSize() throws -> Dimension
 }
 
 public struct MobileElement: Element {
@@ -94,5 +95,9 @@ public struct MobileElement: Element {
 
     public func getElementLocation() throws -> Point {
         return try W3CElementLocation(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func getElementSize() throws -> Dimension {
+        return try W3CElementSize(sessionId: sessionId, elementId: id).sendRequest().get()
     }
 }

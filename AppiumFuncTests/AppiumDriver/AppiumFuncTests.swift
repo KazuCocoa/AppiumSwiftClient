@@ -298,7 +298,12 @@ class AppiumFuncTests: XCTestCase {
     }
 
     func testCanGetElementLocation() {
-        let point = try! homeScreen.buttonsBtn().getElementLocation()
+        let point = try? homeScreen.buttonsBtn().getElementLocation()
         XCTAssertNotNil(point)
+    }
+
+    func testCanGetElementSize() {
+        let size = try? homeScreen.buttonsBtn().getElementSize()
+        XCTAssertNotNil(size)
     }
 }

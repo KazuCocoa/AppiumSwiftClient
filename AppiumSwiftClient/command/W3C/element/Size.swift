@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  Size.swift
 //  AppiumSwiftClient
 //
 //  Created by Gabriel Fioretti on 20.07.20.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-public typealias ElementLocation = Result<Point, Error>
-struct W3CElementLocation: CommandProtocol {
+public typealias ElementSize = Result<Dimension, Error>
+struct W3CElementSize: CommandProtocol {
 
-    private let command = W3CCommands.getElementLocation
+    private let command = W3CCommands.getElementSize
     private let sessionId: Session.Id
     private let elementId: MobileElement.Id
     private let commandUrl: W3CCommands.CommandPath
@@ -22,17 +22,17 @@ struct W3CElementLocation: CommandProtocol {
         self.commandUrl = W3CCommands().url(for: command, with: sessionId, and: elementId)
     }
 
-    func sendRequest() -> ElementLocation {
+    func sendRequest() -> ElementSize {
         let (statusCode, returnData) =
             HttpClient().sendSyncRequest(method: command.0,
                                          commandPath: commandUrl)
 
         guard statusCode == 200 else {
-            print("Command Element Location of Element \(elementId) Failed for \(sessionId) with Status Code: \(statusCode)")
+            print("Command Element Size of Element \(elementId) Failed for \(sessionId) with Status Code: \(statusCode)")
             return .failure(WebDriverError(errorResult: returnData).raise())
         }
         do {
-            let response = try JSONDecoder().decode(ValueOf<Point>.self, from: returnData).value
+            let response = try JSONDecoder().decode(ValueOf<Dimension>.self, from: returnData).value
             return .success(response)
         } catch let error {
             return .failure(error)
@@ -40,12 +40,7 @@ struct W3CElementLocation: CommandProtocol {
     }
 }
 
-public struct Point: Decodable {
-    let xCoord: Int
-    let yCoord: Int
-
-    enum CodingKeys: String, CodingKey {
-        case xCoord = "x"
-        case yCoord = "y"
-    }
+public struct Dimension: Decodable {
+    let width: Int
+    let height: Int
 }

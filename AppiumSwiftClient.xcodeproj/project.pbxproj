@@ -17,6 +17,8 @@
 		72051E7C24C5A08400DDE840 /* DisplayedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7B24C5A08400DDE840 /* DisplayedTests.swift */; };
 		72051E7E24C5A12600DDE840 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7D24C5A12600DDE840 /* Location.swift */; };
 		72051E8024C5A7E300DDE840 /* ElementLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7F24C5A7E300DDE840 /* ElementLocationTests.swift */; };
+		72051E8224C5F09000DDE840 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E8124C5F09000DDE840 /* Size.swift */; };
+		72051E8424C5F36D00DDE840 /* ElementSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E8324C5F36D00DDE840 /* ElementSizeTests.swift */; };
 		720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720CA7F92460613900D85732 /* GetPageSource.swift */; };
 		720CA7FE2460737100D85732 /* GetPageSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720CA7FD2460737100D85732 /* GetPageSourceTest.swift */; };
 		7213358221DA25CD00CBE9E3 /* AvailableContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358121DA25CD00CBE9E3 /* AvailableContexts.swift */; };
@@ -151,6 +153,8 @@
 		72051E7B24C5A08400DDE840 /* DisplayedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedTests.swift; sourceTree = "<group>"; };
 		72051E7D24C5A12600DDE840 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		72051E7F24C5A7E300DDE840 /* ElementLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementLocationTests.swift; sourceTree = "<group>"; };
+		72051E8124C5F09000DDE840 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		72051E8324C5F36D00DDE840 /* ElementSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementSizeTests.swift; sourceTree = "<group>"; };
 		720CA7F92460613900D85732 /* GetPageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageSource.swift; sourceTree = "<group>"; };
 		720CA7FD2460737100D85732 /* GetPageSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageSourceTest.swift; sourceTree = "<group>"; };
 		7213358121DA25CD00CBE9E3 /* AvailableContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableContexts.swift; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 				72051E7524C59D2100DDE840 /* Enabled.swift */,
 				72051E7924C59F1A00DDE840 /* Displayed.swift */,
 				72051E7D24C5A12600DDE840 /* Location.swift */,
+				72051E8124C5F09000DDE840 /* Size.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				72051E7724C59E9C00DDE840 /* EnabledTests.swift */,
 				72051E7B24C5A08400DDE840 /* DisplayedTests.swift */,
 				72051E7F24C5A7E300DDE840 /* ElementLocationTests.swift */,
+				72051E8324C5F36D00DDE840 /* ElementSizeTests.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -969,6 +975,7 @@
 				72C6773C24698BFF00176D85 /* SetScreenOrientation.swift in Sources */,
 				728AAE0D2473F83900B2F8D8 /* GetSettings.swift in Sources */,
 				721D9CC724B10B9E0017A64A /* Clear.swift in Sources */,
+				72051E8224C5F09000DDE840 /* Size.swift in Sources */,
 				7246FB3C21DB3FA2004CDA8F /* Screenshot.swift in Sources */,
 				7213358221DA25CD00CBE9E3 /* AvailableContexts.swift in Sources */,
 				72051E7E24C5A12600DDE840 /* Location.swift in Sources */,
@@ -1004,6 +1011,7 @@
 				7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */,
 				72051E8024C5A7E300DDE840 /* ElementLocationTests.swift in Sources */,
 				72C677362469717C00176D85 /* GetScreenOrientation.swift in Sources */,
+				72051E8424C5F36D00DDE840 /* ElementSizeTests.swift in Sources */,
 				7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */,
 				72051E7C24C5A08400DDE840 /* DisplayedTests.swift in Sources */,
 				72045A2324ACE692007B22A4 /* SendKeysTests.swift in Sources */,
