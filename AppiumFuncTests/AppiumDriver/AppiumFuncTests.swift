@@ -296,4 +296,9 @@ class AppiumFuncTests: XCTestCase {
     func testCanGetElementDisplayed() {
         XCTAssertTrue(try! homeScreen.buttonsBtn().isDisplayed())
     }
+
+    func testCanGetElementLocation() {
+        let point = try! homeScreen.buttonsBtn().getElementLocation()
+        XCTAssertNotNil(point)
+    }
 }

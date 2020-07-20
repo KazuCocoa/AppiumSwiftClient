@@ -20,6 +20,7 @@ protocol Element {
     func isSelected() throws -> Bool
     func isEnabled() throws -> Bool
     func isDisplayed() throws -> Bool
+    func getElementLocation() throws -> Point
 }
 
 public struct MobileElement: Element {
@@ -89,5 +90,9 @@ public struct MobileElement: Element {
 
     public func isDisplayed() throws -> Bool {
         return try W3CElementDisplayed(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func getElementLocation() throws -> Point {
+        return try W3CElementLocation(sessionId: sessionId, elementId: id).sendRequest().get()
     }
 }

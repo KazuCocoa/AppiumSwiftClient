@@ -75,6 +75,7 @@ public struct W3CCommands {
     static let getElementText:          CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/text")
     static let getElementTagName:       CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/name")
     static let getElementRect:          CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/rect")
+    static let getElementLocation:      CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/location")
     static let isElementEnabled:        CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/enabled")
 
     // Document Handling
