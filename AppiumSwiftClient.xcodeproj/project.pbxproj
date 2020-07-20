@@ -19,6 +19,8 @@
 		72051E8024C5A7E300DDE840 /* ElementLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E7F24C5A7E300DDE840 /* ElementLocationTests.swift */; };
 		72051E8224C5F09000DDE840 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E8124C5F09000DDE840 /* Size.swift */; };
 		72051E8424C5F36D00DDE840 /* ElementSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E8324C5F36D00DDE840 /* ElementSizeTests.swift */; };
+		72051E8624C5F4A800DDE840 /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E8524C5F4A800DDE840 /* Rect.swift */; };
+		72051E8824C5F79300DDE840 /* ElementRectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72051E8724C5F79300DDE840 /* ElementRectTests.swift */; };
 		720CA7FA2460613900D85732 /* GetPageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720CA7F92460613900D85732 /* GetPageSource.swift */; };
 		720CA7FE2460737100D85732 /* GetPageSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720CA7FD2460737100D85732 /* GetPageSourceTest.swift */; };
 		7213358221DA25CD00CBE9E3 /* AvailableContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7213358121DA25CD00CBE9E3 /* AvailableContexts.swift */; };
@@ -155,6 +157,8 @@
 		72051E7F24C5A7E300DDE840 /* ElementLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementLocationTests.swift; sourceTree = "<group>"; };
 		72051E8124C5F09000DDE840 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		72051E8324C5F36D00DDE840 /* ElementSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementSizeTests.swift; sourceTree = "<group>"; };
+		72051E8524C5F4A800DDE840 /* Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
+		72051E8724C5F79300DDE840 /* ElementRectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementRectTests.swift; sourceTree = "<group>"; };
 		720CA7F92460613900D85732 /* GetPageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageSource.swift; sourceTree = "<group>"; };
 		720CA7FD2460737100D85732 /* GetPageSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageSourceTest.swift; sourceTree = "<group>"; };
 		7213358121DA25CD00CBE9E3 /* AvailableContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableContexts.swift; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 				72051E7924C59F1A00DDE840 /* Displayed.swift */,
 				72051E7D24C5A12600DDE840 /* Location.swift */,
 				72051E8124C5F09000DDE840 /* Size.swift */,
+				72051E8524C5F4A800DDE840 /* Rect.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 				72051E7B24C5A08400DDE840 /* DisplayedTests.swift */,
 				72051E7F24C5A7E300DDE840 /* ElementLocationTests.swift */,
 				72051E8324C5F36D00DDE840 /* ElementSizeTests.swift */,
+				72051E8724C5F79300DDE840 /* ElementRectTests.swift */,
 			);
 			path = element;
 			sourceTree = "<group>";
@@ -945,6 +951,7 @@
 				726196B92199C28300730A67 /* FindElement.swift in Sources */,
 				726196CB21A193CD00730A67 /* FindElementHelper.swift in Sources */,
 				726196B221997E4400730A67 /* Client.swift in Sources */,
+				72051E8624C5F4A800DDE840 /* Rect.swift in Sources */,
 				724BF8DD247530BE0008FA15 /* SetSettings.swift in Sources */,
 				726196A62195187F00730A67 /* driver.swift in Sources */,
 				7246FB3E21DCF81F004CDA8F /* W3CElementScreenshot.swift in Sources */,
@@ -1010,6 +1017,7 @@
 				72AE3D19249F9E9F00D242E3 /* GetEventsTests.swift in Sources */,
 				7252E19621A261AA000B5855 /* GetCapabilitiesTests.swift in Sources */,
 				72051E8024C5A7E300DDE840 /* ElementLocationTests.swift in Sources */,
+				72051E8824C5F79300DDE840 /* ElementRectTests.swift in Sources */,
 				72C677362469717C00176D85 /* GetScreenOrientation.swift in Sources */,
 				72051E8424C5F36D00DDE840 /* ElementSizeTests.swift in Sources */,
 				7213358A21DA46C900CBE9E3 /* CurrentContextTests.swift in Sources */,

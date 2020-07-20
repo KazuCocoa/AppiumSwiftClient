@@ -306,4 +306,9 @@ class AppiumFuncTests: XCTestCase {
         let size = try? homeScreen.buttonsBtn().getElementSize()
         XCTAssertNotNil(size)
     }
+
+    func testCanGetElementRect() {
+        let rect = try? homeScreen.buttonsBtn().getElementRect()
+        XCTAssertNotNil(rect)
+    }
 }
