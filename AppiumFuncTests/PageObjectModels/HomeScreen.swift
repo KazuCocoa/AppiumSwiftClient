@@ -24,4 +24,8 @@ struct HomeScreen {
     func buttonsBtn() -> MobileElement {
         return try! driver.findElement(by: .accessibilityId, with: "Buttons")
     }
+
+    func segmentsBtn() -> MobileElement {
+        return try! driver.findElement(by: .accessibilityId, with: "Segments")
+    }
 }

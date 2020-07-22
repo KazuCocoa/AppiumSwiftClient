@@ -53,7 +53,7 @@ struct W3CLogEvent: CommandProtocol {
     fileprivate struct CommandParam: CommandParamProtocol {
         let vendor: String
         let event: String
-    
+
         private enum CodingKeys: String, CodingKey {
             case vendor, event
         }

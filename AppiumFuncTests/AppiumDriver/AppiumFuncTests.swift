@@ -12,10 +12,10 @@ import XCTest
 class AppiumFuncTests: XCTestCase {
 
     var driver: AppiumDriver!
-    
     var homeScreen: HomeScreen!
     var textFieldsScreen: TextFieldsScreen!
     var buttonsScreen: ButtonsScreen!
+    var segmentsScreen: SegmentsScreen!
 
     override func setUp() {
         let packageRootPath = URL(
@@ -26,7 +26,7 @@ class AppiumFuncTests: XCTestCase {
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "\(packageRootPath)/AppiumFuncTests/app/UICatalog.app.zip",
-            DesiredCapabilitiesEnum.platformVersion: "13.5",
+            DesiredCapabilitiesEnum.platformVersion: "13.6",
             DesiredCapabilitiesEnum.deviceName: "iPhone 8",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
@@ -35,6 +35,7 @@ class AppiumFuncTests: XCTestCase {
             homeScreen = HomeScreen(driver)
             textFieldsScreen = TextFieldsScreen(driver)
             buttonsScreen = ButtonsScreen(driver)
+            segmentsScreen = SegmentsScreen(driver)
         } catch {
             XCTFail("Failed to spin up driver: \(error)")
         }
@@ -242,5 +243,72 @@ class AppiumFuncTests: XCTestCase {
         textFieldsScreen.roundedTextField().clear()
         let pageSourceAfterClear = try! driver.getPageSource().get()
         XCTAssertFalse(pageSourceAfterClear.contains(text))
+    }
+
+    func testCanGetButtonText() {
+        let text = try? homeScreen.buttonsBtn().getText()
+        XCTAssertEqual(text, "Buttons")
+    }
+
+    func testCanGetTextFromTextBox() {
+        homeScreen.textFieldsBtn().click()
+        let testText = "Test Text"
+        textFieldsScreen.roundedTextField().click()
+        textFieldsScreen.roundedTextField().sendKeys(with: testText)
+        let text = try? textFieldsScreen.roundedTextField().getText()
+        XCTAssertEqual(text, testText)
+    }
+
+    func testCanGetButtonTagName() {
+        let tagName = try? homeScreen.buttonsBtn().getTagName()
+        XCTAssertEqual(tagName, "XCUIElementTypeStaticText")
+    }
+
+    func testCanGetTagNameOfTextBox() {
+        homeScreen.textFieldsBtn().click()
+        let tagName = try? textFieldsScreen.roundedTextField().getTagName()
+        XCTAssertEqual(tagName, "XCUIElementTypeTextField")
+    }
+
+    func testCanGetButtonAttribute() {
+        let type = try? homeScreen.textFieldsBtn().getElementAttribute(with: "type")
+        let value = try? homeScreen.textFieldsBtn().getElementAttribute(with: "value")
+        let name = try? homeScreen.textFieldsBtn().getElementAttribute(with: "name")
+        let label = try? homeScreen.textFieldsBtn().getElementAttribute(with: "label")
+        let enabled = try? homeScreen.textFieldsBtn().getElementAttribute(with: "enabled")
+        XCTAssertEqual(type, "XCUIElementTypeStaticText")
+        XCTAssertEqual(value, "TextFields")
+        XCTAssertEqual(name, "TextFields")
+        XCTAssertEqual(label, "TextFields")
+        XCTAssertEqual(enabled, "true")
+    }
+
+    func testCanGetElementSelected() {
+        homeScreen.segmentsBtn().click()
+        XCTAssertFalse(try! segmentsScreen.checkBtn().isSelected())
+        XCTAssertTrue(try! segmentsScreen.searchBtn().isSelected())
+    }
+
+    func testCanGetElementEnabled() {
+        XCTAssertTrue(try! homeScreen.buttonsBtn().isEnabled())
+    }
+
+    func testCanGetElementDisplayed() {
+        XCTAssertTrue(try! homeScreen.buttonsBtn().isDisplayed())
+    }
+
+    func testCanGetElementLocation() {
+        let point = try? homeScreen.buttonsBtn().getElementLocation()
+        XCTAssertNotNil(point)
+    }
+
+    func testCanGetElementSize() {
+        let size = try? homeScreen.buttonsBtn().getElementSize()
+        XCTAssertNotNil(size)
+    }
+
+    func testCanGetElementRect() {
+        let rect = try? homeScreen.buttonsBtn().getElementRect()
+        XCTAssertNotNil(rect)
     }
 }

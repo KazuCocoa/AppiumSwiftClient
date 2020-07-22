@@ -25,10 +25,11 @@ public struct W3CCommands {
     /**
      Get a path of W3CCommands with given session id and element id.
     **/
-    func url(for urlBase: CommandType, with sessionId: Session.Id = "", and elementId: MobileElement.Id = "") -> W3CCommands.CommandPath {
+    func url(for urlBase: CommandType, with sessionId: Session.Id = "", and elementId: MobileElement.Id = "", and attributeName: String = "") -> W3CCommands.CommandPath {
         let commandUrl = urlBase.1
             .replacingOccurrences(of: W3CCommands.Id.session.rawValue, with: sessionId)
             .replacingOccurrences(of: W3CCommands.Id.element.rawValue, with: elementId)
+            .replacingOccurrences(of: W3CCommands.Attribute.name.rawValue, with: attributeName)
         return commandUrl
     }
 
@@ -74,6 +75,8 @@ public struct W3CCommands {
     static let getElementText:          CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/text")
     static let getElementTagName:       CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/name")
     static let getElementRect:          CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/rect")
+    static let getElementLocation:      CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/location")
+    static let getElementSize:          CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/size")
     static let isElementEnabled:        CommandType = (HttpMethod.get,    "session/\(Id.session.rawValue)/element/\(Id.element.rawValue)/enabled")
 
     // Document Handling

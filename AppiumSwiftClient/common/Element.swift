@@ -14,6 +14,15 @@ protocol Element {
     func getBase64Screenshot() -> TakeScreenshot
     func sendKeys(with text: String) -> SendKeys
     func clear() -> Clear
+    func getText() throws -> String
+    func getTagName() throws -> String
+    func getElementAttribute(with attributeName: String) throws -> String
+    func isSelected() throws -> Bool
+    func isEnabled() throws -> Bool
+    func isDisplayed() throws -> Bool
+    func getElementLocation() throws -> Point
+    func getElementSize() throws -> Dimension
+    func getElementRect() throws -> Rect
 }
 
 public struct MobileElement: Element {
@@ -59,5 +68,41 @@ public struct MobileElement: Element {
 
     @discardableResult public func clear() -> Clear {
         return W3CElementClear(sessionId: sessionId, elementId: id).sendRequest()
+    }
+
+    public func getText() throws -> String {
+        return try W3CGetElementText(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func getTagName() throws -> String {
+        return try W3CGetElementTagName(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func getElementAttribute(with attributeName: String) throws -> String {
+        return try W3CGetElementAttribute(sessionId: sessionId, elementId: id).sendRequest(attribute: attributeName).get()
+    }
+
+    public func isSelected() throws -> Bool {
+        return try W3CElementSelected(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func isEnabled() throws -> Bool {
+        return try W3CElementEnabled(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func isDisplayed() throws -> Bool {
+        return try W3CElementDisplayed(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func getElementLocation() throws -> Point {
+        return try W3CElementLocation(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func getElementSize() throws -> Dimension {
+        return try W3CElementSize(sessionId: sessionId, elementId: id).sendRequest().get()
+    }
+
+    public func getElementRect() throws -> Rect {
+        return try W3CElementRect(sessionId: sessionId, elementId: id).sendRequest().get()
     }
 }
