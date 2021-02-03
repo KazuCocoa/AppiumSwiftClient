@@ -33,7 +33,7 @@ class PortraitOrientationTest: FunctionalBaseTest {
     func testCanRotateToPortrait() {
         do {
             let orientationBefore = try driver.getScreenOrientation().get()
-            try driver.rotate(to: ScreenOrientationEnum.portrait)
+            driver.rotate(to: ScreenOrientationEnum.portrait)
             let orientationAfter = try driver.getScreenOrientation().get()
             XCTAssertTrue(orientationBefore != orientationAfter)
             XCTAssertTrue(orientationAfter == ScreenOrientationEnum.portrait.rawValue)
