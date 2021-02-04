@@ -22,7 +22,7 @@ class IOSDriverTests: XCTestCase {
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "\(packageRootPath)/AppiumFuncTests/app/UICatalog.app.zip",
             DesiredCapabilitiesEnum.platformVersion: "13.6",
-            DesiredCapabilitiesEnum.deviceName: "iPhone 8",
+            DesiredCapabilitiesEnum.deviceName: "iPhone 11",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
         do {
