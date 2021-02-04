@@ -24,4 +24,4 @@ jobs:
     - name: Swift Lint
       run: Pods/SwiftLint/swiftlint
     - name: Run Unit tests
-      run: xcodebuild test -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClientUnitTests -sdk iphonesimulator -configuration Debug -destination "platform=iOS Simulator,name=iPhone X"
+      run: xcodebuild test -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClientUnitTests -sdk iphonesimulator -configuration Debug -destination "platform=iOS Simulator,name=iPhone 11"
