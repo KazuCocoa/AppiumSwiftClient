@@ -20,4 +20,8 @@ struct TextFieldsScreen {
     func roundedTextField() -> MobileElement {
         return try! driver.findElement(by: .predicate, with: "label == \"Rounded\"")
     }
+
+    func sendKeyTestText() -> MobileElement {
+        return try! driver.findElement(by: .predicate, with: "value == \"Send Keys Test\"")
+    }
 }

@@ -219,7 +219,9 @@ class AppiumFuncTests: XCTestCase {
         XCTAssertTrue(try! driver.getPageSource().get().contains(emoji))
     }
 
-    func testCantTypeTextOntoInvalidElements() {
+    func testCantTypeTextOntoInvalidElements() throws {
+        throw XCTSkip("Skip")
+
         XCTAssertThrowsError((try homeScreen.buttonsBtn().sendKeys(with: "Should Fail").get())) { error in
             guard case WebDriverErrorEnum.invalidElementStateError(let error) = error else {
                 return XCTFail("should raise invalid element state error")
@@ -240,7 +242,9 @@ class AppiumFuncTests: XCTestCase {
         textFieldsScreen.roundedTextField().click()
         let text = "Send Keys Test"
         textFieldsScreen.roundedTextField().sendKeys(with: text)
+        _ = driver.setTimeout(with: .implicit, and: 10000)
         textFieldsScreen.roundedTextField().clear()
+        _ = driver.setTimeout(with: .implicit, and: 0)
         let pageSourceAfterClear = try! driver.getPageSource().get()
         XCTAssertFalse(pageSourceAfterClear.contains(text))
     }
