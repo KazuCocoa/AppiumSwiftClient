@@ -16,8 +16,8 @@ class PortraitOrientationTest: FunctionalBaseTest {
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "com.apple.mobileslideshow",
-            DesiredCapabilitiesEnum.platformVersion: "13.5",
-            DesiredCapabilitiesEnum.deviceName: "iPhone 8",
+            DesiredCapabilitiesEnum.platformVersion: "13.6",
+            DesiredCapabilitiesEnum.deviceName: "iPhone 11",
             DesiredCapabilitiesEnum.reduceMotion: "true",
             DesiredCapabilitiesEnum.orientation: ScreenOrientationEnum.landscape.rawValue
         ]
@@ -33,7 +33,7 @@ class PortraitOrientationTest: FunctionalBaseTest {
     func testCanRotateToPortrait() {
         do {
             let orientationBefore = try driver.getScreenOrientation().get()
-            try driver.rotate(to: ScreenOrientationEnum.portrait)
+            driver.rotate(to: ScreenOrientationEnum.portrait)
             let orientationAfter = try driver.getScreenOrientation().get()
             XCTAssertTrue(orientationBefore != orientationAfter)
             XCTAssertTrue(orientationAfter == ScreenOrientationEnum.portrait.rawValue)

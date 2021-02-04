@@ -16,7 +16,7 @@ jobs:
     - name: List available Xcode
       run: ls -all /Applications/Xcode*
     - name: Setup Xcode version
-      run: sudo xcode-select -s /Applications/Xcode_10.3.app/Contents/Developer
+      run: sudo xcode-select -s /Applications/Xcode_11.6.app/Contents/Developer
     - name: Setup Cocoapods
       run: bundle install
     - name: Pod install
@@ -24,4 +24,4 @@ jobs:
     - name: Swift Lint
       run: Pods/SwiftLint/swiftlint
     - name: Run Unit tests
-      run: xcodebuild test -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClientUnitTests -sdk iphonesimulator -configuration Debug -destination "platform=iOS Simulator,name=iPhone X"
+      run: xcodebuild test -workspace AppiumSwiftClient.xcworkspace -scheme AppiumSwiftClientUnitTests -sdk iphonesimulator -configuration Debug -destination "platform=iOS Simulator,name=iPhone 11"

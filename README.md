@@ -24,6 +24,7 @@ This repository has not been stable yet. Has no concrete roadmap. But let me try
 - `git clone`
 - Run `AppiumFuncTests` scheme as test
     - Write scenarios in https://github.com/KazuCocoa/AppiumSwiftClient/tree/master/AppiumFuncTests
+- Appium 1.20.2+ should be installed
 
 # W3C
 
