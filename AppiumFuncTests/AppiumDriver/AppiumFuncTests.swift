@@ -26,8 +26,8 @@ class AppiumFuncTests: XCTestCase {
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "\(packageRootPath)/AppiumFuncTests/app/UICatalog.app.zip",
-            DesiredCapabilitiesEnum.platformVersion: "13.6",
-            DesiredCapabilitiesEnum.deviceName: "iPhone 11",
+            DesiredCapabilitiesEnum.platformVersion: "14.4",
+            DesiredCapabilitiesEnum.deviceName: "iPhone 12",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
         do {
@@ -137,9 +137,9 @@ class AppiumFuncTests: XCTestCase {
             ele.click()
             let nextPageSource = try driver.getPageSource().get()
             XCTAssertTrue(firstViewSource != nextPageSource)
-            driver.back()
-            let firstViewSourceAfterGoBack = try driver.getPageSource().get()
-            XCTAssertTrue(firstViewSource == firstViewSourceAfterGoBack)
+            let eleBack = try driver.findElement(by: .accessibilityId, with: "Back")
+            eleBack.click()
+            XCTAssertEqual((try driver.findElements(by: .accessibilityId, with: "Controls")).count, 1)
             // TODO GF 05.05.2020: This test is suboptimal in my opinion and should be refactored once Element related endpoints are implemented to take advantage of visibility command.
         } catch let exception {
             XCTFail("\(exception)")

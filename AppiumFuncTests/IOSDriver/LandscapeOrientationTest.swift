@@ -16,8 +16,8 @@ class LandscapeOrientationTest: FunctionalBaseTest {
             DesiredCapabilitiesEnum.platformName: "iOS",
             DesiredCapabilitiesEnum.automationName: "xcuitest",
             DesiredCapabilitiesEnum.app: "com.apple.mobileslideshow",
-            DesiredCapabilitiesEnum.platformVersion: "13.6",
-            DesiredCapabilitiesEnum.deviceName: "iPhone 11",
+            DesiredCapabilitiesEnum.platformVersion: "14.4",
+            DesiredCapabilitiesEnum.deviceName: "iPhone 12",
             DesiredCapabilitiesEnum.reduceMotion: "true"
         ]
         super.setUp()
